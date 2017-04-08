@@ -24,8 +24,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // set image for the demo puzzle
-        demoPuzzleImageView.contentMode = .scaleAspectFit
-        demoPuzzleImageView.image = #imageLiteral(resourceName: "app_image")
+        //demoPuzzleImageView.contentMode = .scaleAspectFit
+        //demoPuzzleImageView.image = #imageLiteral(resourceName: "app_image")
      
         /*
         // blinking animation
