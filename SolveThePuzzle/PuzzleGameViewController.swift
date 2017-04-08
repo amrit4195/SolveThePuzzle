@@ -44,7 +44,7 @@ class PuzzleGameViewController: UIViewController {
             yCen += 94;
         }
         allImgViews.removeObject(at: 0)
-        self.randomizeBlocks()
+        //self.randomizeBlocks()
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,9 +61,9 @@ class PuzzleGameViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func randomizeBlocks {
+    /*func randomizeBlocks {
         var randLoc: Int = arc4random() % 16;
         CGPoint randLoc = allCenters.objectAtIndex
-    }
+    }*/
 }
 
