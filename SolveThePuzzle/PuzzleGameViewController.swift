@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Foundation
 
 class PuzzleGameViewController: UIViewController {
     
-    //let allImgViews = NSMutableArray()
-    //let allCenters = NSMutableArray()
+    let allImgViews = NSMutableArray()
+    let allCenters = NSMutableArray()
 
     @IBOutlet weak var backButton: UIButton!
     
@@ -44,7 +45,7 @@ class PuzzleGameViewController: UIViewController {
             yCen += 94;
         }
         allImgViews.removeObject(at: 0)
-        //self.randomizeBlocks()
+        self.randomizeBlocks()
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,9 +62,33 @@ class PuzzleGameViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    /*func randomizeBlocks {
-        var randLoc: Int = arc4random() % 16;
-        CGPoint randLoc = allCenters.objectAtIndex
-    }*/
+    var emptySlot = CGPoint();
+     func randomizeBlocks() {
+        var centersCopy = NSMutableArray()
+        centersCopy = allCenters.mutableCopy() as! NSMutableArray
+        var randLoc: Int = 0;
+        for UIView in allImgViews
+        {
+            randLoc =  arc4random() % centersCopy.count;
+            randLoc = centersCopy.object(at: randLoc) as! Int
+            //allImgViews = randLoc
+            centersCopy.removeObject(at: randLoc)
+        }
+        emptySlot = centersCopy.object(at: 0) as! CGPoint
+
+    }
+    
+    var tapCen = CGPoint();
+    var left = CGPoint();
+    var right = CGPoint();
+    var top = CGPoint();
+    var bottom = CGPoint();
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let myTouch = UITouch()
+        if myTouch.view != self.view
+        {
+            tapCen = (myTouch.view?.center)!;
+        }
+    }
 }
 
