@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -24,7 +24,7 @@
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                 <state key="normal" image="playbutton"/>
                                 <connections>
-                                    <segue destination="S2K-cr-oMM" kind="custom" customClass="ScaleSegue" customModule="SolveThePuzzle" id="d6A-FJ-ZJd"/>
+                                    <segue destination="BNL-vQ-f1S" kind="custom" customClass="ScaleSegue" customModule="SolveThePuzzle" customModuleProvider="target" id="Oyo-u7-A5q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wS-Ii-Qa4" userLabel="About Us Button">
@@ -91,37 +91,9 @@
             <point key="canvasLocation" x="410.39999999999998" y="92.203898050974516"/>
         </scene>
         <!--Puzzle Game View Controller-->
-        <scene sceneID="Oll-Ww-F9D">
-            <objects>
-                <viewController id="S2K-cr-oMM" customClass="PuzzleGameViewController" customModule="SolveThePuzzle" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZWd-De-81i"/>
-                        <viewControllerLayoutGuide type="bottom" id="Lym-VY-KBY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qXu-sh-QsX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYu-yS-cUV">
-                                <frame key="frameInset" minX="166" minY="64" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="zgt-a6-5pz"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="z1s-57-eqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1152.8" y="91.304347826086968"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="vdq-6u-yOQ">
             <objects>
-                <viewController id="BNL-vQ-f1S" sceneMemberID="viewController">
+                <viewController id="BNL-vQ-f1S" customClass="PuzzleGameViewController" customModule="SolveThePuzzle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8hQ-yT-I9c"/>
                         <viewControllerLayoutGuide type="bottom" id="sfP-n6-Fuz"/>
@@ -194,13 +166,25 @@
                                 <frame key="frameInset" minX="281" minY="400" width="94" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLu-bW-yVQ">
+                                <frame key="frameInset" minX="24" minY="28" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="btL-23-gzM" kind="unwind" customClass="UnwindScaleSegue" customModule="SolveThePuzzle" customModuleProvider="target" unwindAction="exitToHomeSceneWithSender:" id="FQo-bA-T41"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="wLu-bW-yVQ" id="r43-ow-Q6A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gY-7s-Gui" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="btL-23-gzM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1922" y="64"/>
+            <point key="canvasLocation" x="1119" y="92"/>
         </scene>
     </scenes>
     <resources>

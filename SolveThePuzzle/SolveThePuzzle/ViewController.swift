@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
@@ -15,13 +16,31 @@ class ViewController: UIViewController {
     @IBOutlet weak var userTimeLabel: UILabel!
     @IBOutlet weak var clickToStartButton: UIButton!
     @IBOutlet weak var logoImageView: UIImageView!
+    var soundPlayer: AVAudioPlayer?
+    
     /*
     @IBAction func click(_ sender: AnyObject) {
         
         print("A")
     }*/
+    
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Create a sound file
+        let path = Bundle.main.path(forResource: "LittleIdea", ofType: "mp3")
+        let url = NSURL.fileURL(withPath: path!) // path cannot be nil
+        
+        // Inserting the sound file to the sound player variable
+        do{
+            try soundPlayer = AVAudioPlayer(contentsOf: url)
+            soundPlayer?.play()
+        }
+            // Catch an error if the playback has an issue
+        catch{print("Player does not work for some reason")}
         
         // set image for the demo puzzle
         //demoPuzzleImageView.contentMode = .scaleAspectFit

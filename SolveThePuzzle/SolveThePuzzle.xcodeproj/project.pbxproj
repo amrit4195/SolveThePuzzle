@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6F209C911E967C0B0048A20D /* ScaleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F209C901E967C0B0048A20D /* ScaleSegue.swift */; };
+		6FEB3D391E9E7763007ABE49 /* LittleIdea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FEB3D381E9E7763007ABE49 /* LittleIdea.mp3 */; };
 		F0F80BA61E936C0B00557DEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F80BA51E936C0B00557DEB /* AppDelegate.swift */; };
 		F0F80BA81E936C0B00557DEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F80BA71E936C0B00557DEB /* ViewController.swift */; };
 		F0F80BAB1E936C0B00557DEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0F80BA91E936C0B00557DEB /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		6F209C901E967C0B0048A20D /* ScaleSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleSegue.swift; sourceTree = "<group>"; };
 		6F64C4741E9606CB005FB41E /* PuzzleGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleGameViewController.swift; path = ../PuzzleGameViewController.swift; sourceTree = "<group>"; };
+		6FEB3D381E9E7763007ABE49 /* LittleIdea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LittleIdea.mp3; sourceTree = "<group>"; };
 		F0F80BA21E936C0B00557DEB /* SolveThePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolveThePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F80BA51E936C0B00557DEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0F80BA71E936C0B00557DEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		F0F80BA41E936C0B00557DEB /* SolveThePuzzle */ = {
 			isa = PBXGroup;
 			children = (
+				6FEB3D381E9E7763007ABE49 /* LittleIdea.mp3 */,
 				F0F906CA1E98467E00B85A73 /* Images */,
 				F0F80BA51E936C0B00557DEB /* AppDelegate.swift */,
 				6F209C901E967C0B0048A20D /* ScaleSegue.swift */,
@@ -187,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0F80BB01E936C0B00557DEB /* LaunchScreen.storyboard in Resources */,
+				6FEB3D391E9E7763007ABE49 /* LittleIdea.mp3 in Resources */,
 				F0F906BA1E98461B00B85A73 /* ai_00.jpg in Resources */,
 				F0F906C81E98461B00B85A73 /* ai_14.jpg in Resources */,
 				F0F906C71E98461B00B85A73 /* ai_13.jpg in Resources */,
