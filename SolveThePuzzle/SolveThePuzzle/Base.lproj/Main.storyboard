@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -48,6 +49,9 @@
                                 <frame key="frameInset" minX="309" minY="99" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Help Filled-50-2"/>
+                                <connections>
+                                    <action selector="showHelpPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mGO-gg-74D"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dLt-gQ-vKY">
                                 <frame key="frameInset" minX="130" minY="99" width="115" height="115"/>
@@ -76,11 +80,45 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa1-7I-l4f">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="closeHelpPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nRh-1d-HdC"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q11-c5-y6Q">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="529" id="hsT-FY-9Db"/>
+                                    <constraint firstAttribute="width" constant="293" id="ydg-1o-Mvb"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoh-Mj-MXk">
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeHelpPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ny7-FK-hhs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.41215596915849673" blue="0.28796530330882353" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="qa1-7I-l4f" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-17" id="6Mv-3y-OIK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qa1-7I-l4f" secondAttribute="trailing" constant="-16" id="7Fh-KD-sPy"/>
+                            <constraint firstItem="Q11-c5-y6Q" firstAttribute="top" secondItem="yoh-Mj-MXk" secondAttribute="bottom" constant="-279" id="96w-er-eg8"/>
+                            <constraint firstItem="Q11-c5-y6Q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nDF-B7-Zsw"/>
+                            <constraint firstItem="yoh-Mj-MXk" firstAttribute="leading" secondItem="Q11-c5-y6Q" secondAttribute="trailing" constant="-166" id="r4w-PH-Ha3"/>
+                            <constraint firstItem="qa1-7I-l4f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="reo-Nl-EqN"/>
+                            <constraint firstItem="Q11-c5-y6Q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-500" id="scx-X2-DJ9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qa1-7I-l4f" secondAttribute="bottom" constant="1" id="u1n-Zq-lAc"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundButton" destination="qa1-7I-l4f" id="vlk-bq-ILe"/>
+                        <outlet property="centerXPopupConstraint" destination="scx-X2-DJ9" id="0zo-aH-12G"/>
                         <outlet property="clickToStartButton" destination="qg8-yc-s1a" id="h0q-4X-B2D"/>
+                        <outlet property="closeHelpViewButton" destination="yoh-Mj-MXk" id="Etu-xh-Jpn"/>
+                        <outlet property="helpPopupView" destination="Q11-c5-y6Q" id="d2D-O4-ve2"/>
                         <outlet property="logoImageView" destination="dLt-gQ-vKY" id="Eqw-Rj-73t"/>
                         <outlet property="timeLabel" destination="eW4-G8-fJV" id="AcS-CJ-eSU"/>
                         <outlet property="userTimeLabel" destination="iVi-O2-7TX" id="9SH-8f-EFg"/>
@@ -88,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="410.39999999999998" y="92.203898050974516"/>
+            <point key="canvasLocation" x="306.39999999999998" y="78.710644677661179"/>
         </scene>
         <!--Puzzle Game View Controller-->
         <scene sceneID="vdq-6u-yOQ">
