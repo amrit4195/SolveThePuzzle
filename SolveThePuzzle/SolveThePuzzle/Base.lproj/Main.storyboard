@@ -47,6 +47,9 @@
                                 <frame key="frameInset" minX="16" minY="99" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Advertising-96"/>
+                                <connections>
+                                    <action selector="playPauseSound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Ku-Mp-P2a"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uy-Zo-s3h" userLabel="Help Button">
                                 <frame key="frameInset" minX="309" minY="99" width="50" height="50"/>

@@ -79,6 +79,13 @@ class ViewController: UIViewController {
         */
     }
     
+    @IBAction func playPauseSound(_ sender: AnyObject) {
+        if (soundPlayer?.isPlaying)! {
+            soundPlayer?.stop()
+        } else {
+            self.soundPlayer?.play()
+        }
+    }
     
     // Action to show the help popup view
     // - Show view by setting the X contraint to be 0
