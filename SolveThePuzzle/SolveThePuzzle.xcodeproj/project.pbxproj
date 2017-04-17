@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		6F209C911E967C0B0048A20D /* ScaleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F209C901E967C0B0048A20D /* ScaleSegue.swift */; };
 		6FEB3D391E9E7763007ABE49 /* LittleIdea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FEB3D381E9E7763007ABE49 /* LittleIdea.mp3 */; };
+		F0C0F3E31EA470C80039E08E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0C0F3E21EA470C80039E08E /* Assets.xcassets */; };
 		F0F80BA61E936C0B00557DEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F80BA51E936C0B00557DEB /* AppDelegate.swift */; };
 		F0F80BA81E936C0B00557DEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F80BA71E936C0B00557DEB /* ViewController.swift */; };
 		F0F80BAB1E936C0B00557DEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0F80BA91E936C0B00557DEB /* Main.storyboard */; };
-		F0F80BAD1E936C0B00557DEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0F80BAC1E936C0B00557DEB /* Assets.xcassets */; };
 		F0F80BB01E936C0B00557DEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0F80BAE1E936C0B00557DEB /* LaunchScreen.storyboard */; };
 		F0F906BA1E98461B00B85A73 /* ai_00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0F906AA1E98461B00B85A73 /* ai_00.jpg */; };
 		F0F906BB1E98461B00B85A73 /* ai_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F0F906AB1E98461B00B85A73 /* ai_01.jpg */; };
@@ -37,11 +37,11 @@
 		6F209C901E967C0B0048A20D /* ScaleSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleSegue.swift; sourceTree = "<group>"; };
 		6F64C4741E9606CB005FB41E /* PuzzleGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleGameViewController.swift; path = ../PuzzleGameViewController.swift; sourceTree = "<group>"; };
 		6FEB3D381E9E7763007ABE49 /* LittleIdea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LittleIdea.mp3; sourceTree = "<group>"; };
+		F0C0F3E21EA470C80039E08E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0F80BA21E936C0B00557DEB /* SolveThePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolveThePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F80BA51E936C0B00557DEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0F80BA71E936C0B00557DEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F0F80BAA1E936C0B00557DEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F0F80BAC1E936C0B00557DEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0F80BAF1E936C0B00557DEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0F80BB11E936C0B00557DEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0F906AA1E98461B00B85A73 /* ai_00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ai_00.jpg; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 				F0F80BA71E936C0B00557DEB /* ViewController.swift */,
 				6F64C4741E9606CB005FB41E /* PuzzleGameViewController.swift */,
 				F0F80BA91E936C0B00557DEB /* Main.storyboard */,
-				F0F80BAC1E936C0B00557DEB /* Assets.xcassets */,
+				F0C0F3E21EA470C80039E08E /* Assets.xcassets */,
 				F0F80BAE1E936C0B00557DEB /* LaunchScreen.storyboard */,
 				F0F80BB11E936C0B00557DEB /* Info.plist */,
 				F0F80BA31E936C0B00557DEB /* Products */,
@@ -195,7 +195,6 @@
 				F0F906C81E98461B00B85A73 /* ai_14.jpg in Resources */,
 				F0F906C71E98461B00B85A73 /* ai_13.jpg in Resources */,
 				F0F906BF1E98461B00B85A73 /* ai_05.jpg in Resources */,
-				F0F80BAD1E936C0B00557DEB /* Assets.xcassets in Resources */,
 				F0F906C61E98461B00B85A73 /* ai_12.jpg in Resources */,
 				F0F906C51E98461B00B85A73 /* ai_011.jpg in Resources */,
 				F0F906C31E98461B00B85A73 /* ai_09.jpg in Resources */,
@@ -204,6 +203,7 @@
 				F0F906C21E98461B00B85A73 /* ai_08.jpg in Resources */,
 				F0F80BAB1E936C0B00557DEB /* Main.storyboard in Resources */,
 				F0F906BE1E98461B00B85A73 /* ai_04.jpg in Resources */,
+				F0C0F3E31EA470C80039E08E /* Assets.xcassets in Resources */,
 				F0F906C91E98461B00B85A73 /* ai_15.jpg in Resources */,
 				F0F906BB1E98461B00B85A73 /* ai_01.jpg in Resources */,
 				F0F906BC1E98461B00B85A73 /* ai_02.jpg in Resources */,

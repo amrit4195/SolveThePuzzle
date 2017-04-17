@@ -69,7 +69,7 @@ class PuzzleGameViewController: UIViewController {
     var emptySlot = CGPoint();
      func randomizeBlocks() {
         var centersCopy = NSMutableArray()
-        centersCopy = allCenters.mutableCopy() as! NSMutableArray
+        //centersCopy = allCenters.mutableCopy() as! NSMutableArray
         var randLoc: Int = 0;
         for UIView in allImgViews
         {
