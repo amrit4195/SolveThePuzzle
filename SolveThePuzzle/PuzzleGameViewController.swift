@@ -10,11 +10,13 @@ import UIKit
 import Foundation
 
 class PuzzleGameViewController: UIViewController {
+    
+    @IBOutlet weak var backButton: UIButton!
+/*
 
     let allImgViews = NSMutableArray()
     let allCenters = NSMutableArray()
 
-    @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
     
@@ -100,6 +102,6 @@ class PuzzleGameViewController: UIViewController {
         }
     }
  
- 
+ */
 }
 
