@@ -10,7 +10,6 @@
 		6F209C911E967C0B0048A20D /* ScaleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F209C901E967C0B0048A20D /* ScaleSegue.swift */; };
 		6FEB3D391E9E7763007ABE49 /* LittleIdea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FEB3D381E9E7763007ABE49 /* LittleIdea.mp3 */; };
 		F0C0F3E31EA470C80039E08E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0C0F3E21EA470C80039E08E /* Assets.xcassets */; };
-		F0F58ADD1EAD6AFB00430D7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0F58ADC1EAD6AFB00430D7F /* Main.storyboard */; };
 		F0F80BA61E936C0B00557DEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F80BA51E936C0B00557DEB /* AppDelegate.swift */; };
 		F0F80BA81E936C0B00557DEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F80BA71E936C0B00557DEB /* ViewController.swift */; };
 		F0F80BAB1E936C0B00557DEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0F80BA91E936C0B00557DEB /* Main.storyboard */; };
@@ -39,7 +38,6 @@
 		6F64C4741E9606CB005FB41E /* PuzzleGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleGameViewController.swift; path = ../PuzzleGameViewController.swift; sourceTree = "<group>"; };
 		6FEB3D381E9E7763007ABE49 /* LittleIdea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LittleIdea.mp3; sourceTree = "<group>"; };
 		F0C0F3E21EA470C80039E08E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F0F58ADC1EAD6AFB00430D7F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F0F80BA21E936C0B00557DEB /* SolveThePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolveThePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F80BA51E936C0B00557DEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0F80BA71E936C0B00557DEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 				F0F80BA71E936C0B00557DEB /* ViewController.swift */,
 				6F64C4741E9606CB005FB41E /* PuzzleGameViewController.swift */,
 				F0F80BA91E936C0B00557DEB /* Main.storyboard */,
-				F0F58ADC1EAD6AFB00430D7F /* Main.storyboard */,
 				F0C0F3E21EA470C80039E08E /* Assets.xcassets */,
 				F0F80BAE1E936C0B00557DEB /* LaunchScreen.storyboard */,
 				F0F80BB11E936C0B00557DEB /* Info.plist */,
@@ -192,7 +189,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0F58ADD1EAD6AFB00430D7F /* Main.storyboard in Resources */,
 				F0F80BB01E936C0B00557DEB /* LaunchScreen.storyboard in Resources */,
 				6FEB3D391E9E7763007ABE49 /* LittleIdea.mp3 in Resources */,
 				F0F906BA1E98461B00B85A73 /* ai_00.jpg in Resources */,
