@@ -11,7 +11,109 @@ import Foundation
 
 class PuzzleGameViewController: UIViewController {
     
+    var seconds: Int = 0
+    var minutes: Int = 0
+    var timeIsOn = false
+    var gameTimer: Timer!
+    var time: Int = 0
+    var pauseTime: String = ""
+    
+    @IBOutlet weak var pauseTimerButton: UIButton!
+    @IBOutlet weak var startTimerButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var timerLabel: UILabel!
+    
+    @IBAction func playTimer(_ sender: AnyObject) {
+        seconds = 0
+        minutes = 0
+        timerLabel.text = "0\(minutes):0\(seconds)"
+
+        timeIsOn = true
+    
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        
+        if (timeIsOn == true){
+            startTimerButton.isHidden = true;
+        }
+        
+    }
+    
+    @IBAction func stopTimer(_ sender: AnyObject) {
+        
+        // When timer is off
+        if (timeIsOn == false){
+            
+            // Show paused time
+            timerLabel.text = pauseTime
+            
+            // Start timer/Resume timer again
+            gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+            
+            // Change Button Title
+            pauseTimerButton.setTitle("Pause", for: .normal)
+
+            // Timer state is on
+            timeIsOn = true
+            
+        }
+        
+        // When timer is on
+        else{
+
+            // Stop Timer
+            gameTimer.invalidate()
+            
+            // Save paused time
+            pauseTime = timerLabel.text!
+            
+            // Change Button Title
+            pauseTimerButton.setTitle("Resume", for: .normal)
+            
+            // Timer state is off
+            timeIsOn = false
+            
+        }
+        
+    }
+    
+    func updateTime() {
+        
+        seconds = seconds + 1
+        
+        if (seconds <= 9){
+            timerLabel.text = "0\(minutes):0\(seconds)"
+        }
+        
+        if(seconds == 16){
+            minutes = minutes + 1
+            seconds = 0
+            timerLabel.text = "0\(minutes):0\(seconds)"
+        }
+        
+        if(minutes == 0){
+            timerLabel.text = "0\(minutes):0\(seconds)"
+            if(seconds >= 10){
+                timerLabel.text = "0\(minutes):\(seconds)"}
+        }
+        
+        // <=9
+        if(minutes > 0 && minutes <= 9){
+            timerLabel.text = "0\(minutes):0\(seconds)"
+            if(seconds >= 10){
+                timerLabel.text = "0\(minutes):\(seconds)"}
+        }
+        
+        // >=10
+        if(minutes >= 10){
+            timerLabel.text = "\(minutes):0\(seconds)"
+            
+            if(seconds >= 10){
+                timerLabel.text = "\(minutes):\(seconds)"
+            }
+        }
+        
+    }
+
 /*
 
     let allImgViews = NSMutableArray()
