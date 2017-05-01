@@ -9,28 +9,29 @@
 //  Converted with Swiftify v1.0.6326 - https://objectivec2swift.com/
 import UIKit
 class ViewController: UIViewController {
-    var allImgViews = [Any]()
-    var allCenters = [Any]()
-    var emptySpot = CGPoint.zero
-    var tapCen = CGPoint.zero
-    var `left` = CGPoint.zero
-    var `right` = CGPoint.zero
-    var top = CGPoint.zero
-    var bottom = CGPoint.zero
-    var leftIsEmpty: Bool = false
-    var rightIsEmpty: Bool = false
-    var topIsEmpty: Bool = false
-    var bottomIsEmpty: Bool = false
+    
+    //var allImgViews = [Any]()
+    //var allCenters = [Any]()
+    //var emptySpot = CGPoint.zero
+    //var tapCen = CGPoint.zero
+    //var left = CGPoint.zero
+    //var right = CGPoint.zero
+    //var top = CGPoint.zero
+    //var bottom = CGPoint.zero
+    //var leftIsEmpty: Bool = false
+    //var rightIsEmpty: Bool = false
+    //var topIsEmpty: Bool = false
+    //var bottomIsEmpty: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        allImgViews = [Any]()
+        /*allImgViews = [Any]()
         allCenters = [Any]()
-        var xCen: Int = 96
-        var yCen: Int = 96
+        var xCen: Int = 49
+        var yCen: Int = 200
         for v in 0..<4 {
             for h in 0..<4 {
-                let myImgView = UIImageView(frame: CGRect(x: CGFloat(300), y: CGFloat(234), width: CGFloat(192), height: CGFloat(192)))
+                let myImgView = UIImageView(frame: CGRect(x: CGFloat(), y: CGFloat(192), width: CGFloat(98), height: CGFloat(94)))
                 let curCen = CGPoint(x: CGFloat(xCen), y: CGFloat(yCen))
                 allCenters.append(NSValue(curCen))
                 myImgView.center = curCen
@@ -39,15 +40,15 @@ class ViewController: UIViewController {
                 allImgViews.append(myImgView)
                 //myImgView.backgroundColor = [UIColor redColor];
                 view.addSubview(myImgView)
-                xCen += 192
+                xCen += 98
             }
-            xCen = 96
-            yCen += 192
+            xCen = 49
+            yCen += 94
         }
-        allImgViews[0]?.removeFromSuperview()
-        allImgViews.remove(at: 0)
+        //allImgViews[0]?.removeFromSuperview()
+        //allImgViews.remove(at: 0)
         // we have an array with all 15 imageviews and another array with all 16 centers
-        randomizeBlocks()
+        //randomizeBlocks()
     }
     
     func randomizeBlocks() {
@@ -71,10 +72,10 @@ class ViewController: UIViewController {
             `right` = CGPoint(x: CGFloat(tapCen.x + 192), y: CGFloat(tapCen.y))
             top = CGPoint(x: CGFloat(tapCen.x), y: CGFloat(tapCen.y + 192))
             bottom = CGPoint(x: CGFloat(tapCen.x), y: CGFloat(tapCen.y - 192))
-            if NSValue(`left`).isEqual(NSValue(emptySpot)) {
+            if NSValue(left).isEqual(NSValue(emptySpot)) {
                 leftIsEmpty = true
             }
-            if NSValue(`right`).isEqual(NSValue(emptySpot)) {
+            if NSValue(right).isEqual(NSValue(emptySpot)) {
                 rightIsEmpty = true
             }
             if NSValue(top).isEqual(NSValue(emptySpot)) {
@@ -95,6 +96,34 @@ class ViewController: UIViewController {
                 bottomIsEmpty = false
             }
         }
-    }
-}
+    }*/
+        
+        let allImgViews = NSMutableArray()
+        let allCenters = NSMutableArray()
+        
+        var xCen: Int = 49;
+        var yCen: Int = 200;
+        
+        super.viewDidLoad()
+        
+        for v in stride(from: 0, to: 4, by: 1)
+        {
+            for h in stride(from: 0, to: 4, by: 1)
+            {
+                var imageView : UIImageView
+                imageView  = UIImageView(frame:CGRect(x:0, y:192, width:98, height:94));
+                let currentCenter = CGPoint(x: xCen,y: yCen);
+                allCenters.add(currentCenter)
+                imageView.center = currentCenter;
+                imageView.image = UIImage (named:String(format: "ai_%02i.jpg", h+v*4));
+                imageView.isUserInteractionEnabled = true;
+                allImgViews.add(imageView)
+                view.addSubview(imageView)
+                xCen += 98;
+            }
+            xCen = 49;
+            yCen += 94;
+        }
 
+} //delete
+}
