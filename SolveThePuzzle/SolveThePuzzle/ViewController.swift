@@ -19,12 +19,10 @@ class ViewController: UIViewController {
 
     // Outlets for the help popup view
     @IBOutlet weak var closeHelpViewButton: UIButton!
-    @IBOutlet weak var closeAboutViewButton: UIButton!
     @IBOutlet weak var backgroundButton: UIButton!
     @IBOutlet weak var centerXPopupConstraint: NSLayoutConstraint!
     @IBOutlet weak var helpPopupView: UIView!
     
-    @IBOutlet weak var aboutPopupView: UIView!
     // @IBOutlet weak var demoPuzzleImageView: UIImageView!
     
     // Initializing Variables
@@ -105,13 +103,7 @@ class ViewController: UIViewController {
         })
     }
     
-    @IBAction func showAboutPopup(_ sender: AnyObject) {
-         centerXPopupConstraint.constant = 0
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.layoutIfNeeded()
-            self.backgroundButton.alpha = 0.5
-        })
-    }
+ 
     
     // Action to dismiss the help popup view
     @IBAction func closeHelpPopup(_ sender: AnyObject) {
@@ -125,14 +117,6 @@ class ViewController: UIViewController {
             self.backgroundButton.alpha = 0
         })
 
-    }
-    
-    @IBAction func closeAboutPopup(_ sender: AnyObject) {
-    }
-    
-    // Open the puzzle Game View Controller
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let newViewController: PuzzleGameViewController = segue.destination as! PuzzleGameViewController
     }
 
     // Go back to Home Page
