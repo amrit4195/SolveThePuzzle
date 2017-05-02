@@ -114,7 +114,7 @@ class PuzzleGameViewController: UIViewController {
         
     }
 
-/*
+
 
     let allImgViews = NSMutableArray()
     let allCenters = NSMutableArray()
@@ -204,6 +204,6 @@ class PuzzleGameViewController: UIViewController {
         }
     }
  
- */
+ 
 }
 
