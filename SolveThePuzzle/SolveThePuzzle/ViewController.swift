@@ -11,6 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
+    
     // Outlets for the main screen
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var userTimeLabel: UILabel!

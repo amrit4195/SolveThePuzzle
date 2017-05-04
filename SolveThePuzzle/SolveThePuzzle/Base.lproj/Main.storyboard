@@ -154,7 +154,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Pause"/>
                                 <connections>
-                                    <action selector="stopTimer:" destination="BNL-vQ-f1S" eventType="touchUpInside" id="aPQ-vd-sYw"/>
+                                    <action selector="pauseResumeTimer:" destination="BNL-vQ-f1S" eventType="touchUpInside" id="cai-Hp-3dG"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXU-qW-x5b">
@@ -165,11 +165,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJE-36-jDH">
-                                <frame key="frameInset" minX="170" minY="563" width="34" height="30"/>
+                                <frame key="frameInset" minX="162" minY="563" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start"/>
+                                <state key="normal" title="Shuffle"/>
                                 <connections>
-                                    <action selector="playTimer:" destination="BNL-vQ-f1S" eventType="touchUpInside" id="zOv-TU-64u"/>
+                                    <action selector="startGame:" destination="BNL-vQ-f1S" eventType="touchUpInside" id="OJV-qo-gCF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -178,8 +178,8 @@
                     <navigationItem key="navigationItem" id="T6F-EZ-H4b"/>
                     <connections>
                         <outlet property="backButton" destination="wLu-bW-yVQ" id="ZCI-XP-zg1"/>
-                        <outlet property="pauseTimerButton" destination="qWr-Ie-EPK" id="fDr-2a-mx0"/>
-                        <outlet property="startTimerButton" destination="zJE-36-jDH" id="Ijz-S1-raQ"/>
+                        <outlet property="pauseResumeTimerButton" destination="qWr-Ie-EPK" id="6LO-rA-OrE"/>
+                        <outlet property="startRestartGameButton" destination="zJE-36-jDH" id="goy-U4-Z1g"/>
                         <outlet property="timerLabel" destination="cXU-qW-x5b" id="xmd-T3-bNI"/>
                     </connections>
                 </viewController>
