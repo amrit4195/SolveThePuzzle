@@ -48,6 +48,9 @@ class PuzzleGameViewController: UIViewController {
     var swipeUp: UISwipeGestureRecognizer!
     var swipeDown: UISwipeGestureRecognizer!
     
+    var puzzleImg: UIImageView!
+    
+    
     @IBOutlet weak var pausePuzzleImageView: UIImageView!
     @IBOutlet weak var pausePopupView: UIView!
     @IBOutlet weak var backgroundButton: UIButton!
@@ -67,8 +70,6 @@ class PuzzleGameViewController: UIViewController {
         resetTimer()
         
         pausePopupView.alpha = 0
-        //pausePopupView.layer.zPosition = 0
-        //closePausePopupViewButton.layer.zPosition = 0
         pausePuzzleImageView.image = UIImage(named: "app_image")
         restartGameButton.alpha = 0
         pauseGameButton.alpha = 0
@@ -102,9 +103,7 @@ class PuzzleGameViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       // let name : String? = UserDefaults.standard.object(forKey: "name") as? String
         
-        //updateHighScoreRecord(name: retrievedName, newHighScore: retrievedHighScore, time: retrievedTime)
         updateHighScoreRecord()
         
     }
@@ -249,7 +248,7 @@ class PuzzleGameViewController: UIViewController {
         darkBox.backgroundColor = UIColor.black
         view.addSubview(darkBox)
         
-        let puzzleImg = UIImageView(frame: CGRect(x: CGFloat(xCen), y: CGFloat(yCen), width: CGFloat(darkBoxWidth), height: CGFloat(darkBoxHeight)))
+        puzzleImg = UIImageView(frame: CGRect(x: CGFloat(xCen), y: CGFloat(yCen), width: CGFloat(darkBoxWidth), height: CGFloat(darkBoxHeight)))
         puzzleImg.image = UIImage(named: "app_image")
         let puzzleImgCen = CGPoint(x: CGFloat(darkBoxWidth / 2), y: CGFloat(yCen + boxHeight + (boxHeight/2)))
         puzzleImg.center = puzzleImgCen
@@ -283,7 +282,6 @@ class PuzzleGameViewController: UIViewController {
                 print(h, v, h+v*4)
                 myImgView.image = UIImage(named: String(format: "ai_%02i.jpg", h + v * 4))
                 myImgView.isUserInteractionEnabled = true
-                //myImgView.alpha = 0.3
                 allImgViews.append(myImgView)
                 view.addSubview(myImgView)
                 view.addSubview(pausePopupView)
@@ -639,6 +637,7 @@ class PuzzleGameViewController: UIViewController {
         let alertController = UIAlertController(title: "Puzzle Completed", message: "Save Picture?", preferredStyle: .alert)
         
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (Void) in
+            self.savePuzzleImageGallery(image: self.puzzleImg.image!)
             self.restartGameButton.alpha = 0
             self.pauseGameButton.alpha = 0
             self.resetTimer()
@@ -680,8 +679,7 @@ class PuzzleGameViewController: UIViewController {
             UserDefaults.standard.set(self.username, forKey: "savedName")
             UserDefaults.standard.set(self.highScore, forKey: "savedHighScore") // buat trigger highscore
             UserDefaults.standard.set(self.timerLabel.text, forKey: "savedTime")
-            
-            //self.updateHighScoreRecord(name: self.retrievedName, newHighScore: self.retrievedHighScore, time: self.retrievedTime)
+        
             self.updateHighScoreRecord()
 
             }))
@@ -689,13 +687,37 @@ class PuzzleGameViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    /* ======================== Saving Image Function ======================*/
+    // Saving the puzzle image to the user's phone gallery
+    // - Create the image data and compressed it
+    // - Save the compressed image
+    // - Add a permission to access photo gallery in info.plist
+    func savePuzzleImageGallery(image: UIImage){
+        
+        let imageData = UIImagePNGRepresentation(image)
+        let compressedImage = UIImage(data: imageData!)
+        UIImageWriteToSavedPhotosAlbum(compressedImage!, nil, nil, nil)
+        print("Image Saved")
+        
+        /*
+         
+         Idea from Seemu Apps Youtube Channel
+         Link: https://www.youtube.com/watch?v=0IvkfWl4uoI
+         
+         */
+        
+    }
+    
+    
     
     // Action to show the pause popup view
+    // - Show the pause popup view by changing the center X constraint of the popup view to 0
+    // - Set the pause
     @IBAction func showPausePopup(_ sender: AnyObject) {
         
         centerXPopupConstraint.constant = 0
         pausePopupView.layer.zPosition = 10
-        closePausePopupViewButton.layer.zPosition = 11
+        //closePausePopupViewButton.layer.zPosition = 11
         backgroundButton.layer.zPosition = 10
         
         
