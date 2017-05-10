@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PuzzleGameViewController.swift"
-            timestampString = "516094209.035784"
+            timestampString = "516106191.569038"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "PuzzleGameViewController"
             landmarkType = "3">
          </BreakpointContent>

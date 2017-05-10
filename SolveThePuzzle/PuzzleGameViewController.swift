@@ -38,9 +38,7 @@ class PuzzleGameViewController: UIViewController {
     var boxRightCenter  = CGPoint.zero
     var boxTopCenter  = CGPoint.zero
     var boxBottomCenter  = CGPoint.zero
-    
-    
-    
+
     var highScore = 0
     var userScore = 0
     var username = ""
@@ -68,11 +66,11 @@ class PuzzleGameViewController: UIViewController {
         resetTimer()
         
         pausePopupView.alpha = 0
-        pausePopupView.layer.zPosition = 10
-        closePausePopupViewButton.layer.zPosition = 10
+        //pausePopupView.layer.zPosition = 0
+        //closePausePopupViewButton.layer.zPosition = 0
         pausePuzzleImageView.image = UIImage(named: "app_image")
         pauseResumeTimerButton.alpha = 0
-        backgroundButton.layer.zPosition = 9
+        //backgroundButton.layer.zPosition = 0
         createPuzzleTemplate()
         
         // Set up the pause popup view design
@@ -99,80 +97,6 @@ class PuzzleGameViewController: UIViewController {
         swipeDown.direction = UISwipeGestureRecognizerDirection.down
         self.view.addGestureRecognizer(swipeDown)
  
-    }
-    
-//    func updateHighScoreRecord(name: String, newHighScore: Int, time: String){
-//        let retrievedName : String! = UserDefaults.standard.object(forKey: "savedName") as? String
-//        let retrievedHighScore : Int! = UserDefaults.standard.object(forKey: "savedHighScore") as? Int
-//        let retrievedTime : String! = UserDefaults.standard.object(forKey: "savedTime") as? String
-//        
-//        if(name != nil){
-//            print("est username is", name)
-//            savedUsernameLabel.text = "User: " + name
-//        }
-//        else{
-//            print("name is null")
-//            savedUsernameLabel.text = "User: -"
-//        }
-//        
-//        if(time != nil){
-//            
-//            print("Best time is", time)
-//            savedHighScoreLabel.text = "Best Time: " + time
-//        }
-//        else{
-//            print("time is null")
-//            savedHighScoreLabel.text = "Best Time: xx:xx"
-//        }
-//        
-//        if(newHighScore != nil){
-//            print("highscore is",newHighScore)
-//            highScore = newHighScore
-//            
-//        }
-//        else{
-//            highScore = 0
-//        }
-//        
-//        print("new record: username:",name,"highscore:",highScore,"time:",time)
-//
-//    }
-    
-    func updateHighScoreRecord(){
-        let retrievedName : String! = UserDefaults.standard.object(forKey: "savedName") as? String
-        let retrievedHighScore : Int! = UserDefaults.standard.object(forKey: "savedHighScore") as? Int
-        let retrievedTime : String! = UserDefaults.standard.object(forKey: "savedTime") as? String
-        
-        if(retrievedName != nil){
-            print("est username is", retrievedName)
-            savedUsernameLabel.text = "User: " + retrievedName
-        }
-        else{
-            print("name is null")
-            savedUsernameLabel.text = "User: -"
-        }
-        
-        if(retrievedTime != nil){
-            
-            print("Best time is", retrievedTime)
-            savedHighScoreLabel.text = "Best Time: " + retrievedTime
-        }
-        else{
-            print("time is null")
-            savedHighScoreLabel.text = "Best Time: xx:xx"
-        }
-        
-        if(retrievedHighScore != nil){
-            print("highscore is",retrievedHighScore)
-            highScore = retrievedHighScore
-            
-        }
-        else{
-            highScore = 0
-        }
-        
-        print("new record: username:",retrievedName,"highscore:",highScore,"time:",retrievedTime)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -334,7 +258,6 @@ class PuzzleGameViewController: UIViewController {
         let puzzleImgCen = CGPoint(x: CGFloat(darkBoxWidth / 2), y: CGFloat(yCen + boxHeight + (boxHeight/2)))
         puzzleImg.center = puzzleImgCen
         puzzleImg.alpha = 0.3
-        
         view.addSubview(puzzleImg)
         
     }
@@ -367,6 +290,8 @@ class PuzzleGameViewController: UIViewController {
                 //myImgView.alpha = 0.3
                 allImgViews.append(myImgView)
                 view.addSubview(myImgView)
+                view.addSubview(pausePopupView)
+
                 xCen += boxWidth
                 
             }
@@ -673,13 +598,49 @@ class PuzzleGameViewController: UIViewController {
         
     }
     
+    func updateHighScoreRecord(){
+        let retrievedName : String! = UserDefaults.standard.object(forKey: "savedName") as? String
+        let retrievedHighScore : Int! = UserDefaults.standard.object(forKey: "savedHighScore") as? Int
+        let retrievedTime : String! = UserDefaults.standard.object(forKey: "savedTime") as? String
+        
+        if(retrievedName != nil){
+            print("est username is", retrievedName)
+            savedUsernameLabel.text = "User: " + retrievedName
+        }
+        else{
+            print("name is null")
+            savedUsernameLabel.text = "User: -"
+        }
+        
+        if(retrievedTime != nil){
+            
+            print("Best time is", retrievedTime)
+            savedHighScoreLabel.text = "Best Time: " + retrievedTime
+        }
+        else{
+            print("time is null")
+            savedHighScoreLabel.text = "Best Time: xx:xx"
+        }
+        
+        if(retrievedHighScore != nil){
+            print("highscore is",retrievedHighScore)
+            highScore = retrievedHighScore
+            
+        }
+        else{
+            highScore = 0
+        }
+        
+        print("new record: username:",retrievedName,"highscore:",highScore,"time:",retrievedTime)
+        
+    }
+    
 /* ======================= Alert Function ======================== */
     
     // Create an alert when the game end
     // Asking the user if they want to redo the game
     func showingGameEndAlert(){
         let alertController = UIAlertController(title: "Puzzle Completed", message: "Play again?", preferredStyle: .alert)
-        
         
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (Void) in
             self.resetTimer()
@@ -731,6 +692,9 @@ class PuzzleGameViewController: UIViewController {
     @IBAction func showPausePopup(_ sender: AnyObject) {
         
         centerXPopupConstraint.constant = 0
+        pausePopupView.layer.zPosition = 10
+        closePausePopupViewButton.layer.zPosition = 11
+        backgroundButton.layer.zPosition = 10
         
         
         // Slide In Animation
@@ -753,6 +717,9 @@ class PuzzleGameViewController: UIViewController {
     // Action to dismiss the pause popup view
     @IBAction func closePausePopup(_ sender: AnyObject) {
         centerXPopupConstraint.constant =  -500
+        pausePopupView.layer.zPosition = 0
+        closePausePopupViewButton.layer.zPosition = 0
+        backgroundButton.layer.zPosition = 0
         
         // Slide Out Animation
         // - Layout the subview immediately
