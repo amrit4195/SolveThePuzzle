@@ -52,15 +52,16 @@ class PuzzleGameViewController: UIViewController {
     @IBOutlet weak var pausePopupView: UIView!
     @IBOutlet weak var backgroundButton: UIButton!
     @IBOutlet weak var centerXPopupConstraint: NSLayoutConstraint!
-    @IBOutlet weak var pauseResumeTimerButton: UIButton!
+    @IBOutlet weak var pauseGameButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     
     @IBOutlet weak var savedHighScoreLabel: UILabel!
-    @IBOutlet weak var startRestartGameButton: UIButton!
+    @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var savedUsernameLabel: UILabel!
     @IBOutlet weak var closePausePopupViewButton: UIButton!
     
+    @IBOutlet weak var restartGameButton: UIButton!
     override func viewDidLoad() {
     
         resetTimer()
@@ -69,7 +70,8 @@ class PuzzleGameViewController: UIViewController {
         //pausePopupView.layer.zPosition = 0
         //closePausePopupViewButton.layer.zPosition = 0
         pausePuzzleImageView.image = UIImage(named: "app_image")
-        pauseResumeTimerButton.alpha = 0
+        restartGameButton.alpha = 0
+        pauseGameButton.alpha = 0
         //backgroundButton.layer.zPosition = 0
         createPuzzleTemplate()
         
@@ -125,7 +127,7 @@ class PuzzleGameViewController: UIViewController {
         if (timeIsOn == true){
             
             // Hide the start button
-            startRestartGameButton.isHidden = true;
+            startGameButton.isHidden = true;
         }
         
     }
@@ -138,9 +140,6 @@ class PuzzleGameViewController: UIViewController {
         // Save paused time
         pauseTime = timerLabel.text!
         
-//        // Change Button Title
-//        pauseResumeTimerButton.setTitle("Resume", for: .normal)
-        
     }
     
     func resumeTimer(){
@@ -150,9 +149,6 @@ class PuzzleGameViewController: UIViewController {
         
         // Start timer/Resume timer again
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-        
-//        // Change Button Title
-//        pauseResumeTimerButton.setTitle("Pause", for: .normal)
         
     }
     
@@ -164,7 +160,6 @@ class PuzzleGameViewController: UIViewController {
         minutes = 0
         timerLabel.text = "0\(minutes):0\(seconds)"
         timeIsOn = false
-        pauseResumeTimerButton.setTitle("Pause", for: .normal)
         
     }
     
@@ -229,7 +224,8 @@ class PuzzleGameViewController: UIViewController {
         randomizeBlocks()
         resetTimer()
         startTimer()
-        pauseResumeTimerButton.alpha = 1
+        pauseGameButton.alpha = 1
+        restartGameButton.alpha = 1
         
     }
     
@@ -581,7 +577,7 @@ class PuzzleGameViewController: UIViewController {
             stopTimer()
             userScore = (minutes * 60) + seconds
             print("userscore",userScore)
-            startRestartGameButton.isHidden = false
+            startGameButton.isHidden = false
             gameCompleted = false
             timeIsOn = false
             
@@ -640,19 +636,25 @@ class PuzzleGameViewController: UIViewController {
     // Create an alert when the game end
     // Asking the user if they want to redo the game
     func showingGameEndAlert(){
-        let alertController = UIAlertController(title: "Puzzle Completed", message: "Play again?", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Puzzle Completed", message: "Save Picture?", preferredStyle: .alert)
         
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (Void) in
+            self.restartGameButton.alpha = 0
+            self.pauseGameButton.alpha = 0
             self.resetTimer()
             self.destroyPuzzle()
-            //self.createPuzzle()
         }
         
-        let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil)
+        let noAction = UIAlertAction(title: "No", style: .default) { (Void) in
+            self.restartGameButton.alpha = 0
+            self.pauseGameButton.alpha = 0
+            self.resetTimer()
+            self.destroyPuzzle()
+        }
         
         // Adding an action        
-        alertController.addAction(yesAction)
         alertController.addAction(noAction)
+        alertController.addAction(yesAction)
         
         self.present(alertController, animated: true, completion: nil)
     }
@@ -737,6 +739,17 @@ class PuzzleGameViewController: UIViewController {
         
     }
     
+    @IBAction func restartingGame(_ sender: AnyObject) {
+        stopTimer()
+
+        startGameButton.isHidden = false
+        gameCompleted = false
+        timeIsOn = false
+        restartGameButton.alpha = 0
+        pauseGameButton.alpha = 0
+        resetTimer()
+        destroyPuzzle()
+    }
 }
 
 
