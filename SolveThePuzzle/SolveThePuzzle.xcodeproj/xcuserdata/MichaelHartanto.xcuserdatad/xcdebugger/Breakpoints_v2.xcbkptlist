@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolveThePuzzle/ViewController.swift"
-            timestampString = "515996864.160216"
+            timestampString = "515592951.27389"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,13 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PuzzleGameViewController.swift"
-            timestampString = "516106191.569038"
+            timestampString = "515594883.289291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "PuzzleGameViewController"
-            landmarkType = "3">
+            startingLineNumber = "42"
+            endingLineNumber = "42">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,60 +40,25 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PuzzleGameViewController.swift"
-            timestampString = "516112059.921852"
+            timestampString = "515603652.125251"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "PuzzleGameViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SolveThePuzzle.PuzzleGameViewController.pausePuzzleImageView.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIImageView&gt;"
-                  moduleName = "SolveThePuzzle"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MichaelHartanto/Desktop/SolveThePuzzle/SolveThePuzzle/PuzzleGameViewController.swift"
-                  timestampString = "516112175.762679"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "42">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SolveThePuzzle.PuzzleGameViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; SolveThePuzzle.PuzzleGameViewController"
-                  moduleName = "SolveThePuzzle"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MichaelHartanto/Desktop/SolveThePuzzle/SolveThePuzzle/PuzzleGameViewController.swift"
-                  timestampString = "516112175.765456"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "718">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SolveThePuzzle.PuzzleGameViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;SolveThePuzzle.PuzzleGameViewController&gt;"
-                  moduleName = "SolveThePuzzle"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MichaelHartanto/Desktop/SolveThePuzzle/SolveThePuzzle/PuzzleGameViewController.swift"
-                  timestampString = "516112175.768524"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "647">
-               </Location>
-            </Locations>
+            startingLineNumber = "427"
+            endingLineNumber = "427">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PuzzleGameViewController.swift"
+            timestampString = "515605451.214952"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "283"
+            endingLineNumber = "283">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
