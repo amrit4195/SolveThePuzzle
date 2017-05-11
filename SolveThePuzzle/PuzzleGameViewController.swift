@@ -39,14 +39,20 @@ class PuzzleGameViewController: UIViewController {
     var boxTopCenter  = CGPoint.zero
     var boxBottomCenter  = CGPoint.zero
 
+    // Recording High score Variables
     var highScore = 0
     var userScore = 0
     var username = ""
     
+    // Gesture Variables
     var swipeLeft: UISwipeGestureRecognizer!
     var swipeRight: UISwipeGestureRecognizer!
     var swipeUp: UISwipeGestureRecognizer!
     var swipeDown: UISwipeGestureRecognizer!
+    
+    // Puzzle Image Variable
+    var puzzleImg: UIImageView!
+    
     
     @IBOutlet weak var pausePuzzleImageView: UIImageView!
     @IBOutlet weak var pausePopupView: UIView!
@@ -55,29 +61,30 @@ class PuzzleGameViewController: UIViewController {
     @IBOutlet weak var pauseGameButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
-    
     @IBOutlet weak var savedHighScoreLabel: UILabel!
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var savedUsernameLabel: UILabel!
     @IBOutlet weak var closePausePopupViewButton: UIButton!
-    
     @IBOutlet weak var restartGameButton: UIButton!
+    
+    // As the view load
+    // - Set Default image to the image view that will be put inside the pause popup view
+    // - Hide Pause popupview, restart and pause game button
+    // - Set up the pause popup view design
+    // - Reset the Timer
+    // - Create the template for the puzzle
+    // - Create different swipe gesture
     override func viewDidLoad() {
     
-        resetTimer()
-        
-        pausePopupView.alpha = 0
-        //pausePopupView.layer.zPosition = 0
-        //closePausePopupViewButton.layer.zPosition = 0
         pausePuzzleImageView.image = UIImage(named: "app_image")
         restartGameButton.alpha = 0
         pauseGameButton.alpha = 0
-        //backgroundButton.layer.zPosition = 0
-        createPuzzleTemplate()
-        
-        // Set up the pause popup view design
+        pausePopupView.alpha = 0
         pausePopupView.layer.cornerRadius = 20
         pausePopupView.layer.masksToBounds = true
+
+        resetTimer()
+        createPuzzleTemplate()
         
         // Swiping Left
         swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
@@ -101,10 +108,10 @@ class PuzzleGameViewController: UIViewController {
  
     }
     
+    // As the view appear
+    // Show the current highscore and the name of the holder
     override func viewDidAppear(_ animated: Bool) {
-       // let name : String? = UserDefaults.standard.object(forKey: "name") as? String
         
-        //updateHighScoreRecord(name: retrievedName, newHighScore: retrievedHighScore, time: retrievedTime)
         updateHighScoreRecord()
         
     }
@@ -115,96 +122,109 @@ class PuzzleGameViewController: UIViewController {
     }
     
     /* ===================== Function for time ========================*/
+    /* Contain startTimer() - A function to start the timer */
+    /* Contain stopTimer() - A function to stop the timer */
+    /* Contain resumeTimer() - A function to resume the timer when it was previously stopped */
+    /* Contain resetTimer() - A function to reset the timer to 00:00 */
+    /* Contain updateTime() - A function to increment the timer (seconds and minutes) */
     
+    // Start Timer Function
+    // - Set the time state to true
+    // - Create a scheduled timer to run the updateTime function for every 1 second
+    // - Hide the start game button
     func startTimer(){
         
         timeIsOn = true
-        
-        // Call the updateTime function every 1 second
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-        
-        // When timer is on
-        if (timeIsOn == true){
-            
-            // Hide the start button
-            startGameButton.isHidden = true;
-        }
+        startGameButton.isHidden = true;
         
     }
     
+    // Stop Timer Function
+    // - Set the time state to false
+    // - Stop the game timer
+    // - Keep the current timer from the timerLabel.text
     func stopTimer(){
         
-        // Stop Timer
+        timeIsOn = false
         gameTimer.invalidate()
-        
-        // Save paused time
         pauseTime = timerLabel.text!
         
     }
     
+    // Resume Timer Function
+    // - Set the time state to true
+    // - Show paused time
+    // - Start the game timer again
     func resumeTimer(){
         
-        // Show paused time
+        timeIsOn = true
         timerLabel.text = pauseTime
-        
-        // Start timer/Resume timer again
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         
     }
     
-    
+    // Reset Timer Function
+    // - Set the time state to false
+    // - Set seconds and minutes to 0
+    // - Start the timer from 00:00
+    // - Update the timerLabel
     func resetTimer(){
         
-        // Start the timer from 00:00
+        timeIsOn = false
         seconds = 0
         minutes = 0
         timerLabel.text = "0\(minutes):0\(seconds)"
-        timeIsOn = false
         
     }
     
     // Function to update the time
+    // - Increase seconds
+    //
+    // - When timer reach 9 seconds
+    // --- Set label format to 0x:0x
+    //
+    // - Once seconds reach 60
+    // --- Increase minutes and set seconds to 0
+    // --- Set label format to 0x:0x
+    //
+    // - When minutes is 0
+    // --- Set label format to 0x:0x
+    // --- Except if seconds exceeds 10, set label format to 0x:xx
+    //
+    // - When minutes is around 1 and 9
+    // --- Set label format to 0x:0x
+    // --- Except if seconds exceeds 10, set label format to 0x:xx
+    //
+    // - When minutes exceeds 10
+    // --- Set label format to xx:0x
+    // --- Except if seconds exceeds 10, set label format to xx:xx
     func updateTime() {
         
-        // Increase seconds
         seconds = seconds + 1
         
-        // When timer reach 9 seconds,
-        // Set label format to 0x:0x
         if (seconds <= 9){
             timerLabel.text = "0\(minutes):0\(seconds)"
         }
-        
-        // Once seconds reach 60
-        // Increase minutes and set seconds to 0
-        // Set label format to 0x:0x
+
         if(seconds == 60){
             minutes = minutes + 1
             seconds = 0
             timerLabel.text = "0\(minutes):0\(seconds)"
         }
         
-        // When minutes is 0
-        // Set label format to 0x:0x
-        // Except if seconds exceeds 10, set label format to 0x:xx
         if(minutes == 0){
             timerLabel.text = "0\(minutes):0\(seconds)"
             if(seconds >= 10){
                 timerLabel.text = "0\(minutes):\(seconds)"}
         }
         
-        // When minutes is around 1 and 9
-        // Set label format to 0x:0x
-        // Except if seconds exceeds 10, set label format to 0x:xx
         if(minutes > 0 && minutes <= 9){
             timerLabel.text = "0\(minutes):0\(seconds)"
             if(seconds >= 10){
                 timerLabel.text = "0\(minutes):\(seconds)"}
         }
         
-        // When minutes exceeds 10
-        // Set label format to xx:0x
-        // Except if seconds exceeds 10, set label format to Xx:xx
         if(minutes >= 10){
             timerLabel.text = "\(minutes):0\(seconds)"
             
@@ -215,41 +235,50 @@ class PuzzleGameViewController: UIViewController {
         
     }
 
-    /* ===================== Function for Game ========================*/
-    
-    // Function to start the game
-    @IBAction func startGame(_ sender: AnyObject) {
-        
-        createPuzzle()
-        randomizeBlocks()
-        resetTimer()
-        startTimer()
-        pauseGameButton.alpha = 1
-        restartGameButton.alpha = 1
-        
-    }
+    /* ===================== Function Related to the Puzzle Game ========================*/
+    /* Contain createPuzzleTemplate() - Creating a dark template for the puzzle */
+    /* Contain createPuzzle() - Creating the puzzle pieces */
+    /* Contain destroyPuzzle() - Destroyng or deleting the puzzle pieces */
+    /* Contain freezePuzzle() - Freezing the puzzle / disable swipe gesture */
+    /* Contain unFreezePuzzle() - Unfreezing the puzzle / enable swipe gesture  */
+    /* Contain checkingWinCondition() - Check whether the game is completed or not */
+    /* Contain randomizeBlocks() - Randomize the location of the puzzle */
+    /* Contain findSurroundingLeftBox(box: CGPoint) -> CGPoint - Find the left box location from the empty spot */
+    /* Contain findSurroundingRightBox(box: CGPoint) -> CGPoint - Find the right box location from the empty spot */
+    /* Contain findSurroundingTopBox(box: CGPoint) -> CGPoint - Find the top box location from the empty spot */
+    /* Contain findSurroundingBottomBox(box: CGPoint) -> CGPoint - Find the bottom box location from the empty spot */
+    /* Contain respondToSwipeGesture(gesture: UIGestureRecognizer) - Responding to different swipe gesture/direction */
+    /* Contain updateHighScoreRecord() - Updating the user's highscore and name */
     
     // Creating template for the puzzle
-    // Show user the dark original photo of the puzzle for hints
+    // - Show user the dark original photo of the puzzle for hints
+    //
+    // - Create a dark view box using the boxWidth, boxHeight, xCen and yCen variable
+    // - Set the dark box center
+    // - add darkBox to the view's subview
+    //
+    // - Create the puzzle image view using the darkBoxWidth, darkBoxHeight, xCen and yCen variable
+    // - Set the puzzle image to the image view
+    // - Set the center
+    // - Fade the puzzle image color by playing with the alpha
+    // - add puzzle image view to the view's subview
+    //
     func createPuzzleTemplate(){
         
         let boxWidth: Int = 98
         let boxHeight: Int = 94
-        
         let xCen: Int = 49
         let yCen: Int = 200
-        
         let darkBoxWidth: Int = boxWidth * 4
         let darkBoxHeight: Int = boxHeight * 4
         
         let darkBox = UIView(frame: CGRect(x: CGFloat(xCen), y: CGFloat(yCen), width: CGFloat(darkBoxWidth), height: CGFloat(darkBoxHeight)))
-        
         let darkBoxCen = CGPoint(x: CGFloat(darkBoxWidth / 2), y: CGFloat(yCen + boxHeight + (boxHeight/2)))
         darkBox.center = darkBoxCen
         darkBox.backgroundColor = UIColor.black
         view.addSubview(darkBox)
         
-        let puzzleImg = UIImageView(frame: CGRect(x: CGFloat(xCen), y: CGFloat(yCen), width: CGFloat(darkBoxWidth), height: CGFloat(darkBoxHeight)))
+        puzzleImg = UIImageView(frame: CGRect(x: CGFloat(xCen), y: CGFloat(yCen), width: CGFloat(darkBoxWidth), height: CGFloat(darkBoxHeight)))
         puzzleImg.image = UIImage(named: "app_image")
         let puzzleImgCen = CGPoint(x: CGFloat(darkBoxWidth / 2), y: CGFloat(yCen + boxHeight + (boxHeight/2)))
         puzzleImg.center = puzzleImgCen
@@ -258,8 +287,15 @@ class PuzzleGameViewController: UIViewController {
         
     }
     
-    // Creating the puzzle
+    //
     // -- Removing the last photo array
+    
+    // Creating the puzzle
+    // - Create an array of small UIImageView using the boxWidth, boxHeight, xCen and yCen variable
+    // - Set different center for the UIImageView
+    // - Store each center on an array
+    // - Set different picture for the UIImageView using the string format and set user interaction to be true
+    // - Add each puzzle to the view
     func createPuzzle(){
         
         allImgViews = [UIView]()
@@ -283,21 +319,22 @@ class PuzzleGameViewController: UIViewController {
                 print(h, v, h+v*4)
                 myImgView.image = UIImage(named: String(format: "ai_%02i.jpg", h + v * 4))
                 myImgView.isUserInteractionEnabled = true
-                //myImgView.alpha = 0.3
                 allImgViews.append(myImgView)
                 view.addSubview(myImgView)
-                view.addSubview(pausePopupView)
 
-                xCen += boxWidth
+                xCen += boxWidth // move to different column
                 
             }
             
-            xCen = 49
-            yCen += boxHeight
+            xCen = 49 // restart column to column 1
+            yCen += boxHeight // move to different row
             
         }
-        
+        view.addSubview(pausePopupView)
     }
+    
+    
+    
     
     // Destroying puzzle
     // -- Remove all photos stored in the array
@@ -314,7 +351,6 @@ class PuzzleGameViewController: UIViewController {
     }
     
     // Freeze the puzzle
-    // -- When the user pause the game
     // -- Disable all swipe gesture
     func freezePuzzle(){
         swipeLeft.isEnabled = false
@@ -324,7 +360,6 @@ class PuzzleGameViewController: UIViewController {
     }
     
     // UnFreeze the puzzle
-    // -- When the user resume the game
     // -- Enable all swipe gesture
     func unFreezePuzzle(){
         
@@ -336,6 +371,11 @@ class PuzzleGameViewController: UIViewController {
     
     // Checking win condition
     // User will win if they are able to set all positionCondition to true
+    // 
+    // - Create an array of false position condition
+    // - Create a loop that goes through all of the puzzle location
+    // -- Inside the loop check whether the correct tag and the correct center are positioned on the right location
+    // -- If yes, set the position condition to true, else false
     func checkingWinCondition() -> Bool{
         
         var positionCondition = ["false","false","false","false","false","false","false","false","false","false","false","false","false","false","false"]
@@ -360,6 +400,8 @@ class PuzzleGameViewController: UIViewController {
             i = i + 1
             xCen += 98
             
+            // When i reach one of these value, restart xCenter and increase yCen to move to the new row
+            // We do this since we are not using the previous h and v for loop like what we did on the createPuzzle()
             if(i == 4 || i == 8 || i == 12){
                 xCen = 49
                 yCen += 94
@@ -368,9 +410,10 @@ class PuzzleGameViewController: UIViewController {
             
         }
         
-        // checking condition
-        // if all condition is true, game is completed
-        // if one of the condition is false, game is not completed
+        // Checking condition
+        // - Check all condition inside the position condition array 
+        // -- if all condition is true, game is completed
+        // -- if one of the condition is false, game is not completed
         var z = 0
         for condition in positionCondition{
             if(condition == "true"){
@@ -390,22 +433,17 @@ class PuzzleGameViewController: UIViewController {
         
     }
     
-   
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToVC"
-        {
-            if let destination = segue.destination as? ViewController
-            {
-                destination.passedData = sender as? String
-                print ("Sender Value: \(sender)")
-            }
-        }
-    }
-    
-    // Function to randomise the block
+    // Randomizing the blocks
+    // - Removing the last image view
+    // - Inside the loop
+    // -- Randomly choose the centers that were kept in an array
+    // -- Set the center to view inside the array of UIImageView
+    // -- Remove the chosen center from the center array
+    // Once we have set all the 15 views inside the image view (suppose to be 16, but we have remove it previously)
+    // Set the not leftover center (must be only 1) to be the center of the empty spot
     func randomizeBlocks() {
         
-        // removing the last image view
+        
         allImgViews[15].removeFromSuperview()
         allImgViews.remove(at: 15)
         
@@ -415,7 +453,7 @@ class PuzzleGameViewController: UIViewController {
         
         for view in allImgViews {
             
-            randLocInt = Int(arc4random_uniform(UInt32(centersCopy.count))) //% centersCopy.count
+            randLocInt = Int(arc4random_uniform(UInt32(centersCopy.count)))
             print("available location", centersCopy)
             randLoc = centersCopy[randLocInt] as! CGPoint
             print("chosen index", randLocInt, "which is", randLoc)
@@ -431,6 +469,7 @@ class PuzzleGameViewController: UIViewController {
     }
     
     // Function to return the center coordinate of the left side of the blank spot
+    // Find the center location on the left of the empty spot
     func findSurroundingLeftBox(box: CGPoint) -> CGPoint{
         
         var boxLeft = CGPoint.zero
@@ -441,6 +480,7 @@ class PuzzleGameViewController: UIViewController {
     }
     
     // Function to return the center coordinate of the right side of the blank spot
+    // Find the center location on the right of the empty spot
     func findSurroundingRightBox(box: CGPoint) -> CGPoint{
         
         var boxRight = CGPoint.zero
@@ -451,6 +491,7 @@ class PuzzleGameViewController: UIViewController {
     }
     
     // Function to return the center coordinate of the top side of the blank spot
+    // Find the center location on the top of the empty spot
     func findSurroundingTopBox(box: CGPoint) -> CGPoint{
         
         var boxTop = CGPoint.zero
@@ -461,6 +502,7 @@ class PuzzleGameViewController: UIViewController {
     }
     
     // Function to return the center coordinate of the bottom side of the blank spot
+    // Find the center location on the bottom of the empty spot
     func findSurroundingBottomBox(box: CGPoint) -> CGPoint{
         
         var boxBottom = CGPoint.zero
@@ -470,108 +512,140 @@ class PuzzleGameViewController: UIViewController {
         
     }
     
+    // Function to respond to different swipe gesture
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            
             switch swipeGesture.direction {
                 
-            case UISwipeGestureRecognizerDirection.left:
-                print("Swiped left")
-                print("empty box",emptySpot)
+                // - If swipe gesture direction is left
+                // -- Find the center of the right box of the empty spot
+                // -- If the center location is still inside the bound of the puzzle coordinates
+                // -- Then move the right box to the left, else print unable to move
+                // -- Lastly, the new coordinates of the empty spot will the center of box that is swaped
+                case UISwipeGestureRecognizerDirection.left:
+                    print("Swiped left")
+                    print("empty box",emptySpot)
                 
-                boxRightCenter = findSurroundingRightBox(box: emptySpot)
-                print("box left coordinate", findSurroundingLeftBox(box: emptySpot) ,"\n","box right coordinate", findSurroundingRightBox(box: emptySpot) ,"\n","box top coordinate", findSurroundingTopBox(box: emptySpot) ,"\n","box bottom coordinate", findSurroundingBottomBox(box: emptySpot))
+                    boxRightCenter = findSurroundingRightBox(box: emptySpot)
+                    print("box left coordinate", findSurroundingLeftBox(box: emptySpot) ,"\n","box right coordinate", findSurroundingRightBox(box: emptySpot) ,"\n","box top coordinate", findSurroundingTopBox(box: emptySpot) ,"\n","box bottom coordinate", findSurroundingBottomBox(box: emptySpot))
                 
-                if(boxRightCenter.x < 344){
-                    for view in allImgViews{
+                    if(boxRightCenter.x < 344){
+                        for view in allImgViews{
                         
-                        if (view.center == (boxRightCenter)){
-                            view.center.x = emptySpot.x
-                            emptySpot = boxRightCenter
-                            print("new empty spot", emptySpot)
-                            print("box left coordinate", findSurroundingLeftBox(box: emptySpot) ,"\n","box right coordinate", findSurroundingRightBox(box: emptySpot),"\n","box top coordinate",findSurroundingTopBox(box: emptySpot),"\n","box bottom coordinate",findSurroundingBottomBox(box: emptySpot))
+                            if (view.center == (boxRightCenter)){
+                                view.center.x = emptySpot.x
+                                emptySpot = boxRightCenter
+                                print("new empty spot", emptySpot)
+                                print("box left coordinate", findSurroundingLeftBox(box: emptySpot) ,"\n","box right coordinate", findSurroundingRightBox(box: emptySpot),"\n","box top coordinate",findSurroundingTopBox(box: emptySpot),"\n","box bottom coordinate",findSurroundingBottomBox(box: emptySpot))
+                            }
                         }
                     }
-                }
-                else{
-                    print("unable to move")
-                }
+                    else{
+                        print("unable to move")
+                    }
                 
-            case UISwipeGestureRecognizerDirection.right:
+                // - If swipe gesture direction is right
+                // -- Find the center of the left box of the empty spot
+                // -- If the center location is still inside the bound of the puzzle coordinates
+                // -- Then move the left box to the right, else print unable to move
+                // -- Lastly, the new coordinates of the empty spot will the center of box that is swaped
+                case UISwipeGestureRecognizerDirection.right:
                 
-                print("Swiped right")
-                print("empty box",emptySpot)
+                    print("Swiped right")
+                    print("empty box",emptySpot)
                 
-                boxLeftCenter = findSurroundingLeftBox(box: emptySpot)
-                print("box left coordinate", findSurroundingLeftBox(box: emptySpot) ,"\n","box right coordinate", findSurroundingRightBox(box: emptySpot) ,"\n","box top coordinate", findSurroundingTopBox(box: emptySpot) ,"\n","box bottom coordinate", findSurroundingBottomBox(box: emptySpot))
+                    boxLeftCenter = findSurroundingLeftBox(box: emptySpot)
+                    print("box left coordinate", findSurroundingLeftBox(box: emptySpot) ,"\n","box right coordinate", findSurroundingRightBox(box: emptySpot) ,"\n","box top coordinate", findSurroundingTopBox(box: emptySpot) ,"\n","box bottom coordinate", findSurroundingBottomBox(box: emptySpot))
                 
-                if(boxLeftCenter.x > 48){
-                    for view in allImgViews{
+                    if(boxLeftCenter.x > 48){
+                        for view in allImgViews{
                         
-                        if (view.center == (boxLeftCenter)){
-                            view.center.x = emptySpot.x
-                            emptySpot = boxLeftCenter
-                            print("new empty spot", emptySpot)
-                            print("box left coordinate", findSurroundingLeftBox(box: emptySpot) ,"\n","box right coordinate", findSurroundingRightBox(box: emptySpot) ,"\n","box top coordinate", findSurroundingTopBox(box: emptySpot) ,"\n","box bottom coordinate", findSurroundingBottomBox(box: emptySpot))
+                            if (view.center == (boxLeftCenter)){
+                                view.center.x = emptySpot.x
+                                emptySpot = boxLeftCenter
+                                print("new empty spot", emptySpot)
+                                print("box left coordinate", findSurroundingLeftBox(box: emptySpot) ,"\n","box right coordinate", findSurroundingRightBox(box: emptySpot) ,"\n","box top coordinate", findSurroundingTopBox(box: emptySpot) ,"\n","box bottom coordinate", findSurroundingBottomBox(box: emptySpot))
+                            }
                         }
                     }
-                }
-                else{
-                    print("unable to move")
-                }
+                    else{
+                        print("unable to move")
+                    }
                 
-            case UISwipeGestureRecognizerDirection.up:
+                // - If swipe gesture direction is up
+                // -- Find the center of the bottom box of the empty spot
+                // -- If the center location is still inside the bound of the puzzle coordinates
+                // -- Then move the bottom box to the top, else print unable to move
+                // -- Lastly, the new coordinates of the empty spot will the center of box that is swaped
+                case UISwipeGestureRecognizerDirection.up:
                 
-                print("Swiped up")
-                print("empty box",emptySpot)
+                    print("Swiped up")
+                    print("empty box",emptySpot)
                 
-                boxBottomCenter  = findSurroundingBottomBox(box: emptySpot)
-                print("box left coordinate", boxLeftCenter , "\n","box right coordinate", boxRightCenter , "\n","box top coordinate", boxTopCenter , "\n","box bottom coordinate", boxBottomCenter )
+                    boxBottomCenter  = findSurroundingBottomBox(box: emptySpot)
+                    print("box left coordinate", boxLeftCenter , "\n","box right coordinate", boxRightCenter , "\n","box top coordinate", boxTopCenter , "\n","box bottom coordinate", boxBottomCenter )
                 
-                if(boxBottomCenter.y < 483){
-                    for view in allImgViews{
+                    if(boxBottomCenter.y < 483){
+                        for view in allImgViews{
                         
-                        if (view.center == (boxBottomCenter)){
-                            view.center.y = emptySpot.y
-                            emptySpot = boxBottomCenter
-                            print("new empty spot", emptySpot)
-                            print("box left coordinate", findSurroundingLeftBox(box: emptySpot) ,"\n","box right coordinate", findSurroundingRightBox(box: emptySpot),"\n","box top coordinate",findSurroundingTopBox(box: emptySpot),"\n","box bottom coordinate",findSurroundingBottomBox(box: emptySpot))
+                            if (view.center == (boxBottomCenter)){
+                                view.center.y = emptySpot.y
+                                emptySpot = boxBottomCenter
+                                print("new empty spot", emptySpot)
+                                print("box left coordinate", findSurroundingLeftBox(box: emptySpot) ,"\n","box right coordinate", findSurroundingRightBox(box: emptySpot),"\n","box top coordinate",findSurroundingTopBox(box: emptySpot),"\n","box bottom coordinate",findSurroundingBottomBox(box: emptySpot))
+                            }
                         }
                     }
-                }
-                else{
-                    print("unable to move")
-                }
+                    else{
+                        print("unable to move")
+                    }
                 
-            case UISwipeGestureRecognizerDirection.down:
+                // - If swipe gesture direction is down
+                // -- Find the center of the top box of the empty spot
+                // -- If the center location is still inside the bound of the puzzle coordinates
+                // -- Then move the top box to the bottom, else print unable to move
+                // -- Lastly, the new coordinates of the empty spot will the center of box that is swaped
+                case UISwipeGestureRecognizerDirection.down:
                 
-                print("Swiped down")
-                print("empty box",emptySpot)
+                    print("Swiped down")
+                    print("empty box",emptySpot)
+                    
+                    boxTopCenter  = findSurroundingTopBox(box: emptySpot)
+                    print("box left coordinate", boxLeftCenter , "\n","box right coordinate", boxRightCenter , "\n","box top coordinate", boxTopCenter , "\n","box bottom coordinate", boxBottomCenter )
                 
-                boxTopCenter  = findSurroundingTopBox(box: emptySpot)
-                print("box left coordinate", boxLeftCenter , "\n","box right coordinate", boxRightCenter , "\n","box top coordinate", boxTopCenter , "\n","box bottom coordinate", boxBottomCenter )
-                
-                if(boxTopCenter.y > 199){
-                    for view in allImgViews{
-                        
-                        if (view.center == (boxTopCenter)){
-                            view.center.y = emptySpot.y
-                            emptySpot = boxTopCenter
-                            print("new empty spot", emptySpot)
-                            print("box left coordinate", findSurroundingLeftBox(box: emptySpot) ,"\n","box right coordinate", findSurroundingRightBox(box: emptySpot),"\n","box top coordinate",findSurroundingTopBox(box: emptySpot),"\n","box bottom coordinate",findSurroundingBottomBox(box: emptySpot))
+                    if(boxTopCenter.y > 199){
+                        for view in allImgViews{
+                            
+                            if (view.center == (boxTopCenter)){
+                                view.center.y = emptySpot.y
+                                emptySpot = boxTopCenter
+                                print("new empty spot", emptySpot)
+                                print("box left coordinate", findSurroundingLeftBox(box: emptySpot) ,"\n","box right coordinate",   findSurroundingRightBox(box: emptySpot),"\n","box top coordinate",findSurroundingTopBox(box: emptySpot),"\n","box bottom coordinate",findSurroundingBottomBox(box: emptySpot))
+                            }
                         }
                     }
-                }
-                else{
-                    print("unable to move")
-                }
+                    else{
+                        print("unable to move")
+                    }
                 
-            default:
-                break
+                default:
+                    break
             }
         }
         
+        // - After every swipe gesture
+        // -- Check game condition
+        // -- If user able to get the gameCompleted state to be true (from inside the checkingWinCondition())
         gameCompleted = checkingWinCondition()
         gameCompleted = true
+        
+        // If user able to get it true
+        // - Stop timer
+        // - Count user score
+        // - Show the game button
+        // - Set back the time and gameCompleted state to be false
         if(gameCompleted == true){
             
             stopTimer()
@@ -581,7 +655,11 @@ class PuzzleGameViewController: UIViewController {
             gameCompleted = false
             timeIsOn = false
             
-            if(userScore > highScore){
+            // If userscore is lower than highScore
+            // - Meaning that they use lesser time to solve the puzzle
+            // - Show HighScore Alert and pass their score
+            // Else Show Game End alert
+            if(userScore < highScore){
                 showingHighScoreAlert(newHighScore: userScore)
                 
             }
@@ -593,6 +671,18 @@ class PuzzleGameViewController: UIViewController {
         }
         
     }
+    
+    // Updating the higscore label inside the game view
+    
+    
+    
+    
+    
+    // Amrit comment it out please //
+    
+    
+    
+    
     
     func updateHighScoreRecord(){
         let retrievedName : String! = UserDefaults.standard.object(forKey: "savedName") as? String
@@ -631,7 +721,7 @@ class PuzzleGameViewController: UIViewController {
         
     }
     
-/* ======================= Alert Function ======================== */
+    /* ======================= Alert Function ======================== */
     
     // Create an alert when the game end
     // Asking the user if they want to redo the game
@@ -639,6 +729,7 @@ class PuzzleGameViewController: UIViewController {
         let alertController = UIAlertController(title: "Puzzle Completed", message: "Save Picture?", preferredStyle: .alert)
         
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (Void) in
+            self.savePuzzleImageGallery(image: self.puzzleImg.image!)
             self.restartGameButton.alpha = 0
             self.pauseGameButton.alpha = 0
             self.resetTimer()
@@ -680,8 +771,7 @@ class PuzzleGameViewController: UIViewController {
             UserDefaults.standard.set(self.username, forKey: "savedName")
             UserDefaults.standard.set(self.highScore, forKey: "savedHighScore") // buat trigger highscore
             UserDefaults.standard.set(self.timerLabel.text, forKey: "savedTime")
-            
-            //self.updateHighScoreRecord(name: self.retrievedName, newHighScore: self.retrievedHighScore, time: self.retrievedTime)
+        
             self.updateHighScoreRecord()
 
             }))
@@ -689,13 +779,47 @@ class PuzzleGameViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    /* ======================== Saving Image Function ======================*/
+    // Saving the puzzle image to the user's phone gallery
+    // - Create the image data and compressed it
+    // - Save the compressed image
+    // - Add a permission to access photo gallery in info.plist
+    func savePuzzleImageGallery(image: UIImage){
+        
+        let imageData = UIImagePNGRepresentation(image)
+        let compressedImage = UIImage(data: imageData!)
+        UIImageWriteToSavedPhotosAlbum(compressedImage!, nil, nil, nil)
+        print("Image Saved")
+        
+        /*
+         
+         Idea from Seemu Apps Youtube Channel
+         Link: https://www.youtube.com/watch?v=0IvkfWl4uoI
+         
+         */
+        
+    }
+    
+    // Function to start the game
+    @IBAction func startGame(_ sender: AnyObject) {
+        
+        createPuzzle()
+        randomizeBlocks()
+        resetTimer()
+        startTimer()
+        pauseGameButton.alpha = 1
+        restartGameButton.alpha = 1
+        
+    }
     
     // Action to show the pause popup view
+    // - Show the pause popup view by changing the center X constraint of the popup view to 0
+    // - Set the pause
     @IBAction func showPausePopup(_ sender: AnyObject) {
         
         centerXPopupConstraint.constant = 0
         pausePopupView.layer.zPosition = 10
-        closePausePopupViewButton.layer.zPosition = 11
+        //closePausePopupViewButton.layer.zPosition = 11
         backgroundButton.layer.zPosition = 10
         
         
@@ -767,3 +891,14 @@ class PuzzleGameViewController: UIViewController {
 //        performSegue(withIdentifier: "goToVC", sender: userScore)
 //    }
 //
+
+//override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    if segue.identifier == "goToVC"
+//    {
+//        if let destination = segue.destination as? ViewController
+//        {
+//            destination.passedData = sender as? String
+//            print ("Sender Value: \(sender)")
+//        }
+//    }
+//}
