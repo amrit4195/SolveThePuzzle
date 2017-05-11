@@ -19,11 +19,17 @@ var passedData: String!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var clickToStartButton: UIButton!
 
+    @IBOutlet weak var musicButton: UIButton!
+    @IBOutlet weak var soundFXButton: UIButton!
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var licenseButton: UIButton!
+    @IBOutlet weak var aboutUsButton: UIButton!
     // Outlets for the help popup view
-    @IBOutlet weak var closeHelpViewButton: UIButton!
+    @IBOutlet weak var closeSettingViewButton: UIButton!
     @IBOutlet weak var backgroundButton: UIButton!
     @IBOutlet weak var centerXPopupConstraint: NSLayoutConstraint!
-    @IBOutlet weak var helpPopupView: UIView!
+    
+    @IBOutlet weak var settingPopupView: UIView!
     
     // @IBOutlet weak var demoPuzzleImageView: UIImageView!
     
@@ -31,17 +37,17 @@ var passedData: String!
     var soundPlayer: AVAudioPlayer?
     
     override func viewDidAppear(_ animated: Bool) {
-        let time : String? = UserDefaults.standard.object(forKey: "time") as? String
-        
-        if let timeToDisplay = time {
-            userTimeLabel.text = timeToDisplay
-        }
+//        let time : String? = UserDefaults.standard.object(forKey: "time") as? String
+//        
+//        if let timeToDisplay = time {
+//            userTimeLabel.text = timeToDisplay
+//        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        test.text = passedData
+        //test.text = passedData
         
         // Create a sound file
         let path = Bundle.main.path(forResource: "LittleIdea", ofType: "mp3")
@@ -59,8 +65,8 @@ var passedData: String!
         catch{print("Player does not work for some reason")}
         
         // Set up the help popup view design
-        helpPopupView.layer.cornerRadius = 20
-        helpPopupView.layer.masksToBounds = true
+        settingPopupView.layer.cornerRadius = 20
+        settingPopupView.layer.masksToBounds = true
     
         
         // set image for the demo puzzle
@@ -131,9 +137,9 @@ var passedData: String!
 
     }
 
-    @IBAction func backgroundButton(_ sender: AnyObject) {
-        UserDefaults.standard.set(test.text, forKey: "time")
-    }
+//    @IBAction func backgroundButton(_ sender: AnyObject) {
+//        UserDefaults.standard.set(test.text, forKey: "time")
+//    }
     // Go back to Home Page
     @IBAction func exitToHomeScene(sender: UIStoryboardSegue){
         
