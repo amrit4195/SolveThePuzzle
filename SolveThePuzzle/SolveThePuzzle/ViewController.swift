@@ -31,10 +31,12 @@ var passedData: String!
     
     @IBOutlet weak var settingPopupView: UIView!
     
-    // @IBOutlet weak var demoPuzzleImageView: UIImageView!
-    
     // Initializing Variables
-    var soundPlayer: AVAudioPlayer?
+    var homeMusicPlayer1: AVAudioPlayer?
+    var buttonPressedSFX: AVAudioPlayer?
+    
+    var musicIsOn = true
+    var soundIsOn = true
     
     override func viewDidAppear(_ animated: Bool) {
 //        let time : String? = UserDefaults.standard.object(forKey: "time") as? String
@@ -49,70 +51,143 @@ var passedData: String!
         
         //test.text = passedData
         
-        // Create a sound file
-        let path = Bundle.main.path(forResource: "LittleIdea", ofType: "mp3")
-        let url = NSURL.fileURL(withPath: path!) // path cannot be nil
+        // Creating a sound file
+        let homeMusicPath1 = Bundle.main.path(forResource: "LittleIdea", ofType: "mp3")
+        let homeMusicURL1 = NSURL.fileURL(withPath: homeMusicPath1!)
+        
+        let buttonPressedSFXPath = Bundle.main.path(forResource: "buttonSFX", ofType: "wav")
+        let buttonPressedSFXURL = NSURL.fileURL(withPath: buttonPressedSFXPath!)
         
         // Inserting the sound file to the sound player variable
-        
-       
+        // Catch an error if the playback has an issue
         do{
-            try soundPlayer = AVAudioPlayer(contentsOf: url)
+            try homeMusicPlayer1 = AVAudioPlayer(contentsOf: homeMusicURL1)
             
-            soundPlayer?.play()
+            homeMusicPlayer1?.play()
         }
-            // Catch an error if the playback has an issue
         catch{print("Player does not work for some reason")}
         
-        // Set up the help popup view design
+        // For Button SFX
+        // Inserting the sound file to the sound player variable
+        // Catch an error if the playback has an issue
+        do{
+            try buttonPressedSFX = AVAudioPlayer(contentsOf: buttonPressedSFXURL)
+            
+            buttonPressedSFX?.prepareToPlay()
+            buttonPressedSFX?.volume = 50
+            
+        }
+        catch{print("Player does not work for some reason")}
+        
+        
+        // Set up the setting popup view design
         settingPopupView.layer.cornerRadius = 20
         settingPopupView.layer.masksToBounds = true
-    
         
-        // set image for the demo puzzle
-        //demoPuzzleImageView.contentMode = .scaleAspectFit
-        //demoPuzzleImageView.image = #imageLiteral(resourceName: "app_image")
-     
-        /*
-        // blinking animation
-        UIView.animate(withDuration: 1, delay: 0.0, options: [.repeat,.autoreverse,.allowUserInteraction], animations: {
-            self.clickToStartButton.alpha = 0.1 //disappear
-            self.clickToStartButton.alpha = 1.0 // appear
-            }, completion: nil)
-        
-         */
-    
+        musicIsOn = true
+        soundIsOn = true
     }
     
-    //override func viewDidAppear(_ animated: Bool) {
+    @IBAction func muteUnmuteSound(_ sender: AnyObject) {
         
-        /*
-        // blinking animation
-        UIView.animate(withDuration: 1, delay: 0.0, options: [.repeat,.autoreverse,.allowUserInteraction], animations: {
-            self.clickToStartButton.alpha = 0.1 //disappear
-            self.clickToStartButton.alpha = 1.0 // appear
-            }, completion: nil)
-        */
-    //}
-    
-    @IBAction func playPauseSound(_ sender: AnyObject) {
-        if (soundPlayer?.isPlaying)! {
-            soundPlayer?.stop()
-        } else {
-            self.soundPlayer?.play()
+        if(soundIsOn == true){
+            print("sound stop")
+            soundFXButton.setImage(UIImage(named: "sound-off1-music-on1"), for: .normal)
+            buttonPressedSFX?.volume = 0
+            
+            
+            // music on but sound is on
+            if(musicIsOn == true){
+                musicButton.setImage(UIImage(named: "music-on1-sound-off1"), for: .normal)
+                print("ee","musicIsOn:",musicIsOn,"soundIsOn:",soundIsOn)
+                
+            }else{
+                musicButton.setImage(UIImage(named: "music-off-sound-off"), for: .normal)
+                print("ff","musicIsOn:",musicIsOn,"soundIsOn:",soundIsOn)
+                
+            }
+            soundIsOn = false
+            
         }
+        else if(soundIsOn == false){
+            print("sound playing")
+            soundFXButton.setImage(UIImage(named: "sound-on-music-on"), for: .normal)
+            buttonPressedSFX?.volume = 50
+            
+            
+            if(musicIsOn == true){
+                musicButton.setImage(UIImage(named: "music-on-sound-on"), for: .normal)
+                print("gg","musicIsOn:",musicIsOn,"soundIsOn:",soundIsOn)
+                
+            }else{
+                musicButton.setImage(UIImage(named: "music-off-sound-on"), for: .normal)
+                print("hh","musicIsOn:",musicIsOn,"soundIsOn:",soundIsOn)
+                
+            }
+            soundIsOn = true
+        }
+        
+        
+        
     }
     
-    // Action to show the help popup view
+    @IBAction func playStopMusic(_ sender: AnyObject) {
+        
+        if(musicIsOn == true){
+            //print("music stop")
+            musicButton.setImage(UIImage(named: "music-off-sound-on"), for: .normal)
+            homeMusicPlayer1?.stop()
+            
+            // music stop but sound is on
+            if(soundIsOn == true){
+                soundFXButton.setImage(UIImage(named: "sound-on-music-off"), for: .normal)
+                print("aa","musicIsOn:",musicIsOn,"soundIsOn:",soundIsOn)
+                
+            }else{
+                soundFXButton.setImage(UIImage(named: "sound-off-music-off"), for: .normal)
+                print("mute sound")
+                print("bb","musicIsOn:",musicIsOn,"soundIsOn:",soundIsOn)
+                
+            }
+            musicIsOn = false
+            
+        }
+        else if(musicIsOn == false){
+            print("music playing")
+            musicButton.setImage(UIImage(named: "music-on-sound-on"), for: .normal)
+            homeMusicPlayer1?.play()
+            
+            
+            if(soundIsOn == true){
+                soundFXButton.setImage(UIImage(named: "sound-on-music-on"), for: .normal)
+                print("cc","musicIsOn:",musicIsOn,"soundIsOn:",soundIsOn)
+                
+            }else{
+                soundFXButton.setImage(UIImage(named: "sound-off1-music-on1"), for: .normal)
+                print("dd","musicIsOn:",musicIsOn,"soundIsOn:",soundIsOn)
+                
+            }
+            musicIsOn = true
+        }
+        
+    }
+    
+    
+    @IBAction func openAboutUsView(_ sender: AnyObject) {
+        
+        buttonPressedSFX?.play()
+    }
+    
+    // Action to show the setting popup view
     // - Show view by setting the X contraint to be 0
     // - Start Sliding Animation
-    @IBAction func showHelpPopup(_ sender: AnyObject) {
+    @IBAction func showSettingPopup(_ sender: AnyObject) {
         
         centerXPopupConstraint.constant = 0
         
         // Slide In Animation
         // - Layout the subview immediately
-        // - Set background button alpha to 0.5 
+        // - Set background button alpha to 0.5
         //   (this button is also used to close the view and set 0.5 alpha to
         //   let all the things behind it to have a whitish color)
         UIView.animate(withDuration: 0.3, animations: {
@@ -121,10 +196,10 @@ var passedData: String!
         })
     }
     
- 
     
-    // Action to dismiss the help popup view
-    @IBAction func closeHelpPopup(_ sender: AnyObject) {
+    
+    // Action to dismiss the setting popup view
+    @IBAction func closeSettingPopup(_ sender: AnyObject) {
         centerXPopupConstraint.constant =  -500
         
         // Slide Out Animation
@@ -134,12 +209,12 @@ var passedData: String!
             self.view.layoutIfNeeded()
             self.backgroundButton.alpha = 0
         })
-
+        
     }
 
-//    @IBAction func backgroundButton(_ sender: AnyObject) {
-//        UserDefaults.standard.set(test.text, forKey: "time")
-//    }
+    @IBAction func backgroundButton(_ sender: AnyObject) {
+    
+    }
     // Go back to Home Page
     @IBAction func exitToHomeScene(sender: UIStoryboardSegue){
         
@@ -153,3 +228,10 @@ var passedData: String!
 
 }
 
+/*
+ // blinking animation
+ UIView.animate(withDuration: 1, delay: 0.0, options: [.repeat,.autoreverse,.allowUserInteraction], animations: {
+ self.clickToStartButton.alpha = 0.1 //disappear
+ self.clickToStartButton.alpha = 1.0 // appear
+ }, completion: nil)
+ */
