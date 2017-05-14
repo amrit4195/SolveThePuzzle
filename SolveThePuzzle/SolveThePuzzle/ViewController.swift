@@ -24,6 +24,7 @@ var passedData: String!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var licenseButton: UIButton!
     @IBOutlet weak var aboutUsButton: UIButton!
+    
     // Outlets for the help popup view
     @IBOutlet weak var closeSettingViewButton: UIButton!
     @IBOutlet weak var backgroundButton: UIButton!
@@ -38,12 +39,14 @@ var passedData: String!
     var musicIsOn = true
     var soundIsOn = true
     
+    var nameReceived = ""
+    var bestTimeReceived = ""
+    
+    var nameSaved = ""
+    var bestTimeSaved = ""
+    
     override func viewDidAppear(_ animated: Bool) {
-//        let time : String? = UserDefaults.standard.object(forKey: "time") as? String
-//        
-//        if let timeToDisplay = time {
-//            userTimeLabel.text = timeToDisplay
-//        }
+        updateHighScoreLabel()
     }
     
     override func viewDidLoad() {
@@ -215,15 +218,51 @@ var passedData: String!
     @IBAction func backgroundButton(_ sender: AnyObject) {
     
     }
-    // Go back to Home Page
+    
+    // Go back to Home Page Function
     @IBAction func exitToHomeScene(sender: UIStoryboardSegue){
+        
+        if let sourceViewController = sender.source as? PuzzleGameViewController {
+            nameReceived = sourceViewController.retrievedName
+            bestTimeReceived = sourceViewController.retrievedTime
+            savingRecord(name: nameReceived, bestTime: bestTimeReceived)
+            updateHighScoreLabel()
+        }
         
     }
     
-    // Override the unwind function
-    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        let segue = UnwindScaleSegue(identifier: unwindSegue.identifier, source: unwindSegue.source, destination: unwindSegue.destination)
-        segue.perform()
+//    // Override the unwind function
+//    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+//        let segue = UnwindScaleSegue(identifier: unwindSegue.identifier, source: unwindSegue.source, destination: unwindSegue.destination)
+//        segue.perform()
+//    }
+    
+    func updateHighScoreLabel(){
+        
+        nameReceived = (UserDefaults.standard.object(forKey: "savedName") as? String)!
+        bestTimeReceived = (UserDefaults.standard.object(forKey: "savedTime") as? String)!
+    
+        if(nameReceived != nil){
+            timeLabel.text = nameReceived
+        }
+        else{
+            print("name is null")
+        }
+        
+        if(bestTimeReceived != nil){
+            userTimeLabel.text = bestTimeReceived
+        }
+        else{
+            print("time is null")
+        }
+        
+    }
+    
+    func savingRecord(name: String, bestTime: String){
+        
+        UserDefaults.standard.set(name, forKey: "savedName")
+        UserDefaults.standard.set(bestTime, forKey: "savedTime")
+        
     }
 
 }

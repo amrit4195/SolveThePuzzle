@@ -53,6 +53,10 @@ class PuzzleGameViewController: UIViewController {
     // Puzzle Image Variable
     var puzzleImg: UIImageView!
     
+    var retrievedName : String!
+    var retrievedHighScore : Int!
+    var retrievedTime : String!
+    
     
     @IBOutlet weak var pausePuzzleImageView: UIImageView!
     @IBOutlet weak var pausePopupView: UIView!
@@ -685,12 +689,16 @@ class PuzzleGameViewController: UIViewController {
     
     
     func updateHighScoreRecord(){
-        let retrievedName : String! = UserDefaults.standard.object(forKey: "savedName") as? String
-        let retrievedHighScore : Int! = UserDefaults.standard.object(forKey: "savedHighScore") as? Int
-        let retrievedTime : String! = UserDefaults.standard.object(forKey: "savedTime") as? String
+//        let retrievedName : String! = UserDefaults.standard.object(forKey: "savedName") as? String
+//        let retrievedHighScore : Int! = UserDefaults.standard.object(forKey: "savedHighScore") as? Int
+//        let retrievedTime : String! = UserDefaults.standard.object(forKey: "savedTime") as? String
+        
+        retrievedName = UserDefaults.standard.object(forKey: "savedName") as? String
+        retrievedHighScore = UserDefaults.standard.object(forKey: "savedHighScore") as? Int
+        retrievedTime = UserDefaults.standard.object(forKey: "savedTime") as? String
         
         if(retrievedName != nil){
-            print("est username is", retrievedName)
+            print("best username is", retrievedName)
             savedUsernameLabel.text = "User: " + retrievedName
         }
         else{
