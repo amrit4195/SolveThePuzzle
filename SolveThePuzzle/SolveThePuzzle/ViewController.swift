@@ -15,8 +15,8 @@ var passedData: String!
     // Outlets for the main screen
     @IBOutlet weak var test: UILabel!
     @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var userTimeLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
+    //@IBOutlet weak var userTimeLabel: UILabel!
+    //@IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var clickToStartButton: UIButton!
 
     @IBOutlet weak var musicButton: UIButton!
@@ -39,14 +39,14 @@ var passedData: String!
     var musicIsOn = true
     var soundIsOn = true
     
-    var nameReceived = ""
-    var bestTimeReceived = ""
-    
-    var nameSaved = ""
-    var bestTimeSaved = ""
+//    var nameReceived = ""
+//    var bestTimeReceived = ""
+//    
+//    var nameSaved = ""
+//    var bestTimeSaved = ""
     
     override func viewDidAppear(_ animated: Bool) {
-        updateHighScoreLabel()
+       // updateHighScoreLabel()
     }
     
     override func viewDidLoad() {
@@ -95,13 +95,13 @@ var passedData: String!
         
         if(soundIsOn == true){
             print("sound stop")
-            soundFXButton.setImage(UIImage(named: "sound-off1-music-on1"), for: .normal)
+            soundFXButton.setImage(UIImage(named: "sound-off-music-on"), for: .normal)
             buttonPressedSFX?.volume = 0
             
             
             // music on but sound is on
             if(musicIsOn == true){
-                musicButton.setImage(UIImage(named: "music-on1-sound-off1"), for: .normal)
+                musicButton.setImage(UIImage(named: "music-on-sound-off"), for: .normal)
                 print("ee","musicIsOn:",musicIsOn,"soundIsOn:",soundIsOn)
                 
             }else{
@@ -166,7 +166,7 @@ var passedData: String!
                 print("cc","musicIsOn:",musicIsOn,"soundIsOn:",soundIsOn)
                 
             }else{
-                soundFXButton.setImage(UIImage(named: "sound-off1-music-on1"), for: .normal)
+                soundFXButton.setImage(UIImage(named: "sound-off-music-on"), for: .normal)
                 print("dd","musicIsOn:",musicIsOn,"soundIsOn:",soundIsOn)
                 
             }
@@ -222,12 +222,12 @@ var passedData: String!
     // Go back to Home Page Function
     @IBAction func exitToHomeScene(sender: UIStoryboardSegue){
         
-        if let sourceViewController = sender.source as? PuzzleGameViewController {
-            nameReceived = sourceViewController.retrievedName
-            bestTimeReceived = sourceViewController.retrievedTime
-            savingRecord(name: nameReceived, bestTime: bestTimeReceived)
-            updateHighScoreLabel()
-        }
+//        if let sourceViewController = sender.source as? PuzzleGameViewController {
+//            nameReceived = sourceViewController.retrievedName
+//            bestTimeReceived = sourceViewController.retrievedTime
+//            savingRecord(name: nameReceived, bestTime: bestTimeReceived)
+//            updateHighScoreLabel()
+//        }
         
     }
     
@@ -237,33 +237,33 @@ var passedData: String!
 //        segue.perform()
 //    }
     
-    func updateHighScoreLabel(){
-        
-        nameReceived = (UserDefaults.standard.object(forKey: "savedName") as? String)!
-        bestTimeReceived = (UserDefaults.standard.object(forKey: "savedTime") as? String)!
+//    func updateHighScoreLabel(){
+//        
+//        nameReceived = (UserDefaults.standard.object(forKey: "savedName") as? String)!
+//        bestTimeReceived = (UserDefaults.standard.object(forKey: "savedTime") as? String)!
+//    
+//        if(nameReceived != nil){
+//            timeLabel.text = nameReceived
+//        }
+//        else{
+//            print("name is null")
+//        }
+//        
+//        if(bestTimeReceived != nil){
+//            userTimeLabel.text = bestTimeReceived
+//        }
+//        else{
+//            print("time is null")
+//        }
+//        
+//    }
     
-        if(nameReceived != nil){
-            timeLabel.text = nameReceived
-        }
-        else{
-            print("name is null")
-        }
-        
-        if(bestTimeReceived != nil){
-            userTimeLabel.text = bestTimeReceived
-        }
-        else{
-            print("time is null")
-        }
-        
-    }
-    
-    func savingRecord(name: String, bestTime: String){
-        
-        UserDefaults.standard.set(name, forKey: "savedName")
-        UserDefaults.standard.set(bestTime, forKey: "savedTime")
-        
-    }
+//    func savingRecord(name: String, bestTime: String){
+//        
+//        UserDefaults.standard.set(name, forKey: "savedName")
+//        UserDefaults.standard.set(bestTime, forKey: "savedTime")
+//        
+//    }
 
 }
 
