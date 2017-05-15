@@ -32,7 +32,7 @@ class PuzzleSelectionViewController: UIViewController {
         switch(sender.tag){
         case 0:
             pictureSelected = "puzzle1"
-            puzzlePiecesFormat = "sw_%02i.jpg"
+            puzzlePiecesFormat = "puzzle1_%02i.jpg"
             print(pictureSelected)
             
             performSegue(withIdentifier: "toGame", sender: self)
@@ -40,7 +40,7 @@ class PuzzleSelectionViewController: UIViewController {
             break
         case 1:
             pictureSelected = "puzzle2"
-            puzzlePiecesFormat = "fb_%02i.jpg"
+            puzzlePiecesFormat = "puzzle2_%02i.jpg"
             print(pictureSelected)
             
             performSegue(withIdentifier: "toGame", sender: self)
@@ -48,7 +48,7 @@ class PuzzleSelectionViewController: UIViewController {
             
         case 2:
             pictureSelected = "puzzle3"
-            puzzlePiecesFormat = "yt_%02i.jpg"
+            puzzlePiecesFormat = "puzzle3_%02i.jpg"
             
             performSegue(withIdentifier: "toGame", sender: self)
             
