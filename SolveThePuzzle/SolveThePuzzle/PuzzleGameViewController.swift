@@ -52,7 +52,6 @@ class PuzzleGameViewController: UIViewController {
     
     // Puzzle Image Variable
     var puzzleImg: UIImageView!
-    
     var retrievedName : String!
     var retrievedHighScore : Int!
     var retrievedTime : String!

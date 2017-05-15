@@ -31,24 +31,24 @@ class PuzzleSelectionViewController: UIViewController {
         
         switch(sender.tag){
         case 0:
-            pictureSelected = "app_image"
-            puzzlePiecesFormat = "ai_%02i.jpg"
+            pictureSelected = "swan-picture"
+            puzzlePiecesFormat = "sw_%02i.jpg"
             print(pictureSelected)
             
             performSegue(withIdentifier: "toGame", sender: self)
             
             break
         case 1:
-            pictureSelected = "tree"
-            puzzlePiecesFormat = "tr_%02i.jpg"
+            pictureSelected = "frozen-bubble-picture"
+            puzzlePiecesFormat = "fb_%02i.jpg"
             print(pictureSelected)
             
             performSegue(withIdentifier: "toGame", sender: self)
             break
             
         case 2:
-            pictureSelected = "app_image"
-            puzzlePiecesFormat = "ai_%02i.jpg"
+            pictureSelected = "yellow-tulip-picture"
+            puzzlePiecesFormat = "yt_%02i.jpg"
             
             performSegue(withIdentifier: "toGame", sender: self)
             
@@ -129,7 +129,22 @@ class PuzzleSelectionViewController: UIViewController {
             let destVc = segue.destination as! GameViewController
             destVc.pictureName = pictureSelected
             destVc.puzzlePiecesFormat = puzzlePiecesFormat
+            destVc.savedBestUser = pictureSelected + destVc.savedBestUser
+            destVc.savedBestTime = pictureSelected + destVc.savedBestTime
+            destVc.savedHighscore = pictureSelected + destVc.savedHighscore
         }
+        
+    }
+    
+    // Go back to Home Page Function
+    @IBAction func exitToPuzzleSelectionScene(sender: UIStoryboardSegue){
+        
+        //        if let sourceViewController = sender.source as? PuzzleGameViewController {
+        //            nameReceived = sourceViewController.retrievedName
+        //            bestTimeReceived = sourceViewController.retrievedTime
+        //            savingRecord(name: nameReceived, bestTime: bestTimeReceived)
+        //            updateHighScoreLabel()
+        //        }
         
     }
     

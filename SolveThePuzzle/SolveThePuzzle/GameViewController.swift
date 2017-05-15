@@ -43,7 +43,7 @@ class GameViewController: UIViewController {
     var boxBottomCenter  = CGPoint.zero
     
     // Recording High score Variables
-    var highScore = 0
+    var highScore = 20000
     var userScore = 0
     var username = ""
     
@@ -60,6 +60,10 @@ class GameViewController: UIViewController {
     var retrievedHighScore : Int!
     var retrievedTime : String!
     
+    var savedBestUser : String! = "BestUser"
+    var savedBestTime : String! = "BestTime"
+    var savedHighscore : String! = "Highscore"
+
     
     @IBOutlet weak var pausePuzzleImageView: UIImageView!
     @IBOutlet weak var pausePopupView: UIView!
@@ -75,6 +79,11 @@ class GameViewController: UIViewController {
     @IBOutlet weak var restartGameButton: UIButton!
     @IBOutlet weak var bottomGameContainer: UIView!
     
+    @IBOutlet weak var yBottomContainer: NSLayoutConstraint!
+    
+    
+
+    
     // As the view load
     // - Set Default image to the image view that will be put inside the pause popup view
     // - Hide Pause popupview, restart and pause game button
@@ -85,7 +94,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         
         print("dasdasda", pictureName)
-        
+        print("feirfjerfre", savedBestUser, savedBestTime, savedHighscore)
+
         puzzlePicture = UIImage(named: pictureName)
         pausePuzzleImageView.image = puzzlePicture
         restartGameButton.alpha = 0
@@ -147,7 +157,7 @@ class GameViewController: UIViewController {
         
         timeIsOn = true
         gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-        startGameButton.isHidden = true;
+
         
     }
     
@@ -662,7 +672,11 @@ class GameViewController: UIViewController {
             stopTimer()
             userScore = (minutes * 60) + seconds
             print("userscore",userScore)
-            startGameButton.isHidden = false
+            
+            yBottomContainer.constant = 0
+            UIView.animate(withDuration: 0.2, animations: {
+                self.view.layoutIfNeeded()
+            })
             gameCompleted = false
             timeIsOn = false
             
@@ -696,13 +710,10 @@ class GameViewController: UIViewController {
     
     
     func updateHighScoreRecord(){
-        //        let retrievedName : String! = UserDefaults.standard.object(forKey: "savedName") as? String
-        //        let retrievedHighScore : Int! = UserDefaults.standard.object(forKey: "savedHighScore") as? Int
-        //        let retrievedTime : String! = UserDefaults.standard.object(forKey: "savedTime") as? String
         
-        retrievedName = UserDefaults.standard.object(forKey: "savedName") as? String
-        retrievedHighScore = UserDefaults.standard.object(forKey: "savedHighScore") as? Int
-        retrievedTime = UserDefaults.standard.object(forKey: "savedTime") as? String
+        retrievedName = UserDefaults.standard.object(forKey: savedBestUser) as? String
+        retrievedHighScore = UserDefaults.standard.object(forKey: savedHighscore) as? Int
+        retrievedTime = UserDefaults.standard.object(forKey: savedBestTime) as? String
         
         if(retrievedName != nil){
             print("best username is", retrievedName)
@@ -716,11 +727,11 @@ class GameViewController: UIViewController {
         if(retrievedTime != nil){
             
             print("Best time is", retrievedTime)
-            savedHighScoreLabel.text = "Best Time: " + retrievedTime
+            savedHighScoreLabel.text = retrievedTime
         }
         else if(retrievedTime == nil){
             print("time is null")
-            savedHighScoreLabel.text = "Best Time: xx:xx"
+            savedHighScoreLabel.text = "--:--"
         }
         
         if(retrievedHighScore != nil){
@@ -729,7 +740,7 @@ class GameViewController: UIViewController {
             
         }
         else if(retrievedHighScore == nil){
-            highScore = 0
+            highScore = 20000
         }
         
         //print("new record: username:",retrievedName,"highscore:",highScore,"time:",retrievedTime)
@@ -783,9 +794,10 @@ class GameViewController: UIViewController {
             self.username = (textField?.text)!
             self.showingGameEndAlert()
             
-            UserDefaults.standard.set(self.username, forKey: "savedName")
-            UserDefaults.standard.set(self.highScore, forKey: "savedHighScore") // buat trigger highscore
-            UserDefaults.standard.set(self.timerLabel.text, forKey: "savedTime")
+            UserDefaults.standard.set(self.username, forKey: self.savedBestUser)
+            UserDefaults.standard.set(self.highScore, forKey: self.savedHighscore)
+            // buat trigger highscore
+            UserDefaults.standard.set(self.timerLabel.text, forKey: self.savedBestTime)
             
             self.updateHighScoreRecord()
             
@@ -822,6 +834,10 @@ class GameViewController: UIViewController {
         randomizeBlocks()
         resetTimer()
         startTimer()
+        yBottomContainer.constant = -170
+        UIView.animate(withDuration: 0.2, animations: {
+            self.view.layoutIfNeeded()
+        })
         pauseGameButton.alpha = 1
         restartGameButton.alpha = 1
         
@@ -880,7 +896,10 @@ class GameViewController: UIViewController {
     @IBAction func restartingGame(_ sender: AnyObject) {
         stopTimer()
         
-        startGameButton.isHidden = false
+        yBottomContainer.constant = 0
+        UIView.animate(withDuration: 0.2, animations: {
+            self.view.layoutIfNeeded()
+        })
         gameCompleted = false
         timeIsOn = false
         restartGameButton.alpha = 0
