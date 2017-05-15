@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -110,8 +109,7 @@
                                     <constraint firstAttribute="width" constant="293" id="ydg-1o-Mvb"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa1-7I-l4f">
-                                <frame key="frameInset" minY="-359" width="375" height="667"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa1-7I-l4f">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -157,151 +155,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="320.80000000000001" y="103.89805097451276"/>
-        </scene>
-        <!--Puzzle Game View Controller-->
-        <scene sceneID="vdq-6u-yOQ">
-            <objects>
-                <viewController id="BNL-vQ-f1S" customClass="PuzzleGameViewController" customModule="SolveThePuzzle" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8hQ-yT-I9c"/>
-                        <viewControllerLayoutGuide type="bottom" id="sfP-n6-Fuz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="aLD-Ce-YKg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="game-screen-wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="ETm-SC-TvB">
-                                <frame key="frameInset" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="time-holder" translatesAutoresizingMaskIntoConstraints="NO" id="Byo-or-yvk">
-                                <frame key="frameInset" minX="67" minY="43" width="240" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLu-bW-yVQ">
-                                <frame key="frameInset" minY="43" width="66" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="back-button-normal"/>
-                                <state key="highlighted" image="back-button-pressed"/>
-                                <connections>
-                                    <segue destination="h1r-D0-ASK" kind="unwind" customClass="UnwindScaleSegue" customModule="SolveThePuzzle" customModuleProvider="target" unwindAction="exitToHomeSceneWithSender:" id="MeV-nz-act"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXU-qW-x5b">
-                                <frame key="frameInset" minX="135" minY="66" width="133" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWr-Ie-EPK">
-                                <frame key="frameInset" minX="301" minY="43" width="66" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="pause-button-normal"/>
-                                <state key="highlighted" image="pause-button-pressed"/>
-                                <connections>
-                                    <action selector="showPausePopup:" destination="BNL-vQ-f1S" eventType="touchUpInside" id="dKe-F7-5Hf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPe-LC-5iq">
-                                <frame key="frameInset" minX="301" minY="97" width="66" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="restart-button-normal"/>
-                                <state key="highlighted" image="restart-button-pressed"/>
-                                <connections>
-                                    <action selector="restartingGame:" destination="BNL-vQ-f1S" eventType="touchUpInside" id="Pca-kD-Wek"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Umt-i4-ltF">
-                                <frame key="frameInset" minY="529" width="375" height="138"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best Time: xx:xx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZF-BZ-vKs">
-                                        <frame key="frameInset" minX="8" minY="109" width="168" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="By: Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McT-l3-A7j">
-                                        <frame key="frameInset" minX="264" minY="108" width="108" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJE-36-jDH">
-                                        <frame key="frameInset" minX="87" minY="24" width="200" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="shuffle-button"/>
-                                        <connections>
-                                            <action selector="startGame:" destination="BNL-vQ-f1S" eventType="touchUpInside" id="OJV-qo-gCF"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKS-6G-azO">
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_image" translatesAutoresizingMaskIntoConstraints="NO" id="fjm-uC-vZb"/>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RpH-Ik-8Nn">
-                                        <frame key="frameInset" minX="252" width="39" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Close"/>
-                                        <connections>
-                                            <action selector="closePausePopup:" destination="BNL-vQ-f1S" eventType="touchUpInside" id="oSl-IW-yCV"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="5cd-33-4wn"/>
-                                    <constraint firstAttribute="bottom" secondItem="fjm-uC-vZb" secondAttribute="bottom" id="KgR-rs-63i"/>
-                                    <constraint firstItem="fjm-uC-vZb" firstAttribute="top" secondItem="mKS-6G-azO" secondAttribute="top" id="LjM-9Z-tpb"/>
-                                    <constraint firstAttribute="width" constant="300" id="M8b-Im-37e"/>
-                                    <constraint firstAttribute="trailing" secondItem="fjm-uC-vZb" secondAttribute="trailing" id="cgg-LW-Pbk"/>
-                                    <constraint firstAttribute="width" secondItem="mKS-6G-azO" secondAttribute="height" multiplier="1:1" id="fTx-RB-h8u"/>
-                                    <constraint firstItem="fjm-uC-vZb" firstAttribute="leading" secondItem="mKS-6G-azO" secondAttribute="leading" id="hqD-yh-hLe"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXL-vW-LtK">
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="667" id="mXf-OD-ffU"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="closePausePopup:" destination="BNL-vQ-f1S" eventType="touchUpInside" id="IXd-Sd-baL"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="jXL-vW-LtK" secondAttribute="trailing" id="2na-Mq-eVH"/>
-                            <constraint firstItem="jXL-vW-LtK" firstAttribute="top" secondItem="aLD-Ce-YKg" secondAttribute="top" id="4fx-pD-f9L"/>
-                            <constraint firstItem="mKS-6G-azO" firstAttribute="centerX" secondItem="aLD-Ce-YKg" secondAttribute="centerX" constant="-500" id="O5g-gE-oY3"/>
-                            <constraint firstItem="mKS-6G-azO" firstAttribute="centerY" secondItem="aLD-Ce-YKg" secondAttribute="centerY" id="UM7-Ot-EU0"/>
-                            <constraint firstItem="jXL-vW-LtK" firstAttribute="width" secondItem="aLD-Ce-YKg" secondAttribute="width" id="v58-Gp-RxU"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="T6F-EZ-H4b"/>
-                    <connections>
-                        <outlet property="backButton" destination="wLu-bW-yVQ" id="ZCI-XP-zg1"/>
-                        <outlet property="backgroundButton" destination="jXL-vW-LtK" id="Btc-ak-agW"/>
-                        <outlet property="centerXPopupConstraint" destination="O5g-gE-oY3" id="jxV-of-hZA"/>
-                        <outlet property="closePausePopupViewButton" destination="RpH-Ik-8Nn" id="ybY-Cx-fhT"/>
-                        <outlet property="pauseGameButton" destination="qWr-Ie-EPK" id="sGg-Mu-T9m"/>
-                        <outlet property="pausePopupView" destination="mKS-6G-azO" id="UbZ-Nt-zux"/>
-                        <outlet property="pausePuzzleImageView" destination="fjm-uC-vZb" id="ddS-cg-I9R"/>
-                        <outlet property="restartGameButton" destination="NPe-LC-5iq" id="adb-Qo-8N0"/>
-                        <outlet property="savedHighScoreLabel" destination="SZF-BZ-vKs" id="Ljt-Hx-x5X"/>
-                        <outlet property="savedUsernameLabel" destination="McT-l3-A7j" id="uZj-hn-r7A"/>
-                        <outlet property="startGameButton" destination="zJE-36-jDH" id="lyA-AF-jKx"/>
-                        <outlet property="timerLabel" destination="cXU-qW-x5b" id="xmd-T3-bNI"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3gY-7s-Gui" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="h1r-D0-ASK" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="320.80000000000001" y="834.33283358320841"/>
         </scene>
         <!--Puzzle Selection View Controller-->
         <scene sceneID="1cF-qu-dvb">
@@ -584,8 +437,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pa4-8w-fxN">
-                                <frame key="frameInset" minY="202" width="375" height="667"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pa4-8w-fxN">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="closePausePopup:" destination="zd9-1e-9Hd" eventType="touchUpInside" id="FNH-mY-Qvn"/>
@@ -623,7 +475,6 @@
                                         <state key="normal" image="close-button-normal"/>
                                         <state key="highlighted" image="close-button-pressed"/>
                                         <connections>
-                                            <action selector="closePausePopup:" destination="BNL-vQ-f1S" eventType="touchUpInside" id="KzP-vK-1gM"/>
                                             <action selector="closePausePopup:" destination="zd9-1e-9Hd" eventType="touchUpInside" id="fYy-qk-vBF"/>
                                         </connections>
                                     </button>
@@ -719,13 +570,11 @@
     </scenes>
     <resources>
         <image name="about-us-button-normal" width="499" height="174"/>
-        <image name="app_image" width="300" height="300"/>
         <image name="back-button-normal" width="66" height="66"/>
         <image name="back-button-pressed" width="66" height="66"/>
         <image name="close-button-normal" width="66" height="66"/>
         <image name="close-button-pressed" width="66" height="66"/>
         <image name="extra-background" width="1041" height="1857"/>
-        <image name="game-screen-wallpaper" width="250" height="444"/>
         <image name="help-button-normal" width="66" height="66"/>
         <image name="help-button-pressed" width="66" height="66"/>
         <image name="high-score-container" width="300" height="100"/>
@@ -745,13 +594,11 @@
         <image name="settings-button-normal" width="166" height="166"/>
         <image name="settings-button-pressed" width="166" height="166"/>
         <image name="settings-menu-background" width="250" height="400"/>
-        <image name="shuffle-button" width="200" height="50"/>
         <image name="shuffle-button-normal" width="200" height="60"/>
         <image name="shuffle-button-pressed" width="200" height="60"/>
         <image name="shuffle-container" width="300" height="150"/>
         <image name="sound-on-music-on" width="266" height="133"/>
         <image name="stage-close-1" width="300" height="300"/>
         <image name="time-container" width="300" height="100"/>
-        <image name="time-holder" width="266" height="66"/>
     </resources>
 </document>
