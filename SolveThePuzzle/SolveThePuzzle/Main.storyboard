@@ -427,7 +427,7 @@
                                 <state key="normal" image="back-button-normal"/>
                                 <state key="highlighted" image="back-button-pressed"/>
                                 <connections>
-                                    <segue destination="Ufw-Ep-mTr" kind="unwind" unwindAction="exitToPuzzleSelectionSceneWithSender:" id="7Ra-ty-mnu"/>
+                                    <segue destination="Ufw-Ep-mTr" kind="unwind" unwindAction="exitToLevelSceneWithSender:" id="YCn-yH-aQO"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iB-a6-5yF">
