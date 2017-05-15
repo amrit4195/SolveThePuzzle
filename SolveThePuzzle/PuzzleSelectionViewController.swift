@@ -136,6 +136,18 @@ class PuzzleSelectionViewController: UIViewController {
         
     }
     
+    // Go back to Home Page Function
+    @IBAction func exitToLevelScene(sender: UIStoryboardSegue){
+        
+        //        if let sourceViewController = sender.source as? PuzzleGameViewController {
+        //            nameReceived = sourceViewController.retrievedName
+        //            bestTimeReceived = sourceViewController.retrievedTime
+        //            savingRecord(name: nameReceived, bestTime: bestTimeReceived)
+        //            updateHighScoreLabel()
+        //        }
+        
+    }
+    
     /*
      // MARK: - Navigation
      
