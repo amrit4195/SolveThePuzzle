@@ -88,7 +88,7 @@ class GameViewController: UIViewController {
     
     // As the view load
     // - Set Default image to the image view that will be put inside the pause popup view
-    // - Hide Pause popupview, restart and pause game button
+    // - Hide Pause popupview
     // - Set up the pause popup view design
     // - Reset the Timer
     // - Create the template for the puzzle
@@ -100,8 +100,6 @@ class GameViewController: UIViewController {
 
         puzzlePicture = UIImage(named: pictureName)
         pausePuzzleImageView.image = puzzlePicture
-        restartGameButton.alpha = 0
-        pauseGameButton.alpha = 0
         pausePopupView.alpha = 0
         pausePopupView.layer.cornerRadius = 20
         pausePopupView.layer.masksToBounds = true
@@ -157,9 +155,10 @@ class GameViewController: UIViewController {
     // - Hide the start game button
     func startTimer(){
         
-        timeIsOn = true
-        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-
+        if(timeIsOn == false){
+            timeIsOn = true
+            gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        }
         
     }
     
@@ -169,21 +168,25 @@ class GameViewController: UIViewController {
     // - Keep the current timer from the timerLabel.text
     func stopTimer(){
         
-        timeIsOn = false
-        gameTimer.invalidate()
-        pauseTime = timerLabel.text!
-        
+        if(timeIsOn == true){
+            timeIsOn = false
+            gameTimer.invalidate()
+            pauseTime = timerLabel.text!
+        }
+    
     }
     
     // Resume Timer Function
     // - Set the time state to true
-    // - Show paused time
     // - Start the game timer again
     func resumeTimer(){
         
-        timeIsOn = true
-        timerLabel.text = pauseTime
-        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        if(timeIsOn == false){
+            timeIsOn = true
+            timerLabel.text = pauseTime
+            gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        }
+        
         
     }
     
@@ -663,7 +666,7 @@ class GameViewController: UIViewController {
         // -- If user able to get the gameCompleted state to be true (from inside the checkingWinCondition())
         gameCompleted = checkingWinCondition()
         gameCompleted = true
-        
+
         // If user able to get it true
         // - Stop timer
         // - Count user score
@@ -701,11 +704,7 @@ class GameViewController: UIViewController {
     
     // Updating the higscore label inside the game view
     
-    
-    
-    
-    
-    // Amrit comment it out please //
+   
     
     
     
@@ -758,15 +757,11 @@ class GameViewController: UIViewController {
         
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (Void) in
             self.savePuzzleImageGallery(image: self.puzzleImg.image!)
-            self.restartGameButton.alpha = 0
-            self.pauseGameButton.alpha = 0
             self.resetTimer()
             self.destroyPuzzle()
         }
         
         let noAction = UIAlertAction(title: "No", style: .default) { (Void) in
-            self.restartGameButton.alpha = 0
-            self.pauseGameButton.alpha = 0
             self.resetTimer()
             self.destroyPuzzle()
         }
@@ -840,8 +835,6 @@ class GameViewController: UIViewController {
         UIView.animate(withDuration: 0.2, animations: {
             self.view.layoutIfNeeded()
         })
-        pauseGameButton.alpha = 1
-        restartGameButton.alpha = 1
         
     }
     
@@ -850,25 +843,29 @@ class GameViewController: UIViewController {
     // - Set the pause
     @IBAction func showPausePopup(_ sender: AnyObject) {
         
-        centerXPausePopupConstraint.constant = 0
-        pausePopupView.layer.zPosition = 10
-        backgroundButton.layer.zPosition = 10
+        if (timeIsOn == true){
+            
+            centerXPausePopupConstraint.constant = 0
+            pausePopupView.layer.zPosition = 10
+            backgroundButton.layer.zPosition = 10
+            
+            
+            // Slide In Animation
+            // - Layout the subview immediately
+            // - Set background button alpha to 0.5
+            //   (this button is also used to close the view and set 0.5 alpha to
+            //   let all the things behind it to have a whitish color)
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+                self.backgroundButton.alpha = 0.5
+                self.pausePopupView.alpha = 1
+            })
+            
+            freezePuzzle()
+            stopTimer()
+            timeIsOn = false
+        }
         
-        
-        // Slide In Animation
-        // - Layout the subview immediately
-        // - Set background button alpha to 0.5
-        //   (this button is also used to close the view and set 0.5 alpha to
-        //   let all the things behind it to have a whitish color)
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.layoutIfNeeded()
-            self.backgroundButton.alpha = 0.5
-            self.pausePopupView.alpha = 1
-        })
-        
-        freezePuzzle()
-        stopTimer()
-        timeIsOn = false
         
     }
     
@@ -896,17 +893,18 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func restartingGame(_ sender: AnyObject) {
-        stopTimer()
         
-        yBottomContainer.constant = 0
-        UIView.animate(withDuration: 0.2, animations: {
-            self.view.layoutIfNeeded()
-        })
-        gameCompleted = false
-        timeIsOn = false
-        restartGameButton.alpha = 0
-        pauseGameButton.alpha = 0
-        resetTimer()
-        destroyPuzzle()
+        if(timeIsOn == true){
+            stopTimer()
+            yBottomContainer.constant = 0
+            UIView.animate(withDuration: 0.2, animations: {
+                self.view.layoutIfNeeded()
+            })
+            gameCompleted = false
+            timeIsOn = false
+            resetTimer()
+            destroyPuzzle()
+        }
+        
     }
 }
