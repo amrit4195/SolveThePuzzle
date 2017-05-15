@@ -24,6 +24,12 @@
                                 <frame key="frameInset" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="dLt-gQ-vKY">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="US6-A8-yA0"/>
+                                    <constraint firstAttribute="height" constant="300" id="iHo-DE-BLb"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg8-yc-s1a">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="170" id="jOP-ZT-ZJM"/>
@@ -33,7 +39,7 @@
                                 <state key="normal" image="play-button-normal"/>
                                 <state key="highlighted" image="play-button-pressed"/>
                                 <connections>
-                                    <segue destination="BNL-vQ-f1S" kind="custom" customClass="ScaleSegue" customModule="SolveThePuzzle" customModuleProvider="target" id="Oyo-u7-A5q"/>
+                                    <segue destination="mxv-xD-B2u" kind="custom" customClass="ScaleSegue" customModule="SolveThePuzzle" id="Mka-DQ-aMW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wS-Ii-Qa4" userLabel="Setting Button">
@@ -46,22 +52,6 @@
                                 <state key="highlighted" image="settings-button-pressed"/>
                                 <connections>
                                     <action selector="showSettingPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Ju-sL-uRh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57x-Ef-aYe">
-                                <frame key="frameInset" minX="164" minY="476" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="mxv-xD-B2u" kind="custom" customClass="ScaleSegue" customModule="SolveThePuzzle" id="bWQ-PM-MzD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa1-7I-l4f">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="backgroundButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aVH-eF-20K"/>
-                                    <action selector="closeSettingPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PF8-7Y-DfS"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q11-c5-y6Q">
@@ -120,12 +110,15 @@
                                     <constraint firstAttribute="width" constant="293" id="ydg-1o-Mvb"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="dLt-gQ-vKY">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="US6-A8-yA0"/>
-                                    <constraint firstAttribute="height" constant="300" id="iHo-DE-BLb"/>
-                                </constraints>
-                            </imageView>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa1-7I-l4f">
+                                <frame key="frameInset" minY="-359" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="backgroundButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aVH-eF-20K"/>
+                                    <action selector="closeSettingPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PF8-7Y-DfS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="dLt-gQ-vKY" secondAttribute="trailing" constant="13" id="7Rh-wY-xFS"/>
@@ -322,16 +315,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="extra-background" translatesAutoresizingMaskIntoConstraints="NO" id="cit-9J-WbS">
+                                <frame key="frameInset" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gL3-Ir-qTE" userLabel="Row 1">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqJ-um-ZrE" userLabel="Puzzle1Button">
-                                        <color key="backgroundColor" red="0.087293836809999997" green="0.79699212370000005" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="exS-d5-jsA"/>
                                             <constraint firstAttribute="height" constant="110" id="t7G-3J-r78"/>
                                         </constraints>
-                                        <state key="normal" image="swan-picture"/>
-                                        <state key="highlighted" image="app_image"/>
+                                        <state key="normal" image="puzzle1"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="GPL-4Q-ylv"/>
                                             <segue destination="zd9-1e-9Hd" kind="custom" identifier="toGame" customClass="ScaleSegue" customModule="SolveThePuzzle" id="7qX-E2-pe3"/>
@@ -342,24 +337,22 @@
                                             <constraint firstAttribute="height" constant="110" id="Smz-QH-W0I"/>
                                             <constraint firstAttribute="width" constant="110" id="wcN-Hp-gDK"/>
                                         </constraints>
-                                        <state key="normal" image="frozen-bubble-picture"/>
+                                        <state key="normal" image="puzzle2"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="DzM-hb-HdH"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pa-nM-vWY" userLabel="Puzzle3Button">
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="CiQ-sz-eh3"/>
                                             <constraint firstAttribute="width" constant="110" id="YAc-sk-rdH"/>
                                         </constraints>
-                                        <state key="normal" image="yellow-tulip-picture"/>
+                                        <state key="normal" image="puzzle3"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="0O9-nU-zsY"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.087293836809999997" green="0.79699212370000005" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="3Pa-nM-vWY" secondAttribute="trailing" constant="12" id="2Z2-GY-7HX"/>
                                     <constraint firstAttribute="bottom" secondItem="3Pa-nM-vWY" secondAttribute="bottom" constant="9" id="O5c-WS-LFY"/>
@@ -378,40 +371,36 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dta-JF-mHE" userLabel="Row 2">
                                 <subviews>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zg-1y-fwM" userLabel="Puzzle4Button">
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="Bdf-N6-ee7"/>
                                             <constraint firstAttribute="width" constant="110" id="WgG-bT-zyL"/>
                                         </constraints>
-                                        <state key="normal" image="shuffle-button"/>
+                                        <state key="normal" image="stage-close-1"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="JJo-LQ-ZVV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLJ-9f-46X" userLabel="Puzzle5Button">
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="q25-lY-MBr"/>
                                             <constraint firstAttribute="height" constant="110" id="vwc-sd-iq0"/>
                                         </constraints>
-                                        <state key="normal" image="shuffle-button"/>
+                                        <state key="normal" image="stage-close-1"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="qay-ET-NfE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0js-4A-EHg" userLabel="Puzzle6Button">
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="Eix-Qs-0nU"/>
                                             <constraint firstAttribute="height" constant="110" id="ssF-4s-CGK"/>
                                         </constraints>
-                                        <state key="normal" image="shuffle-button"/>
+                                        <state key="normal" image="stage-close-1"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="yYt-oj-lqH"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.087293836809999997" green="0.79699212370000005" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="0Zg-1y-fwM" firstAttribute="leading" secondItem="dta-JF-mHE" secondAttribute="leading" constant="12" id="21j-SH-yIB"/>
                                     <constraint firstItem="0js-4A-EHg" firstAttribute="leading" secondItem="mLJ-9f-46X" secondAttribute="trailing" constant="10.5" id="Coe-uZ-Cab"/>
@@ -430,40 +419,36 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ric-tY-r6t" userLabel="Row 3">
                                 <subviews>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WkM-IA-2Rv" userLabel="Puzzle7Button">
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="N5y-8g-tDs"/>
                                             <constraint firstAttribute="height" constant="110" id="XEn-En-n6Q"/>
                                         </constraints>
-                                        <state key="normal" image="Ribbon Banner"/>
+                                        <state key="normal" image="stage-close-1"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="FWM-HA-Hld"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Loe-p5-Nkx" userLabel="Puzzle8Button">
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="7ju-6P-i3A"/>
                                             <constraint firstAttribute="width" constant="110" id="dhe-It-qHM"/>
                                         </constraints>
-                                        <state key="normal" image="Ribbon Banner"/>
+                                        <state key="normal" image="stage-close-1"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="N7I-sQ-bIp"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibp-A4-xp4" userLabel="Puzzle9Button">
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="Ivi-pX-aQR"/>
                                             <constraint firstAttribute="height" constant="110" id="uSj-8d-XA9"/>
                                         </constraints>
-                                        <state key="normal" image="Ribbon Banner"/>
+                                        <state key="normal" image="stage-close-1"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="7Zv-bW-gef"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.001635324071" green="1" blue="0.70509577700000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Loe-p5-Nkx" secondAttribute="bottom" constant="9" id="1A6-j4-Mc0"/>
                                     <constraint firstItem="Loe-p5-Nkx" firstAttribute="top" secondItem="Ric-tY-r6t" secondAttribute="top" constant="9" id="78C-TV-G4m"/>
@@ -482,40 +467,36 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUn-I4-KCs" userLabel="Row 4">
                                 <subviews>
                                     <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KV-xH-pU5" userLabel="Puzzle10Button">
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="0l4-kr-9Vg"/>
                                             <constraint firstAttribute="width" constant="110" id="4vB-oI-2PV"/>
                                         </constraints>
-                                        <state key="normal" image="about-us-button-normal"/>
+                                        <state key="normal" image="stage-close-1"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="orW-HM-Lk3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udT-CM-bPa" userLabel="Puzzle11Button">
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="WNL-mx-hdK"/>
                                             <constraint firstAttribute="height" constant="110" id="qwp-cc-B8F"/>
                                         </constraints>
-                                        <state key="normal" image="about-us-button-normal"/>
+                                        <state key="normal" image="stage-close-1"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="NlC-1T-3XM"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1j1-70-Pc6" userLabel="Puzzle12Button">
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="T0W-rA-MQy"/>
                                             <constraint firstAttribute="height" constant="110" id="wP1-ul-RtU"/>
                                         </constraints>
-                                        <state key="normal" image="about-us-button-normal"/>
+                                        <state key="normal" image="stage-close-1"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="Pbc-p8-t6f"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.087293836809999997" green="0.79699212370000005" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="5KV-xH-pU5" firstAttribute="leading" secondItem="TUn-I4-KCs" secondAttribute="leading" constant="12" id="6fL-yX-UUw"/>
                                     <constraint firstAttribute="bottom" secondItem="1j1-70-Pc6" secondAttribute="bottom" constant="9" id="OYf-FL-dVk"/>
@@ -531,10 +512,11 @@
                                     <constraint firstItem="udT-CM-bPa" firstAttribute="top" secondItem="TUn-I4-KCs" secondAttribute="top" constant="9" id="zbn-AX-9Uv"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7R-sD-ztn">
-                                <frame key="frameInset" minX="16" minY="47" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7R-sD-ztn">
+                                <frame key="frameInset" minY="44" width="66" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" image="back-button-normal"/>
+                                <state key="highlighted" image="back-button-pressed"/>
                                 <connections>
                                     <segue destination="Lbx-Nc-Gxc" kind="unwind" unwindAction="exitToHomeSceneWithSender:" id="yIL-6f-JEh"/>
                                 </connections>
@@ -581,7 +563,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="game-background" translatesAutoresizingMaskIntoConstraints="NO" id="ysJ-s6-ji2"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="extra-background" translatesAutoresizingMaskIntoConstraints="NO" id="ysJ-s6-ji2"/>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="time-container" translatesAutoresizingMaskIntoConstraints="NO" id="7K9-Fw-2bH">
                                 <frame key="frameInset" minX="87" minY="88" width="200" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -658,7 +640,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="high-score-container" translatesAutoresizingMaskIntoConstraints="NO" id="YxR-cb-Bbd">
-                                <frame key="frameInset" minX="90" minY="37" width="180" height="60"/>
+                                <frame key="frameInset" minX="97" minY="37" width="180" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Df5-68-62e">
@@ -687,7 +669,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KrA-6S-cM0">
-                                <frame key="frameInset" minX="146" minY="57" width="82" height="21"/>
+                                <frame key="frameInset" minX="147" minY="57" width="82" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -736,15 +718,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Ribbon Banner" width="3217" height="760"/>
         <image name="about-us-button-normal" width="499" height="174"/>
         <image name="app_image" width="300" height="300"/>
         <image name="back-button-normal" width="66" height="66"/>
         <image name="back-button-pressed" width="66" height="66"/>
         <image name="close-button-normal" width="66" height="66"/>
         <image name="close-button-pressed" width="66" height="66"/>
-        <image name="frozen-bubble-picture" width="600" height="600"/>
-        <image name="game-background" width="1041" height="1857"/>
+        <image name="extra-background" width="1041" height="1857"/>
         <image name="game-screen-wallpaper" width="250" height="444"/>
         <image name="help-button-normal" width="66" height="66"/>
         <image name="help-button-pressed" width="66" height="66"/>
@@ -757,6 +737,9 @@
         <image name="pause-button-pressed" width="66" height="66"/>
         <image name="play-button-normal" width="166" height="166"/>
         <image name="play-button-pressed" width="166" height="166"/>
+        <image name="puzzle1" width="600" height="600"/>
+        <image name="puzzle2" width="600" height="600"/>
+        <image name="puzzle3" width="200" height="200"/>
         <image name="restart-button-normal" width="66" height="66"/>
         <image name="restart-button-pressed" width="66" height="66"/>
         <image name="settings-button-normal" width="166" height="166"/>
@@ -767,9 +750,8 @@
         <image name="shuffle-button-pressed" width="200" height="60"/>
         <image name="shuffle-container" width="300" height="150"/>
         <image name="sound-on-music-on" width="266" height="133"/>
-        <image name="swan-picture" width="600" height="600"/>
+        <image name="stage-close-1" width="300" height="300"/>
         <image name="time-container" width="300" height="100"/>
         <image name="time-holder" width="266" height="66"/>
-        <image name="yellow-tulip-picture" width="200" height="200"/>
     </resources>
 </document>

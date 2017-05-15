@@ -67,6 +67,7 @@ class ViewController: UIViewController {
             try homeMusicPlayer1 = AVAudioPlayer(contentsOf: homeMusicURL1)
             
             homeMusicPlayer1?.play()
+            homeMusicPlayer1?.numberOfLoops = -1
         }
         catch{print("Player does not work for some reason")}
         
@@ -264,5 +265,9 @@ class ViewController: UIViewController {
     //        UserDefaults.standard.set(bestTime, forKey: "savedTime")
     //        
     //    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        homeMusicPlayer1?.stop()
+    }
     
 }

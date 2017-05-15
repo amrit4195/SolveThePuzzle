@@ -63,6 +63,8 @@ class GameViewController: UIViewController {
     var savedBestUser : String! = "BestUser"
     var savedBestTime : String! = "BestTime"
     var savedHighscore : String! = "Highscore"
+    
+    var stageCompleted = false
 
     
     @IBOutlet weak var pausePuzzleImageView: UIImageView!
@@ -668,7 +670,7 @@ class GameViewController: UIViewController {
         // - Show the game button
         // - Set back the time and gameCompleted state to be false
         if(gameCompleted == true){
-            
+            stageCompleted = true
             stopTimer()
             userScore = (minutes * 60) + seconds
             print("userscore",userScore)

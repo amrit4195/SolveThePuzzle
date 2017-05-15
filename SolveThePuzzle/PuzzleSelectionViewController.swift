@@ -31,7 +31,7 @@ class PuzzleSelectionViewController: UIViewController {
         
         switch(sender.tag){
         case 0:
-            pictureSelected = "swan-picture"
+            pictureSelected = "puzzle1"
             puzzlePiecesFormat = "sw_%02i.jpg"
             print(pictureSelected)
             
@@ -39,7 +39,7 @@ class PuzzleSelectionViewController: UIViewController {
             
             break
         case 1:
-            pictureSelected = "frozen-bubble-picture"
+            pictureSelected = "puzzle2"
             puzzlePiecesFormat = "fb_%02i.jpg"
             print(pictureSelected)
             
@@ -47,7 +47,7 @@ class PuzzleSelectionViewController: UIViewController {
             break
             
         case 2:
-            pictureSelected = "yellow-tulip-picture"
+            pictureSelected = "puzzle3"
             puzzlePiecesFormat = "yt_%02i.jpg"
             
             performSegue(withIdentifier: "toGame", sender: self)
@@ -135,22 +135,6 @@ class PuzzleSelectionViewController: UIViewController {
         }
         
     }
-    
-    // Go back to Home Page Function
-    @IBAction func exitToPuzzleSelectionScene(sender: UIStoryboardSegue){
-        
-        //        if let sourceViewController = sender.source as? PuzzleGameViewController {
-        //            nameReceived = sourceViewController.retrievedName
-        //            bestTimeReceived = sourceViewController.retrievedTime
-        //            savingRecord(name: nameReceived, bestTime: bestTimeReceived)
-        //            updateHighScoreLabel()
-        //        }
-        
-    }
-    
-    
-    
-    
     
     /*
      // MARK: - Navigation
