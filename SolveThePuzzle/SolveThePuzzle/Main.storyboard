@@ -54,6 +54,13 @@
                                     <action selector="showSettingPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Ju-sL-uRh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa1-7I-l4f">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="closeSettingPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PF8-7Y-DfS"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q11-c5-y6Q">
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings-menu-background" translatesAutoresizingMaskIntoConstraints="NO" id="F9i-5N-5N6"/>
@@ -223,7 +230,7 @@ o	Email: amrit.pal445@gmail.com
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
-                                        <string key="text">Third Party Licences
+                                        <mutableString key="text">Third Party Licences
 Different pieces of software were used to come up with this fantastic game. All the images used have been appropriately licensed and where possible, were available on free to use commercial license.
 Following is a list of software associated with this app.
 
@@ -232,16 +239,12 @@ Developing
 2. https://www.freesound.org/people/Yap_Audio_Production/sounds/219004/
 3.  https://www.freesound.org/people/erkanozan/sounds/51743/ 
 4.  https://www.freesound.org/people/Greek555/sounds/382778/
-
-Designing
-1.
-2.
-
-Images
-1.
-2.
-
-</string>
+5.buttonSFX, fins, https://www.freesound.org/people/fins/sounds/146718/
+Interface Design
+1. Nikolas Axel Omas
+2. Rivaldi Valerian
+3. Monalisa Halim
+</mutableString>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -277,11 +280,11 @@ Images
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
-                                        <mutableString key="text">v.0.5 PuzzleIt help
+                                        <string key="text">v.0.5 PuzzleIt help
 Thankyou for choosing PuzzleIt. This section will guide you on how to use the game section of the app. We hope you enjoy the experience. 
 The main screen directs you to a selection of images that you wish to solve. Your chosen image will be shuffled in a grid of 4x4 and your main motive is to slide the blocks into their respective position to put it into solvable configuration.
 Once done, you will be directed to a screen where you can enter you details and your time will be displayed in a table. 
-Good luck with the game and challenge your friends to be the best among them.</mutableString>
+Good luck with the game and challenge your friends to be the best among them.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -304,13 +307,6 @@ Good luck with the game and challenge your friends to be the best among them.</m
                                     <constraint firstAttribute="trailing" secondItem="evD-Zf-yQK" secondAttribute="trailing" constant="15" id="xFj-Bg-hiP"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa1-7I-l4f">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="closeSettingPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PF8-7Y-DfS"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="dLt-gQ-vKY" secondAttribute="trailing" constant="13" id="7Rh-wY-xFS"/>
@@ -607,7 +603,7 @@ Good luck with the game and challenge your friends to be the best among them.</m
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGZ-AR-DZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Lbx-Nc-Gxc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1088.8" y="541.97901049475263"/>
+            <point key="canvasLocation" x="1489" y="103"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="gec-Pb-ztg">
@@ -750,14 +746,6 @@ Good luck with the game and challenge your friends to be the best among them.</m
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eW-kK-hyN">
-                                <frame key="frameInset" minX="164" minY="19" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Table View"/>
-                                <connections>
-                                    <segue destination="ItM-Tp-Itb" kind="show" id="zLb-dR-Dd4"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -812,69 +800,6 @@ Good luck with the game and challenge your friends to be the best among them.</m
                 <exit id="Ufw-Ep-mTr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1869.5999999999999" y="1279.6101949025488"/>
-        </scene>
-        <!--User Scores-->
-        <scene sceneID="a0F-Fe-9AP">
-            <objects>
-                <tableViewController id="tzQ-sI-Hov" customClass="StoreListTVC" customModule="SolveThePuzzle" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="AwP-G9-Mzo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="cell" rowHeight="82" id="Toe-YV-V7I">
-                                <rect key="frame" x="0.0" y="92" width="375" height="82"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Toe-YV-V7I" id="XBX-3X-Zlh">
-                                    <frame key="frameInset" width="336" height="81"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mx7-IK-pAS">
-                                            <frame key="frameInset" minX="15" minY="24" width="32" height="20"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" fixedFrame="YES" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McU-qg-QIf">
-                                            <frame key="frameInset" minX="15" minY="44" width="41" height="14"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="tzQ-sI-Hov" id="6N8-Wt-1yD"/>
-                            <outlet property="delegate" destination="tzQ-sI-Hov" id="HgN-Rf-RY1"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="User Scores" id="5q4-n9-Xvh">
-                        <barButtonItem key="leftBarButtonItem" title="Home" id="0tL-ML-6Ea"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="niN-u3-gE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="956" y="2051"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="rcH-Tt-kXt">
-            <objects>
-                <navigationController id="ItM-Tp-Itb" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ioY-t4-IqK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="tzQ-sI-Hov" kind="relationship" relationship="rootViewController" id="tAV-v2-4pi"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gjs-Lv-nUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2489" y="2051"/>
         </scene>
     </scenes>
     <resources>

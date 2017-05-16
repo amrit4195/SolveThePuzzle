@@ -15,9 +15,6 @@ class GameViewController: UIViewController {
     var buttonPressedSFX: AVAudioPlayer?
     var puzzleSlideSFX: AVAudioPlayer?
     var applauseSFX: AVAudioPlayer?
-    
-    var store:Store?
-    let moContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
 
     var pictureName = ""
     var puzzlePiecesFormat = ""
@@ -818,56 +815,6 @@ class GameViewController: UIViewController {
         alertController.addAction(yesAction)
         
         self.present(alertController, animated: true, completion: nil)
-        
-        ///// coreData store
-        
-        if store == nil
-        {
-            let storeDescription = NSEntityDescription.entity(forEntityName: "Store", in: moContext!)
-            
-            
-            // Then, We Create the Managed Object to be  inserted into the cored data
-            store = Store(entity: storeDescription!, insertInto: moContext)
-        }
-        
-        // set the attributes
-        store?.sName = savedHighScoreLabel.text!
-        store?.sTime = timerLabel.text!
-        // save the managed object into the storage
-        
-        let img = UIImage(named: pictureName)
-        let imgData = UIImageJPEGRepresentation(img!, 1)
-        store?.sImage = imgData!
-        
-        
-        // Finally we issue the command to save the data
-        var error: NSError?
-        
-        
-        do {
-            // Save The object
-            
-            try moContext?.save()
-        } catch let error1 as NSError {
-            error = error1
-        }
-        
-        
-        //Check if there is any erros
-        
-        if let err = error {
-            
-            let a = UIAlertView(title: "Error", message: err.localizedFailureReason, delegate: nil, cancelButtonTitle: "OK")
-            a.show()
-            
-        } else {
-            
-            let a = UIAlertView(title: "Success", message: "Your Record is saved", delegate: nil, cancelButtonTitle: "OK")
-            a.show()
-            
-        }
-        //print("Data Fetched-------------------",store?.sName)
-        ////////////////////////////////////////
         
     }
     

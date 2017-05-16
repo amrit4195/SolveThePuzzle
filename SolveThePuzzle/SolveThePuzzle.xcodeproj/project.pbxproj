@@ -20,13 +20,10 @@
 		6F20D5711EC8906700006977 /* PuzzleSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F20D5701EC8906700006977 /* PuzzleSelectionViewController.swift */; };
 		6F20D5731EC8912700006977 /* ScaleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F20D5721EC8912700006977 /* ScaleSegue.swift */; };
 		6F20D5751EC8926400006977 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F20D5741EC8926400006977 /* GameViewController.swift */; };
-		6F20D5771EC8926A00006977 /* PuzzleGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F20D5761EC8926A00006977 /* PuzzleGameViewController.swift */; };
-		F022647F1EC9AAB20071BA53 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = F022647E1EC9AAB20071BA53 /* Store.swift */; };
 		F02264841EC9E3E50071BA53 /* Gameplay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F02264801EC9E3E50071BA53 /* Gameplay.mp3 */; };
 		F02264851EC9E3E50071BA53 /* applause.wav in Resources */ = {isa = PBXBuildFile; fileRef = F02264811EC9E3E50071BA53 /* applause.wav */; };
 		F02264861EC9E3E50071BA53 /* puzzle-slide.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F02264821EC9E3E50071BA53 /* puzzle-slide.mp3 */; };
 		F02264871EC9E3E50071BA53 /* button-click.wav in Resources */ = {isa = PBXBuildFile; fileRef = F02264831EC9E3E50071BA53 /* button-click.wav */; };
-		F02418231EC99F9D0011ACFE /* StoreListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02418221EC99F9D0011ACFE /* StoreListTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,13 +63,10 @@
 		6F20D5701EC8906700006977 /* PuzzleSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PuzzleSelectionViewController.swift; path = ../PuzzleSelectionViewController.swift; sourceTree = "<group>"; };
 		6F20D5721EC8912700006977 /* ScaleSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleSegue.swift; sourceTree = "<group>"; };
 		6F20D5741EC8926400006977 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		6F20D5761EC8926A00006977 /* PuzzleGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleGameViewController.swift; sourceTree = "<group>"; };
-		F022647E1EC9AAB20071BA53 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		F02264801EC9E3E50071BA53 /* Gameplay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Gameplay.mp3; sourceTree = "<group>"; };
 		F02264811EC9E3E50071BA53 /* applause.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = applause.wav; sourceTree = "<group>"; };
 		F02264821EC9E3E50071BA53 /* puzzle-slide.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "puzzle-slide.mp3"; sourceTree = "<group>"; };
 		F02264831EC9E3E50071BA53 /* button-click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "button-click.wav"; sourceTree = "<group>"; };
-		F02418221EC99F9D0011ACFE /* StoreListTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreListTVC.swift; path = SolveThePuzzle/StoreListTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +97,6 @@
 		6F20D52B1EC889A400006977 = {
 			isa = PBXGroup;
 			children = (
-				F02418221EC99F9D0011ACFE /* StoreListTVC.swift */,
 				6F20D5361EC889A400006977 /* SolveThePuzzle */,
 				6F20D54E1EC889A400006977 /* SolveThePuzzleTests */,
 				6F20D5591EC889A400006977 /* SolveThePuzzleUITests */,
@@ -127,9 +120,7 @@
 				6F20D5371EC889A400006977 /* AppDelegate.swift */,
 				6F20D5391EC889A400006977 /* ViewController.swift */,
 				6F20D5741EC8926400006977 /* GameViewController.swift */,
-				F022647E1EC9AAB20071BA53 /* Store.swift */,
 				6F20D5701EC8906700006977 /* PuzzleSelectionViewController.swift */,
-				6F20D5761EC8926A00006977 /* PuzzleGameViewController.swift */,
 				6F20D5721EC8912700006977 /* ScaleSegue.swift */,
 				6F20D56C1EC8902500006977 /* buttonSFX.wav */,
 				6F20D56D1EC8902500006977 /* LittleIdea.mp3 */,
@@ -307,12 +298,9 @@
 				6F20D5731EC8912700006977 /* ScaleSegue.swift in Sources */,
 				6F20D53A1EC889A400006977 /* ViewController.swift in Sources */,
 				6F20D5711EC8906700006977 /* PuzzleSelectionViewController.swift in Sources */,
-				F022647F1EC9AAB20071BA53 /* Store.swift in Sources */,
 				6F20D5381EC889A400006977 /* AppDelegate.swift in Sources */,
 				6F20D5751EC8926400006977 /* GameViewController.swift in Sources */,
-				6F20D5771EC8926A00006977 /* PuzzleGameViewController.swift in Sources */,
 				6F20D5401EC889A400006977 /* SolveThePuzzle.xcdatamodeld in Sources */,
-				F02418231EC99F9D0011ACFE /* StoreListTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
