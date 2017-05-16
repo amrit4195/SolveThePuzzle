@@ -8,23 +8,16 @@
 
 import UIKit
 import AVFoundation
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
+
 class PuzzleSelectionViewController: UIViewController {
     
     var pictureSelected = "default"
     var puzzlePiecesFormat = "default"
-<<<<<<< HEAD
     var buttonPressedSFX: AVAudioPlayer?
-=======
+
     var musicIsOn = true
     var soundIsOn = true
->>>>>>> origin/master
-    
-    var buttonPressedSFX: AVAudioPlayer?
-    
     
     
     @IBOutlet weak var soundFXButton: UIButton!
@@ -51,18 +44,14 @@ class PuzzleSelectionViewController: UIViewController {
         let buttonPressedSFXPath = Bundle.main.path(forResource: "button-click", ofType: "wav")
         let buttonPressedSFXURL = NSURL.fileURL(withPath: buttonPressedSFXPath!)
         
-<<<<<<< HEAD
-=======
+
         print("music is on",musicIsOn)
         print("sound is on",soundIsOn)
-        
-        let buttonPressedSFXPath = Bundle.main.path(forResource: "buttonSFX", ofType: "wav")
-        let buttonPressedSFXURL = NSURL.fileURL(withPath: buttonPressedSFXPath!)
         
         // For Button SFX
         // Inserting the sound file to the sound player variable
         // Catch an error if the playback has an issue
->>>>>>> origin/master
+
         do{
             try buttonPressedSFX = AVAudioPlayer(contentsOf: buttonPressedSFXURL)
             
@@ -71,9 +60,7 @@ class PuzzleSelectionViewController: UIViewController {
             
         }
         catch{print("Player does not work for some reason")}
-<<<<<<< HEAD
 
-=======
         
         if(soundIsOn == true){
             soundFXButton.setImage(UIImage(named: "pause-button-pressed"), for: .normal)
@@ -84,8 +71,7 @@ class PuzzleSelectionViewController: UIViewController {
             buttonPressedSFX?.volume = 0
         }
 
-        
->>>>>>> origin/master
+
         // Do any additional setup after loading the view.
     }
     
@@ -130,7 +116,7 @@ class PuzzleSelectionViewController: UIViewController {
             break
             
         case 3:
-<<<<<<< HEAD
+
             buttonPressedSFX?.play()
             pictureSelected = "tree"
             puzzlePiecesFormat = "tr_%02i.jpg"
@@ -144,7 +130,7 @@ class PuzzleSelectionViewController: UIViewController {
             pictureSelected = "app_image"
             
             performSegue(withIdentifier: "toGame", sender: self)
-=======
+
             //pictureSelected = "tree"
             //puzzlePiecesFormat = "tr_%02i.jpg"
             //performSegue(withIdentifier: "toGame", sender: self)
@@ -153,12 +139,12 @@ class PuzzleSelectionViewController: UIViewController {
             break
             
         case 4:
->>>>>>> origin/master
+
             
             break
             
         case 5:
-<<<<<<< HEAD
+
             buttonPressedSFX?.play()
             pictureSelected = "tree"
             
@@ -212,7 +198,7 @@ class PuzzleSelectionViewController: UIViewController {
             
             performSegue(withIdentifier: "toGame", sender: self)
             
-=======
+
 
             break
             
@@ -238,7 +224,7 @@ class PuzzleSelectionViewController: UIViewController {
             
         case 11:
 
->>>>>>> origin/master
+
             break
             
         default:
