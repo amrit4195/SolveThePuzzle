@@ -704,9 +704,6 @@ class GameViewController: UIViewController {
     
     // Updating the higscore label inside the game view
     
-   
-    
-    
     
     
     

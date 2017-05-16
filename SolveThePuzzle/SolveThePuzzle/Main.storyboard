@@ -204,7 +204,7 @@
                                             <constraint firstAttribute="width" constant="110" id="exS-d5-jsA"/>
                                             <constraint firstAttribute="height" constant="110" id="t7G-3J-r78"/>
                                         </constraints>
-                                        <state key="normal" image="puzzle1"/>
+                                        <state key="normal" image="puzzle-stage-1"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="GPL-4Q-ylv"/>
                                             <segue destination="zd9-1e-9Hd" kind="custom" identifier="toGame" customClass="ScaleSegue" customModule="SolveThePuzzle" id="7qX-E2-pe3"/>
@@ -215,7 +215,7 @@
                                             <constraint firstAttribute="height" constant="110" id="Smz-QH-W0I"/>
                                             <constraint firstAttribute="width" constant="110" id="wcN-Hp-gDK"/>
                                         </constraints>
-                                        <state key="normal" image="puzzle2"/>
+                                        <state key="normal" image="puzzle-stage-2"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="DzM-hb-HdH"/>
                                         </connections>
@@ -225,7 +225,7 @@
                                             <constraint firstAttribute="height" constant="110" id="CiQ-sz-eh3"/>
                                             <constraint firstAttribute="width" constant="110" id="YAc-sk-rdH"/>
                                         </constraints>
-                                        <state key="normal" image="puzzle3"/>
+                                        <state key="normal" image="puzzle-stage-3"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="0O9-nU-zsY"/>
                                         </connections>
@@ -253,7 +253,7 @@
                                             <constraint firstAttribute="height" constant="110" id="Bdf-N6-ee7"/>
                                             <constraint firstAttribute="width" constant="110" id="WgG-bT-zyL"/>
                                         </constraints>
-                                        <state key="normal" image="stage-close-1"/>
+                                        <state key="normal" image="puzzle-stage-lock"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="JJo-LQ-ZVV"/>
                                         </connections>
@@ -263,7 +263,7 @@
                                             <constraint firstAttribute="width" constant="110" id="q25-lY-MBr"/>
                                             <constraint firstAttribute="height" constant="110" id="vwc-sd-iq0"/>
                                         </constraints>
-                                        <state key="normal" image="stage-close-1"/>
+                                        <state key="normal" image="puzzle-stage-lock"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="qay-ET-NfE"/>
                                         </connections>
@@ -273,7 +273,7 @@
                                             <constraint firstAttribute="width" constant="110" id="Eix-Qs-0nU"/>
                                             <constraint firstAttribute="height" constant="110" id="ssF-4s-CGK"/>
                                         </constraints>
-                                        <state key="normal" image="stage-close-1"/>
+                                        <state key="normal" image="puzzle-stage-lock"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="yYt-oj-lqH"/>
                                         </connections>
@@ -301,7 +301,7 @@
                                             <constraint firstAttribute="width" constant="110" id="N5y-8g-tDs"/>
                                             <constraint firstAttribute="height" constant="110" id="XEn-En-n6Q"/>
                                         </constraints>
-                                        <state key="normal" image="stage-close-1"/>
+                                        <state key="normal" image="puzzle-stage-lock"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="FWM-HA-Hld"/>
                                         </connections>
@@ -311,7 +311,7 @@
                                             <constraint firstAttribute="height" constant="110" id="7ju-6P-i3A"/>
                                             <constraint firstAttribute="width" constant="110" id="dhe-It-qHM"/>
                                         </constraints>
-                                        <state key="normal" image="stage-close-1"/>
+                                        <state key="normal" image="puzzle-stage-lock"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="N7I-sQ-bIp"/>
                                         </connections>
@@ -321,7 +321,7 @@
                                             <constraint firstAttribute="width" constant="110" id="Ivi-pX-aQR"/>
                                             <constraint firstAttribute="height" constant="110" id="uSj-8d-XA9"/>
                                         </constraints>
-                                        <state key="normal" image="stage-close-1"/>
+                                        <state key="normal" image="puzzle-stage-lock"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="7Zv-bW-gef"/>
                                         </connections>
@@ -349,7 +349,7 @@
                                             <constraint firstAttribute="height" constant="110" id="0l4-kr-9Vg"/>
                                             <constraint firstAttribute="width" constant="110" id="4vB-oI-2PV"/>
                                         </constraints>
-                                        <state key="normal" image="stage-close-1"/>
+                                        <state key="normal" image="puzzle-stage-lock"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="orW-HM-Lk3"/>
                                         </connections>
@@ -359,7 +359,7 @@
                                             <constraint firstAttribute="width" constant="110" id="WNL-mx-hdK"/>
                                             <constraint firstAttribute="height" constant="110" id="qwp-cc-B8F"/>
                                         </constraints>
-                                        <state key="normal" image="stage-close-1"/>
+                                        <state key="normal" image="puzzle-stage-lock"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="NlC-1T-3XM"/>
                                         </connections>
@@ -369,7 +369,7 @@
                                             <constraint firstAttribute="width" constant="110" id="T0W-rA-MQy"/>
                                             <constraint firstAttribute="height" constant="110" id="wP1-ul-RtU"/>
                                         </constraints>
-                                        <state key="normal" image="stage-close-1"/>
+                                        <state key="normal" image="puzzle-stage-lock"/>
                                         <connections>
                                             <action selector="openGameScene:" destination="mxv-xD-B2u" eventType="touchUpInside" id="Pbc-p8-t6f"/>
                                         </connections>
@@ -391,13 +391,25 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7R-sD-ztn">
-                                <frame key="frameInset" minY="44" width="66" height="66"/>
+                                <frame key="frameInset" minX="16" minY="61" width="66" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="back-button-normal"/>
                                 <state key="highlighted" image="back-button-pressed"/>
                                 <connections>
                                     <segue destination="Lbx-Nc-Gxc" kind="unwind" unwindAction="exitToHomeSceneWithSender:" id="yIL-6f-JEh"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbH-8S-HqB">
+                                <frame key="frameInset" minX="276" minY="61" width="66" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="pause-button-normal"/>
+                                <state key="highlighted" image="pause-button-pressed"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOm-PU-0hK">
+                                <frame key="frameInset" minX="196" minY="61" width="66" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="pause-button-normal"/>
+                                <state key="highlighted" image="pause-button-pressed"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -643,9 +655,10 @@
         <image name="pause-button-pressed" width="66" height="66"/>
         <image name="play-button-normal" width="300" height="300"/>
         <image name="play-button-pressed" width="300" height="300"/>
-        <image name="puzzle1" width="600" height="600"/>
-        <image name="puzzle2" width="600" height="600"/>
-        <image name="puzzle3" width="600" height="600"/>
+        <image name="puzzle-stage-1" width="300" height="300"/>
+        <image name="puzzle-stage-2" width="300" height="300"/>
+        <image name="puzzle-stage-3" width="300" height="300"/>
+        <image name="puzzle-stage-lock" width="300" height="300"/>
         <image name="restart-button-normal" width="66" height="66"/>
         <image name="restart-button-pressed" width="66" height="66"/>
         <image name="settings-button-normal" width="166" height="166"/>
@@ -655,7 +668,6 @@
         <image name="shuffle-button-pressed" width="200" height="60"/>
         <image name="shuffle-container" width="300" height="150"/>
         <image name="sound-on-music-on" width="266" height="133"/>
-        <image name="stage-close-1" width="300" height="300"/>
         <image name="time-container" width="300" height="100"/>
     </resources>
 </document>
