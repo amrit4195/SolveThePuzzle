@@ -62,8 +62,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //test.text = passedData
-        
         // Creating a sound file
         let homeMusicPath1 = Bundle.main.path(forResource: "LittleIdea", ofType: "mp3")
         let homeMusicURL1 = NSURL.fileURL(withPath: homeMusicPath1!)
@@ -122,8 +120,14 @@ class ViewController: UIViewController {
         settingPopupView.layer.cornerRadius = 20
         settingPopupView.layer.masksToBounds = true
         
-        musicIsOn = true
-        soundIsOn = true
+        if(soundIsOn == true){
+            //soundFXButton.setImage(UIImage(named: "pause-button-pressed"), for: .normal)
+            buttonPressedSFX?.volume = 50
+        }
+        else{
+            //soundFXButton.setImage(UIImage(named: "pause-button-normal"), for: .normal)
+            buttonPressedSFX?.volume = 0
+        }
     }
     
     @IBAction func muteUnmuteSound(_ sender: AnyObject) {
@@ -321,8 +325,27 @@ class ViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toPuzzleSelection" {
+            let destVc = segue.destination as! PuzzleSelectionViewController
+            destVc.musicIsOn = musicIsOn
+            destVc.soundIsOn = soundIsOn
+        }
+    }
+    
     // Go back to Home Page Function
     @IBAction func exitToHomeScene(sender: UIStoryboardSegue){
+        
+       if let sourceViewController = sender.source as? PuzzleSelectionViewController {
+            musicIsOn = sourceViewController.musicIsOn
+            soundIsOn = sourceViewController.soundIsOn
+        
+        print("first 2scene music is on",musicIsOn)
+        print("first 2scene sound is on",soundIsOn)
+
+        }
+            
         
         //        if let sourceViewController = sender.source as? PuzzleGameViewController {
         //            nameReceived = sourceViewController.retrievedName

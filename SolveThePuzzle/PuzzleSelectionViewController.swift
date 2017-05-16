@@ -8,18 +8,61 @@
 
 import UIKit
 import AVFoundation
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 class PuzzleSelectionViewController: UIViewController {
     
     var pictureSelected = "default"
     var puzzlePiecesFormat = "default"
+<<<<<<< HEAD
+    var buttonPressedSFX: AVAudioPlayer?
+=======
+    var musicIsOn = true
+    var soundIsOn = true
+>>>>>>> origin/master
+    
     var buttonPressedSFX: AVAudioPlayer?
     
+    
+    
+    @IBOutlet weak var soundFXButton: UIButton!
+    @IBAction func muteUnmuteSound(_ sender: AnyObject) {
+        
+        buttonPressedSFX?.play()
+
+        if(soundIsOn == true){
+            soundFXButton.setImage(UIImage(named: "pause-button-normal"), for: .normal)
+            buttonPressedSFX?.volume = 0
+            soundIsOn = false
+        }
+        else{
+            soundFXButton.setImage(UIImage(named: "pause-button-pressed"), for: .normal)
+            buttonPressedSFX?.volume = 50
+            soundIsOn = true
+        }
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let buttonPressedSFXPath = Bundle.main.path(forResource: "button-click", ofType: "wav")
         let buttonPressedSFXURL = NSURL.fileURL(withPath: buttonPressedSFXPath!)
         
+<<<<<<< HEAD
+=======
+        print("music is on",musicIsOn)
+        print("sound is on",soundIsOn)
+        
+        let buttonPressedSFXPath = Bundle.main.path(forResource: "buttonSFX", ofType: "wav")
+        let buttonPressedSFXURL = NSURL.fileURL(withPath: buttonPressedSFXPath!)
+        
+        // For Button SFX
+        // Inserting the sound file to the sound player variable
+        // Catch an error if the playback has an issue
+>>>>>>> origin/master
         do{
             try buttonPressedSFX = AVAudioPlayer(contentsOf: buttonPressedSFXURL)
             
@@ -28,7 +71,21 @@ class PuzzleSelectionViewController: UIViewController {
             
         }
         catch{print("Player does not work for some reason")}
+<<<<<<< HEAD
 
+=======
+        
+        if(soundIsOn == true){
+            soundFXButton.setImage(UIImage(named: "pause-button-pressed"), for: .normal)
+            buttonPressedSFX?.volume = 50
+        }
+        else{
+            soundFXButton.setImage(UIImage(named: "pause-button-normal"), for: .normal)
+            buttonPressedSFX?.volume = 0
+        }
+
+        
+>>>>>>> origin/master
         // Do any additional setup after loading the view.
     }
     
@@ -40,6 +97,8 @@ class PuzzleSelectionViewController: UIViewController {
     @IBOutlet var puzzleCollection: [UIButton]!
     
     @IBAction func openGameScene(_ sender: AnyObject) {
+        buttonPressedSFX?.play()
+        
         buttonPressedSFX?.play()
         
         switch(sender.tag){
@@ -71,6 +130,7 @@ class PuzzleSelectionViewController: UIViewController {
             break
             
         case 3:
+<<<<<<< HEAD
             buttonPressedSFX?.play()
             pictureSelected = "tree"
             puzzlePiecesFormat = "tr_%02i.jpg"
@@ -84,10 +144,21 @@ class PuzzleSelectionViewController: UIViewController {
             pictureSelected = "app_image"
             
             performSegue(withIdentifier: "toGame", sender: self)
+=======
+            //pictureSelected = "tree"
+            //puzzlePiecesFormat = "tr_%02i.jpg"
+            //performSegue(withIdentifier: "toGame", sender: self)
+
+
+            break
+            
+        case 4:
+>>>>>>> origin/master
             
             break
             
         case 5:
+<<<<<<< HEAD
             buttonPressedSFX?.play()
             pictureSelected = "tree"
             
@@ -141,6 +212,33 @@ class PuzzleSelectionViewController: UIViewController {
             
             performSegue(withIdentifier: "toGame", sender: self)
             
+=======
+
+            break
+            
+        case 6:
+
+            break
+            
+        case 7:
+
+            break
+            
+        case 8:
+
+            break
+            
+        case 9:
+
+            break
+            
+        case 10:
+
+            break
+            
+        case 11:
+
+>>>>>>> origin/master
             break
             
         default:
