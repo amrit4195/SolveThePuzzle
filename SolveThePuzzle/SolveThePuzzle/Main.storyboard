@@ -135,7 +135,6 @@
                                     <constraint firstItem="fwj-9j-A0c" firstAttribute="centerX" secondItem="Q11-c5-y6Q" secondAttribute="centerX" id="z6X-pj-eJG"/>
                                 </constraints>
                             </view>
-<<<<<<< HEAD
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6dg-Zz-Csh" userLabel="About Us Popup View">
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings-menu-background" translatesAutoresizingMaskIntoConstraints="NO" id="wVb-nK-wEF">
@@ -159,7 +158,40 @@
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
-                                        <mutableString key="text">VersionVersion v.0.5People InvolvedTo bring you this fun filled game, there were people developers and designers who worked hard and because of their work, we have been able to present this game to you. Following is a list of all the people associated with this app.Developers1. Michael Hartanto2. Amritpal SinghDesigners1.2.3.Privacy PolicyThis privacy policy explains the use and storage of information to make this app better and more efficient. •	This app will never ask you of your personal details •	This app will never ask you of your banking or credit/debit card details•	However, when the game is completed, a text box will appear that allows user to enter their name which will further be displayed when user wishes to launch the app again•	This app does not store your details and use it to send app related promotional emails•	v.1.0 of this app will include further modifications and upgrades that will allow user to select the image from their phone’s gallery. This will require access to device’s storage media. Do not worry, we will let you know when this happens.SupportProblems?Anyone can encounter them. But as long as we are here, you will never run out of ways to solve them. To contact us regarding any glitches in the app or if you wish to recommend some additions/modifications to the app, please feel free to contact any one of the below mentioned developers.•	Michael Hartantoo	Email: •	Amritpal Singho	Email: amrit.pal445@gmail.com</mutableString>
+                                        <mutableString key="text">Version
+Version v.0.5
+
+People Involved
+To bring you this fun filled game, there were people developers and designers who worked hard and because of their work, we have been able to present this game to you. 
+Following is a list of all the people associated with this app.
+
+Developers
+1. Michael Hartanto
+2. Amritpal Singh
+
+Designers
+1.
+2.
+3.
+
+Privacy Policy
+This privacy policy explains the use and storage of information to make this app better and more efficient. 
+•	This app will never ask you of your personal details 
+•	This app will never ask you of your banking or credit/debit card details
+•	However, when the game is completed, a text box will appear that allows user to enter their name which will further be displayed when user wishes to launch the app again
+•	This app does not store your details and use it to send app related promotional emails
+•	v.1.0 of this app will include further modifications and upgrades that will allow user to select the image from their phone’s gallery. This will require access to device’s storage media. Do not worry, we will let you know when this happens.
+
+Support
+Problems?
+Anyone can encounter them. But as long as we are here, you will never run out of ways to solve them. 
+To contact us regarding any glitches in the app or if you wish to recommend some additions/modifications to the app, please feel free to contact any one of the below mentioned developers.
+•	Michael Hartanto
+o	Email: 
+•	Amritpal Singh
+o	Email: amrit.pal445@gmail.com
+
+</mutableString>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -191,7 +223,11 @@
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
-                                        <mutableString key="text">v.0.5 PuzzleIt helpThankyou for choosing PuzzleIt. This section will guide you on how to use the game section of the app. We hope you enjoy the experience. The main screen directs you to a selection of images that you wish to solve. Your chosen image will be shuffled in a grid of 4x4 and your main motive is to slide the blocks into their respective position to put it into solvable configuration.Once done, you will be directed to a screen where you can enter you details and your time will be displayed in a table. Good luck with the game and challenge your friends to be the best among them.</mutableString>
+                                        <mutableString key="text">v.0.5 PuzzleIt help
+Thankyou for choosing PuzzleIt. This section will guide you on how to use the game section of the app. We hope you enjoy the experience. 
+The main screen directs you to a selection of images that you wish to solve. Your chosen image will be shuffled in a grid of 4x4 and your main motive is to slide the blocks into their respective position to put it into solvable configuration.
+Once done, you will be directed to a screen where you can enter you details and your time will be displayed in a table. 
+Good luck with the game and challenge your friends to be the best among them.</mutableString>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -223,7 +259,25 @@
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
-                                        <mutableString key="text">Third Party LicencesDifferent pieces of software were used to come up with this fantastic game. All the images used have been appropriately licensed and where possible, were available on free to use commercial license.Following is a list of software associated with this app.Developing1. https://www.freesound.org/people/brnck/sounds/257357/2. https://www.freesound.org/people/Yap_Audio_Production/sounds/219004/3.  https://www.freesound.org/people/erkanozan/sounds/51743/ 4.  https://www.freesound.org/people/Greek555/sounds/382778/Designing1.2.Images1.2.</mutableString>
+                                        <mutableString key="text">Third Party Licences
+Different pieces of software were used to come up with this fantastic game. All the images used have been appropriately licensed and where possible, were available on free to use commercial license.
+Following is a list of software associated with this app.
+
+Developing
+1. https://www.freesound.org/people/brnck/sounds/257357/
+2. https://www.freesound.org/people/Yap_Audio_Production/sounds/219004/
+3.  https://www.freesound.org/people/erkanozan/sounds/51743/ 
+4.  https://www.freesound.org/people/Greek555/sounds/382778/
+
+Designing
+1.
+2.
+
+Images
+1.
+2.
+
+</mutableString>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -233,7 +287,6 @@
                                     <constraint firstAttribute="width" constant="293" id="MdX-XI-nkW"/>
                                 </constraints>
                             </view>
-=======
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uy-Zo-s3h" userLabel="AboutUs Button">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="2Iy-X5-L3g"/>
@@ -244,18 +297,14 @@
                                     <action selector="openAboutUsView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ELX-pM-Whu"/>
                                 </connections>
                             </button>
->>>>>>> origin/master
                         </subviews>
                         <constraints>
                             <constraint firstItem="0uy-Zo-s3h" firstAttribute="top" secondItem="fUk-aW-8Jb" secondAttribute="bottom" constant="-4" id="21E-fq-D1c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dLt-gQ-vKY" secondAttribute="trailing" constant="13" id="7Rh-wY-xFS"/>
                             <constraint firstAttribute="trailing" secondItem="qa1-7I-l4f" secondAttribute="trailing" id="Cd8-Dg-pmW"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6wS-Ii-Qa4" secondAttribute="bottom" id="H7L-tE-xqp"/>
-<<<<<<< HEAD
                             <constraint firstItem="6dg-Zz-Csh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-500" id="Hhy-nb-208"/>
-=======
                             <constraint firstItem="0uy-Zo-s3h" firstAttribute="centerX" secondItem="Q11-c5-y6Q" secondAttribute="centerX" id="HqD-I7-I2O"/>
->>>>>>> origin/master
                             <constraint firstAttribute="trailingMargin" secondItem="qg8-yc-s1a" secondAttribute="trailing" constant="86.5" id="Ire-VM-75T"/>
                             <constraint firstItem="dLt-gQ-vKY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Pw4-8S-2We"/>
                             <constraint firstItem="qa1-7I-l4f" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="Qdh-dN-aZL"/>
@@ -266,11 +315,8 @@
                             <constraint firstItem="qa1-7I-l4f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="e2Z-ca-dRA"/>
                             <constraint firstItem="G68-9B-Kxk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-500" id="eZc-xh-tJK"/>
                             <constraint firstItem="qa1-7I-l4f" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="idj-Yw-KD8"/>
-<<<<<<< HEAD
                             <constraint firstItem="G68-9B-Kxk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jci-1J-c6Y"/>
-=======
                             <constraint firstItem="CPA-hw-xDj" firstAttribute="top" secondItem="0uy-Zo-s3h" secondAttribute="bottom" constant="2" id="iwR-vg-P9O"/>
->>>>>>> origin/master
                             <constraint firstItem="qg8-yc-s1a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="86.5" id="lH1-EN-xMq"/>
                             <constraint firstAttribute="trailing" secondItem="6wS-Ii-Qa4" secondAttribute="trailing" id="loy-eo-seT"/>
                             <constraint firstItem="Q11-c5-y6Q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nDF-B7-Zsw"/>

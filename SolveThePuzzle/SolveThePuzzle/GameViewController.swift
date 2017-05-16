@@ -935,7 +935,7 @@ class GameViewController: UIViewController {
     // - Show the pause popup view by changing the center X constraint of the popup view to 0
     // - Set the pause
     @IBAction func showPausePopup(_ sender: AnyObject) {
-<<<<<<< HEAD
+
         buttonPressedSFX?.play()
         centerXPausePopupConstraint.constant = 0
         pausePopupView.layer.zPosition = 10
@@ -952,7 +952,7 @@ class GameViewController: UIViewController {
             self.backgroundButton.alpha = 0.5
             self.pausePopupView.alpha = 1
         })
-=======
+
         
         if (timeIsOn == true){
             
@@ -976,7 +976,7 @@ class GameViewController: UIViewController {
             stopTimer()
             timeIsOn = false
         }
->>>>>>> origin/master
+
         
         
     }
@@ -1006,12 +1006,9 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func restartingGame(_ sender: AnyObject) {
-<<<<<<< HEAD
         buttonPressedSFX?.play()
         stopTimer()
-=======
->>>>>>> origin/master
-        
+
         if(timeIsOn == true){
             stopTimer()
             yBottomContainer.constant = 0

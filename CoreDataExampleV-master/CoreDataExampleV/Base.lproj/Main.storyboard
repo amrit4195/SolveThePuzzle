@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="aVD-e7-iWY">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Store ListTVC-->
+        <scene sceneID="nDr-Xy-78y">
+            <objects>
+                <tableViewController id="Uuo-dH-O3L" customClass="StoreListTVC" customModule="CoreDataExampleV" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" id="TxM-jo-bkS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="cell" textLabel="LPL-n7-KxE" detailTextLabel="L84-kJ-1Hn" rowHeight="82" style="IBUITableViewCellStyleSubtitle" id="wew-Zn-l2I">
+                                <rect key="frame" x="0.0" y="86" width="320" height="82"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wew-Zn-l2I" id="TUu-eQ-M5L">
+                                    <rect key="frame" x="0.0" y="0.0" width="281" height="81.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LPL-n7-KxE">
+                                            <rect key="frame" x="15" y="25" width="31.5" height="19.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L84-kJ-1Hn">
+                                            <rect key="frame" x="15" y="44.5" width="40.5" height="13.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Ja0-ep-HXc" kind="push" identifier="editStore" id="VCU-Ja-mVJ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Uuo-dH-O3L" id="qu8-ji-DVf"/>
+                            <outlet property="delegate" destination="Uuo-dH-O3L" id="xeD-h9-9GI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Wgp-Zy-2gr">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="OI0-lc-M4i">
+                            <connections>
+                                <action selector="searchRecords:" destination="Uuo-dH-O3L" id="hBI-u0-Sm0"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Z5G-xb-MDq">
+                            <connections>
+                                <segue destination="Ja0-ep-HXc" kind="push" identifier="addStore" id="vAG-8e-uN1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T8I-KD-Mej" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="328" y="86"/>
+        </scene>
+        <!--Add Stores-->
+        <scene sceneID="0ru-Gl-4q7">
+            <objects>
+                <viewController id="Ja0-ep-HXc" customClass="ViewController" customModule="CoreDataExampleV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ifl-PP-Zet" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Store Name" minimumFontSize="17" id="EgR-Z5-7qT">
+                                <rect key="frame" x="19" y="80" width="290" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Store Description" minimumFontSize="17" id="vmJ-Qq-MDL">
+                                <rect key="frame" x="19" y="126" width="290" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="lat" minimumFontSize="17" id="ehJ-kP-aIi">
+                                <rect key="frame" x="19" y="172" width="290" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="lng" minimumFontSize="17" id="XiL-DZ-A6n">
+                                <rect key="frame" x="19" y="219" width="290" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BmT-ou-M8J">
+                                <rect key="frame" x="253" y="277" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveData:" destination="Ja0-ep-HXc" eventType="touchUpInside" id="XJe-IX-ofG"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="gWY-Np-obe">
+                                <rect key="frame" x="73" y="257" width="160" height="126"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="hideKB:" destination="Ja0-ep-HXc" eventType="touchUpInside" id="kdG-IX-7Lo"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Stores" id="2Ff-80-K4I"/>
+                    <connections>
+                        <outlet property="img_Store" destination="gWY-Np-obe" id="JDk-VC-dBg"/>
+                        <outlet property="txtDesc" destination="vmJ-Qq-MDL" id="eeS-wC-Od9"/>
+                        <outlet property="txtLat" destination="ehJ-kP-aIi" id="Iwy-TH-fQC"/>
+                        <outlet property="txtLng" destination="XiL-DZ-A6n" id="mmK-dh-49J"/>
+                        <outlet property="txtName" destination="EgR-Z5-7qT" id="YWR-q2-cwR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aFR-R3-tgr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="746" y="86"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JlE-ah-i2T">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aVD-e7-iWY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1aE-iY-sbR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Uuo-dH-O3L" kind="relationship" relationship="rootViewController" id="B3Y-0f-xIv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0iy-Vc-scd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-83" y="86"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="VCU-Ja-mVJ"/>
+    </inferredMetricsTieBreakers>
+</document>
