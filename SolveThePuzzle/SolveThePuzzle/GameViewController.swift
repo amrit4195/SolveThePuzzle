@@ -7,8 +7,17 @@
 //
 
 import UIKit
+import CoreData
+import AVFoundation
 
 class GameViewController: UIViewController {
+    
+    var buttonPressedSFX: AVAudioPlayer?
+    var puzzleSlideSFX: AVAudioPlayer?
+    var applauseSFX: AVAudioPlayer?
+    
+    var store:Store?
+    let moContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
 
     var pictureName = ""
     var puzzlePiecesFormat = ""
@@ -84,8 +93,6 @@ class GameViewController: UIViewController {
     @IBOutlet weak var yBottomContainer: NSLayoutConstraint!
     
     
-
-    
     // As the view load
     // - Set Default image to the image view that will be put inside the pause popup view
     // - Hide Pause popupview, restart and pause game button
@@ -94,6 +101,43 @@ class GameViewController: UIViewController {
     // - Create the template for the puzzle
     // - Create different swipe gesture
     override func viewDidLoad() {
+        
+        let buttonPressedSFXPath = Bundle.main.path(forResource: "button-click", ofType: "wav")
+        let buttonPressedSFXURL = NSURL.fileURL(withPath: buttonPressedSFXPath!)
+        
+        let puzzleSlideSFXPath = Bundle.main.path(forResource: "puzzle-slide", ofType: "mp3")
+        let puzzleSlideSFXURL = NSURL.fileURL(withPath: puzzleSlideSFXPath!)
+        
+        let applauseSFXPath = Bundle.main.path(forResource: "applause", ofType: "wav")
+        let applauseSFXURL = NSURL.fileURL(withPath: applauseSFXPath!)
+        
+        do{
+            try buttonPressedSFX = AVAudioPlayer(contentsOf: buttonPressedSFXURL)
+            
+            buttonPressedSFX?.prepareToPlay()
+            buttonPressedSFX?.volume = 50
+            
+        }
+        catch{print("Player does not work for some reason")}
+        
+        do{
+            try puzzleSlideSFX = AVAudioPlayer(contentsOf:puzzleSlideSFXURL)
+            
+            puzzleSlideSFX?.prepareToPlay()
+            puzzleSlideSFX?.volume = 50
+            
+        }
+        catch{print("Player does not work for some reason")}
+        
+        do{
+            try applauseSFX = AVAudioPlayer(contentsOf: applauseSFXURL)
+            
+            applauseSFX?.prepareToPlay()
+            applauseSFX?.volume = 50
+            
+        }
+        catch{print("Applause SFX does not work for some reason")}
+
         
         print("dasdasda", pictureName)
         print("feirfjerfre", savedBestUser, savedBestTime, savedHighscore)
@@ -413,6 +457,7 @@ class GameViewController: UIViewController {
             
             if(allImgViews[i].tag == (i) && allImgViews[i].center == CGPoint(x:xCen,y:yCen)){
                 positionCondition[i] = "true"
+                applauseSFX?.play()
                 print("position true","all imgviews[]",i,"(",xCen,yCen,")",positionCondition[i])
                 
             }else{
@@ -776,6 +821,57 @@ class GameViewController: UIViewController {
         alertController.addAction(yesAction)
         
         self.present(alertController, animated: true, completion: nil)
+        
+        ///// coreData store
+        
+        if store == nil
+        {
+            let storeDescription = NSEntityDescription.entity(forEntityName: "Store", in: moContext!)
+            
+            
+            // Then, We Create the Managed Object to be  inserted into the cored data
+            store = Store(entity: storeDescription!, insertInto: moContext)
+        }
+        
+        // set the attributes
+        store?.sName = savedHighScoreLabel.text!
+        store?.sTime = timerLabel.text!
+        // save the managed object into the storage
+        
+        let img = UIImage(named: pictureName)
+        let imgData = UIImageJPEGRepresentation(img!, 1)
+        store?.sImage = imgData!
+        
+        
+        // Finally we issue the command to save the data
+        var error: NSError?
+        
+        
+        do {
+            // Save The object
+            
+            try moContext?.save()
+        } catch let error1 as NSError {
+            error = error1
+        }
+        
+        
+        //Check if there is any erros
+        
+        if let err = error {
+            
+            let a = UIAlertView(title: "Error", message: err.localizedFailureReason, delegate: nil, cancelButtonTitle: "OK")
+            a.show()
+            
+        } else {
+            
+            let a = UIAlertView(title: "Success", message: "Your Record is saved", delegate: nil, cancelButtonTitle: "OK")
+            a.show()
+            
+        }
+        //print("Data Fetched-------------------",store?.sName)
+        ////////////////////////////////////////
+        
     }
     
     // Create an alert when the user pass the highscore
@@ -800,7 +896,7 @@ class GameViewController: UIViewController {
             UserDefaults.standard.set(self.highScore, forKey: self.savedHighscore)
             // buat trigger highscore
             UserDefaults.standard.set(self.timerLabel.text, forKey: self.savedBestTime)
-            
+
             self.updateHighScoreRecord()
             
             }))
@@ -831,7 +927,7 @@ class GameViewController: UIViewController {
     
     // Function to start the game
     @IBAction func startGame(_ sender: AnyObject) {
-        
+        buttonPressedSFX?.play()
         createPuzzle()
         randomizeBlocks()
         resetTimer()
@@ -849,7 +945,7 @@ class GameViewController: UIViewController {
     // - Show the pause popup view by changing the center X constraint of the popup view to 0
     // - Set the pause
     @IBAction func showPausePopup(_ sender: AnyObject) {
-        
+        buttonPressedSFX?.play()
         centerXPausePopupConstraint.constant = 0
         pausePopupView.layer.zPosition = 10
         backgroundButton.layer.zPosition = 10
@@ -874,6 +970,7 @@ class GameViewController: UIViewController {
     
     // Action to dismiss the pause popup view
     @IBAction func closePausePopup(_ sender: AnyObject) {
+        buttonPressedSFX?.play()
         centerXPausePopupConstraint.constant =  -500
         pausePopupView.layer.zPosition = 0
         closePausePopupViewButton.layer.zPosition = 0
@@ -896,6 +993,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func restartingGame(_ sender: AnyObject) {
+        buttonPressedSFX?.play()
         stopTimer()
         
         yBottomContainer.constant = 0
