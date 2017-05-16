@@ -7,15 +7,68 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PuzzleSelectionViewController: UIViewController {
     
     var pictureSelected = "default"
     var puzzlePiecesFormat = "default"
+    var musicIsOn = true
+    var soundIsOn = true
     
+    var buttonPressedSFX: AVAudioPlayer?
+    
+    
+    
+    @IBOutlet weak var soundFXButton: UIButton!
+    @IBAction func muteUnmuteSound(_ sender: AnyObject) {
+        
+        buttonPressedSFX?.play()
+
+        if(soundIsOn == true){
+            soundFXButton.setImage(UIImage(named: "pause-button-normal"), for: .normal)
+            buttonPressedSFX?.volume = 0
+            soundIsOn = false
+        }
+        else{
+            soundFXButton.setImage(UIImage(named: "pause-button-pressed"), for: .normal)
+            buttonPressedSFX?.volume = 50
+            soundIsOn = true
+        }
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("music is on",musicIsOn)
+        print("sound is on",soundIsOn)
+        
+        let buttonPressedSFXPath = Bundle.main.path(forResource: "buttonSFX", ofType: "wav")
+        let buttonPressedSFXURL = NSURL.fileURL(withPath: buttonPressedSFXPath!)
+        
+        // For Button SFX
+        // Inserting the sound file to the sound player variable
+        // Catch an error if the playback has an issue
+        do{
+            try buttonPressedSFX = AVAudioPlayer(contentsOf: buttonPressedSFXURL)
+            
+            buttonPressedSFX?.prepareToPlay()
+            buttonPressedSFX?.volume = 50
+            
+        }
+        catch{print("Player does not work for some reason")}
+        
+        if(soundIsOn == true){
+            soundFXButton.setImage(UIImage(named: "pause-button-pressed"), for: .normal)
+            buttonPressedSFX?.volume = 50
+        }
+        else{
+            soundFXButton.setImage(UIImage(named: "pause-button-normal"), for: .normal)
+            buttonPressedSFX?.volume = 0
+        }
+
         
         // Do any additional setup after loading the view.
     }
@@ -28,6 +81,8 @@ class PuzzleSelectionViewController: UIViewController {
     @IBOutlet var puzzleCollection: [UIButton]!
     
     @IBAction func openGameScene(_ sender: AnyObject) {
+        
+        buttonPressedSFX?.play()
         
         switch(sender.tag){
         case 0:
@@ -55,67 +110,43 @@ class PuzzleSelectionViewController: UIViewController {
             break
             
         case 3:
-            pictureSelected = "tree"
-            puzzlePiecesFormat = "tr_%02i.jpg"
-            
-            performSegue(withIdentifier: "toGame", sender: self)
-            
+            //pictureSelected = "tree"
+            //puzzlePiecesFormat = "tr_%02i.jpg"
+            //performSegue(withIdentifier: "toGame", sender: self)
+
+
             break
             
         case 4:
-            pictureSelected = "app_image"
-            
-            performSegue(withIdentifier: "toGame", sender: self)
             
             break
             
         case 5:
-            pictureSelected = "tree"
-            
-            performSegue(withIdentifier: "toGame", sender: self)
-            
+
             break
             
         case 6:
-            pictureSelected = "app_image"
-            
-            performSegue(withIdentifier: "toGame", sender: self)
-            
+
             break
             
         case 7:
-            pictureSelected = "tree"
-            
-            performSegue(withIdentifier: "toGame", sender: self)
-            
+
             break
             
         case 8:
-            pictureSelected = "app_image"
-            
-            performSegue(withIdentifier: "toGame", sender: self)
-            
+
             break
             
         case 9:
-            pictureSelected = "tree"
-            
-            performSegue(withIdentifier: "toGame", sender: self)
-            
+
             break
             
         case 10:
-            pictureSelected = "app_image"
-            
-            performSegue(withIdentifier: "toGame", sender: self)
-            
+
             break
             
         case 11:
-            pictureSelected = "tree"
-            
-            performSegue(withIdentifier: "toGame", sender: self)
-            
+
             break
             
         default:

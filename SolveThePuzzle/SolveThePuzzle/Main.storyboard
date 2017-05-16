@@ -38,7 +38,7 @@
                                 <state key="normal" image="play-button-normal"/>
                                 <state key="highlighted" image="play-button-pressed"/>
                                 <connections>
-                                    <segue destination="mxv-xD-B2u" kind="custom" customClass="ScaleSegue" customModule="SolveThePuzzle" id="Mka-DQ-aMW"/>
+                                    <segue destination="mxv-xD-B2u" kind="custom" identifier="toPuzzleSelection" customClass="ScaleSegue" customModule="SolveThePuzzle" id="Mka-DQ-aMW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wS-Ii-Qa4" userLabel="Setting Button">
@@ -400,15 +400,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbH-8S-HqB">
-                                <frame key="frameInset" minX="276" minY="61" width="66" height="66"/>
+                                <frame key="frameInset" minX="293" minY="61" width="66" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pause-button-normal"/>
                                 <state key="highlighted" image="pause-button-pressed"/>
+                                <connections>
+                                    <action selector="muteUnmuteSound:" destination="mxv-xD-B2u" eventType="touchUpInside" id="wek-ZM-Odq"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOm-PU-0hK">
-                                <frame key="frameInset" minX="196" minY="61" width="66" height="66"/>
+                                <frame key="frameInset" minX="219" minY="61" width="66" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pause-button-normal"/>
+                                <state key="selected" image="pause-button-pressed"/>
                                 <state key="highlighted" image="pause-button-pressed"/>
                             </button>
                         </subviews>
@@ -432,6 +436,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="soundFXButton" destination="XbH-8S-HqB" id="eUV-b3-R2c"/>
                         <outletCollection property="puzzleCollection" destination="0Zg-1y-fwM" collectionClass="NSMutableArray" id="FHT-Tx-GAA"/>
                         <outletCollection property="puzzleCollection" destination="GqJ-um-ZrE" collectionClass="NSMutableArray" id="PS2-D1-ATX"/>
                     </connections>
