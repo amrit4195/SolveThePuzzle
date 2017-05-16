@@ -31,13 +31,14 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg8-yc-s1a">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="170" id="jOP-ZT-ZJM"/>
-                                    <constraint firstAttribute="height" constant="170" id="srx-wb-Lan"/>
+                                    <constraint firstAttribute="width" constant="200" id="Cbk-0y-w6e"/>
+                                    <constraint firstAttribute="height" constant="200" id="eXe-Hx-tlo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                 <state key="normal" image="play-button-normal"/>
                                 <state key="highlighted" image="play-button-pressed"/>
                                 <connections>
+                                    <action selector="playButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TEo-Tj-u7C"/>
                                     <segue destination="mxv-xD-B2u" kind="custom" identifier="toPuzzleSelection" customClass="ScaleSegue" customModule="SolveThePuzzle" id="Mka-DQ-aMW"/>
                                 </connections>
                             </button>
@@ -53,25 +54,18 @@
                                     <action selector="showSettingPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Ju-sL-uRh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa1-7I-l4f">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="backgroundButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aVH-eF-20K"/>
-                                    <action selector="closeSettingPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PF8-7Y-DfS"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q11-c5-y6Q">
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings-menu-background" translatesAutoresizingMaskIntoConstraints="NO" id="F9i-5N-5N6"/>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPA-hw-xDj" userLabel="License Button">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoh-Mj-MXk">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="65" id="09Y-Ik-37y"/>
-                                            <constraint firstAttribute="width" constant="195" id="bk8-9R-2mR"/>
+                                            <constraint firstAttribute="width" constant="50" id="iSC-hy-3me"/>
+                                            <constraint firstAttribute="height" constant="50" id="nQD-Np-zTq"/>
                                         </constraints>
-                                        <state key="normal" image="license-button-normal"/>
+                                        <state key="normal" image="close-button-normal"/>
+                                        <state key="highlighted" image="close-button-pressed"/>
                                         <connections>
-                                            <action selector="openLicenseView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="92r-0e-OxV"/>
+                                            <action selector="closeSettingPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yQQ-0b-oBP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwj-9j-A0c">
@@ -94,6 +88,16 @@
                                             <action selector="playStopMusic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cuJ-kt-S5f"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPA-hw-xDj" userLabel="License Button">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="09Y-Ik-37y"/>
+                                            <constraint firstAttribute="width" constant="195" id="bk8-9R-2mR"/>
+                                        </constraints>
+                                        <state key="normal" image="license-button-normal"/>
+                                        <connections>
+                                            <action selector="openLicenseView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="92r-0e-OxV"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tH-kN-9Sn">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="lwf-UT-yqY"/>
@@ -105,27 +109,29 @@
                                             <action selector="openHelpView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RGk-6o-m8y"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoh-Mj-MXk">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uy-Zo-s3h" userLabel="AboutUs Button">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="iSC-hy-3me"/>
-                                            <constraint firstAttribute="height" constant="50" id="nQD-Np-zTq"/>
+                                            <constraint firstAttribute="height" constant="65" id="2Iy-X5-L3g"/>
+                                            <constraint firstAttribute="width" constant="195" id="mDu-6t-qsH"/>
                                         </constraints>
-                                        <state key="normal" image="close-button-normal"/>
-                                        <state key="highlighted" image="close-button-pressed"/>
+                                        <state key="normal" image="about-us-button-normal"/>
                                         <connections>
-                                            <action selector="closeSettingPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yQQ-0b-oBP"/>
+                                            <action selector="openAboutUsView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ELX-pM-Whu"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="yoh-Mj-MXk" secondAttribute="trailing" constant="15" id="8xV-K1-VWk"/>
                                     <constraint firstAttribute="bottom" secondItem="F9i-5N-5N6" secondAttribute="bottom" id="A5F-r0-ZGz"/>
+                                    <constraint firstItem="0uy-Zo-s3h" firstAttribute="centerX" secondItem="Q11-c5-y6Q" secondAttribute="centerX" id="ABX-Uv-oZe"/>
                                     <constraint firstItem="CPA-hw-xDj" firstAttribute="centerX" secondItem="Q11-c5-y6Q" secondAttribute="centerX" id="BHq-cQ-VC4"/>
-                                    <constraint firstItem="yoh-Mj-MXk" firstAttribute="top" secondItem="Q11-c5-y6Q" secondAttribute="top" constant="37" id="Bp2-yM-5q3"/>
+                                    <constraint firstItem="yoh-Mj-MXk" firstAttribute="top" secondItem="Q11-c5-y6Q" secondAttribute="top" constant="35" id="Bp2-yM-5q3"/>
+                                    <constraint firstItem="CPA-hw-xDj" firstAttribute="top" secondItem="0uy-Zo-s3h" secondAttribute="bottom" constant="5" id="MeE-cy-UeG"/>
                                     <constraint firstItem="fUk-aW-8Jb" firstAttribute="top" secondItem="fwj-9j-A0c" secondAttribute="bottom" constant="-1" id="PBD-7I-YI4"/>
+                                    <constraint firstItem="0uy-Zo-s3h" firstAttribute="top" secondItem="fUk-aW-8Jb" secondAttribute="bottom" constant="5" id="QPV-EI-KaN"/>
                                     <constraint firstItem="F9i-5N-5N6" firstAttribute="leading" secondItem="Q11-c5-y6Q" secondAttribute="leading" id="YH0-dF-MMb"/>
                                     <constraint firstItem="F9i-5N-5N6" firstAttribute="top" secondItem="Q11-c5-y6Q" secondAttribute="top" id="doX-st-4Zb"/>
-                                    <constraint firstItem="9tH-kN-9Sn" firstAttribute="top" secondItem="CPA-hw-xDj" secondAttribute="bottom" constant="10" id="gCv-GB-np4"/>
+                                    <constraint firstItem="9tH-kN-9Sn" firstAttribute="top" secondItem="CPA-hw-xDj" secondAttribute="bottom" constant="5" id="gCv-GB-np4"/>
                                     <constraint firstItem="fUk-aW-8Jb" firstAttribute="centerX" secondItem="Q11-c5-y6Q" secondAttribute="centerX" id="h2J-H4-Hn1"/>
                                     <constraint firstAttribute="height" constant="529" id="hsT-FY-9Db"/>
                                     <constraint firstItem="fwj-9j-A0c" firstAttribute="top" secondItem="yoh-Mj-MXk" secondAttribute="bottom" constant="20" id="ioh-1u-JMn"/>
@@ -141,24 +147,14 @@
                                         <frame key="frameInset" width="293" height="529"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ka-4c-Rcf" userLabel="Close About Us Button">
-                                        <frame key="frameInset" minX="219" minY="32" width="66" height="66"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="close-button-normal"/>
-                                        <state key="highlighted" image="close-button-pressed"/>
-                                        <connections>
-                                            <action selector="closeAboutUsPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ciB-yR-UzQ"/>
-                                            <action selector="closeSettingPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GLp-NC-Dob"/>
-                                        </connections>
-                                    </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvE-MJ-uck">
-                                        <frame key="frameInset" minX="15" minY="100" width="280" height="380"/>
+                                        <frame key="frameInset" minX="15" minY="35" width="263" height="460"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
-                                        <mutableString key="text">Version
+                                        <string key="text">Version
 Version v.0.5
 
 People Involved
@@ -191,50 +187,27 @@ o	Email:
 •	Amritpal Singh
 o	Email: amrit.pal445@gmail.com
 
-</mutableString>
+</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="293" id="NXQ-qi-xpS"/>
-                                    <constraint firstAttribute="height" constant="529" id="Qg7-gw-bzi"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWv-hT-ucU" userLabel="Help Popup View">
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings-menu-background" translatesAutoresizingMaskIntoConstraints="NO" id="BQF-Gj-Sp1">
-                                        <frame key="frameInset" width="293" height="529"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evD-Zf-yQK" userLabel="Close Help Button">
-                                        <frame key="frameInset" minX="219" minY="32" width="66" height="66"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ka-4c-Rcf" userLabel="Close About Us Button">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Ag4-81-B8s"/>
+                                            <constraint firstAttribute="height" constant="50" id="hU3-Bw-WiG"/>
+                                        </constraints>
                                         <state key="normal" image="close-button-normal"/>
                                         <state key="highlighted" image="close-button-pressed"/>
                                         <connections>
-                                            <action selector="closeHelpPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UeC-JC-9he"/>
+                                            <action selector="closeAboutUsPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ciB-yR-UzQ"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qw9-I3-Q20">
-                                        <frame key="frameInset" minX="15" minY="100" width="280" height="380"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <accessibility key="accessibilityConfiguration">
-                                            <accessibilityTraits key="traits" notEnabled="YES"/>
-                                        </accessibility>
-                                        <mutableString key="text">v.0.5 PuzzleIt help
-Thankyou for choosing PuzzleIt. This section will guide you on how to use the game section of the app. We hope you enjoy the experience. 
-The main screen directs you to a selection of images that you wish to solve. Your chosen image will be shuffled in a grid of 4x4 and your main motive is to slide the blocks into their respective position to put it into solvable configuration.
-Once done, you will be directed to a screen where you can enter you details and your time will be displayed in a table. 
-Good luck with the game and challenge your friends to be the best among them.</mutableString>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="293" id="R6y-u6-lzn"/>
-                                    <constraint firstAttribute="height" constant="529" id="aah-Cb-abU"/>
+                                    <constraint firstItem="4ka-4c-Rcf" firstAttribute="top" secondItem="6dg-Zz-Csh" secondAttribute="top" constant="35" id="DWK-tM-TRk"/>
+                                    <constraint firstAttribute="width" constant="293" id="NXQ-qi-xpS"/>
+                                    <constraint firstAttribute="height" constant="529" id="Qg7-gw-bzi"/>
+                                    <constraint firstAttribute="trailing" secondItem="4ka-4c-Rcf" secondAttribute="trailing" constant="15" id="UwZ-Td-3Gh"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G68-9B-Kxk" userLabel="License Popup View">
@@ -243,23 +216,14 @@ Good luck with the game and challenge your friends to be the best among them.</m
                                         <frame key="frameInset" width="293" height="529"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gxh-hR-Ut9" userLabel="Close License Button">
-                                        <frame key="frameInset" minX="219" minY="32" width="66" height="66"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="close-button-normal"/>
-                                        <state key="highlighted" image="close-button-pressed"/>
-                                        <connections>
-                                            <action selector="closeLicensePopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pHc-0o-Chm"/>
-                                        </connections>
-                                    </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0o-aC-AyM">
-                                        <frame key="frameInset" minX="15" minY="100" width="280" height="380"/>
+                                        <frame key="frameInset" minX="15" minY="35" width="270" height="461"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
-                                        <mutableString key="text">Third Party Licences
+                                        <string key="text">Third Party Licences
 Different pieces of software were used to come up with this fantastic game. All the images used have been appropriately licensed and where possible, were available on free to use commercial license.
 Following is a list of software associated with this app.
 
@@ -277,35 +241,82 @@ Images
 1.
 2.
 
-</mutableString>
+</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gxh-hR-Ut9" userLabel="Close License Button">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Cly-9U-ET4"/>
+                                            <constraint firstAttribute="width" constant="50" id="kSr-Kg-vcI"/>
+                                        </constraints>
+                                        <state key="normal" image="close-button-normal"/>
+                                        <state key="highlighted" image="close-button-pressed"/>
+                                        <connections>
+                                            <action selector="closeLicensePopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pHc-0o-Chm"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="529" id="Aav-4O-ezG"/>
                                     <constraint firstAttribute="width" constant="293" id="MdX-XI-nkW"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gxh-hR-Ut9" secondAttribute="trailing" constant="15" id="YGb-ar-Jhu"/>
+                                    <constraint firstItem="Gxh-hR-Ut9" firstAttribute="top" secondItem="G68-9B-Kxk" secondAttribute="top" constant="35" id="aZT-Of-OLw"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uy-Zo-s3h" userLabel="AboutUs Button">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWv-hT-ucU" userLabel="Help Popup View">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings-menu-background" translatesAutoresizingMaskIntoConstraints="NO" id="BQF-Gj-Sp1">
+                                        <frame key="frameInset" width="293" height="529"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qw9-I3-Q20">
+                                        <frame key="frameInset" minX="15" minY="113" width="280" height="384"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
+                                        <mutableString key="text">v.0.5 PuzzleIt help
+Thankyou for choosing PuzzleIt. This section will guide you on how to use the game section of the app. We hope you enjoy the experience. 
+The main screen directs you to a selection of images that you wish to solve. Your chosen image will be shuffled in a grid of 4x4 and your main motive is to slide the blocks into their respective position to put it into solvable configuration.
+Once done, you will be directed to a screen where you can enter you details and your time will be displayed in a table. 
+Good luck with the game and challenge your friends to be the best among them.</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evD-Zf-yQK" userLabel="Close Help Button">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="eEP-T0-dAc"/>
+                                            <constraint firstAttribute="height" constant="50" id="kuH-zD-2QV"/>
+                                        </constraints>
+                                        <state key="normal" image="close-button-normal"/>
+                                        <state key="highlighted" image="close-button-pressed"/>
+                                        <connections>
+                                            <action selector="closeHelpPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UeC-JC-9he"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="2Iy-X5-L3g"/>
-                                    <constraint firstAttribute="width" constant="195" id="mDu-6t-qsH"/>
+                                    <constraint firstItem="evD-Zf-yQK" firstAttribute="top" secondItem="QWv-hT-ucU" secondAttribute="top" constant="35" id="HiU-EV-ycF"/>
+                                    <constraint firstAttribute="width" constant="293" id="R6y-u6-lzn"/>
+                                    <constraint firstAttribute="height" constant="529" id="aah-Cb-abU"/>
+                                    <constraint firstAttribute="trailing" secondItem="evD-Zf-yQK" secondAttribute="trailing" constant="15" id="xFj-Bg-hiP"/>
                                 </constraints>
-                                <state key="normal" image="about-us-button-normal"/>
+                            </view>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa1-7I-l4f">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="openAboutUsView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ELX-pM-Whu"/>
+                                    <action selector="closeSettingPopup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PF8-7Y-DfS"/>
                                 </connections>
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="0uy-Zo-s3h" firstAttribute="top" secondItem="fUk-aW-8Jb" secondAttribute="bottom" constant="-4" id="21E-fq-D1c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dLt-gQ-vKY" secondAttribute="trailing" constant="13" id="7Rh-wY-xFS"/>
                             <constraint firstAttribute="trailing" secondItem="qa1-7I-l4f" secondAttribute="trailing" id="Cd8-Dg-pmW"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6wS-Ii-Qa4" secondAttribute="bottom" id="H7L-tE-xqp"/>
                             <constraint firstItem="6dg-Zz-Csh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-500" id="Hhy-nb-208"/>
-                            <constraint firstItem="0uy-Zo-s3h" firstAttribute="centerX" secondItem="Q11-c5-y6Q" secondAttribute="centerX" id="HqD-I7-I2O"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qg8-yc-s1a" secondAttribute="trailing" constant="86.5" id="Ire-VM-75T"/>
                             <constraint firstItem="dLt-gQ-vKY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Pw4-8S-2We"/>
                             <constraint firstItem="qa1-7I-l4f" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="Qdh-dN-aZL"/>
                             <constraint firstItem="dLt-gQ-vKY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="49" id="S4p-Le-28M"/>
@@ -315,16 +326,14 @@ Images
                             <constraint firstItem="qa1-7I-l4f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="e2Z-ca-dRA"/>
                             <constraint firstItem="G68-9B-Kxk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-500" id="eZc-xh-tJK"/>
                             <constraint firstItem="qa1-7I-l4f" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="idj-Yw-KD8"/>
+                            <constraint firstItem="qg8-yc-s1a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j6J-qF-KG9"/>
                             <constraint firstItem="G68-9B-Kxk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jci-1J-c6Y"/>
-                            <constraint firstItem="CPA-hw-xDj" firstAttribute="top" secondItem="0uy-Zo-s3h" secondAttribute="bottom" constant="2" id="iwR-vg-P9O"/>
-                            <constraint firstItem="qg8-yc-s1a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="86.5" id="lH1-EN-xMq"/>
                             <constraint firstAttribute="trailing" secondItem="6wS-Ii-Qa4" secondAttribute="trailing" id="loy-eo-seT"/>
                             <constraint firstItem="Q11-c5-y6Q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nDF-B7-Zsw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qa1-7I-l4f" secondAttribute="bottom" id="oKL-OP-dX3"/>
                             <constraint firstItem="QWv-hT-ucU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pyd-x9-KTF"/>
                             <constraint firstItem="Q11-c5-y6Q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-500" id="scx-X2-DJ9"/>
                             <constraint firstItem="qa1-7I-l4f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uQO-1Q-b3o"/>
-                            <constraint firstItem="qg8-yc-s1a" firstAttribute="top" secondItem="dLt-gQ-vKY" secondAttribute="bottom" constant="-71" id="wMT-1D-9F7"/>
                         </constraints>
                     </view>
                     <connections>
@@ -349,7 +358,7 @@ Images
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="320.80000000000001" y="103.89805097451276"/>
+            <point key="canvasLocation" x="320.5" y="103.5"/>
         </scene>
         <!--Puzzle Selection View Controller-->
         <scene sceneID="1cF-qu-dvb">
@@ -566,24 +575,9 @@ Images
                                 <state key="normal" image="back-button-normal"/>
                                 <state key="highlighted" image="back-button-pressed"/>
                                 <connections>
+                                    <action selector="backButtonPressed:" destination="mxv-xD-B2u" eventType="touchUpInside" id="Eb9-5V-OuN"/>
                                     <segue destination="Lbx-Nc-Gxc" kind="unwind" unwindAction="exitToHomeSceneWithSender:" id="yIL-6f-JEh"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbH-8S-HqB">
-                                <frame key="frameInset" minX="293" minY="61" width="66" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="pause-button-normal"/>
-                                <state key="highlighted" image="pause-button-pressed"/>
-                                <connections>
-                                    <action selector="muteUnmuteSound:" destination="mxv-xD-B2u" eventType="touchUpInside" id="wek-ZM-Odq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOm-PU-0hK">
-                                <frame key="frameInset" minX="219" minY="61" width="66" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="pause-button-normal"/>
-                                <state key="selected" image="pause-button-pressed"/>
-                                <state key="highlighted" image="pause-button-pressed"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -606,7 +600,6 @@ Images
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="soundFXButton" destination="XbH-8S-HqB" id="eUV-b3-R2c"/>
                         <outletCollection property="puzzleCollection" destination="0Zg-1y-fwM" collectionClass="NSMutableArray" id="FHT-Tx-GAA"/>
                         <outletCollection property="puzzleCollection" destination="GqJ-um-ZrE" collectionClass="NSMutableArray" id="PS2-D1-ATX"/>
                     </connections>
@@ -667,6 +660,7 @@ Images
                                 <state key="normal" image="back-button-normal"/>
                                 <state key="highlighted" image="back-button-pressed"/>
                                 <connections>
+                                    <action selector="backButtonPressed:" destination="zd9-1e-9Hd" eventType="touchUpInside" id="c8I-xl-n8c"/>
                                     <segue destination="Ufw-Ep-mTr" kind="unwind" unwindAction="exitToLevelSceneWithSender:" id="YCn-yH-aQO"/>
                                 </connections>
                             </button>

@@ -6,7 +6,7 @@
 //  Copyright © 2017 Amritpal Singh. All rights reserved.
 //
 
-
+// Scale custom transition
 // https://www.youtube.com/watch?v=jn-93qElOT4 
 
 import UIKit

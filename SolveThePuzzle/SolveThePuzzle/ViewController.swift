@@ -26,8 +26,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var aboutUsButton: UIButton!
     
     // Outlets for the help popup view
-    
-    
     @IBOutlet weak var closeLicenseButton: UIButton!
     @IBOutlet weak var closeHelpButton: UIButton!
     @IBOutlet weak var closeAboutUsButton: UIButton!
@@ -49,39 +47,28 @@ class ViewController: UIViewController {
     var musicIsOn = true
     var soundIsOn = true
     
-    //    var nameReceived = ""
-    //    var bestTimeReceived = ""
-    //
-    //    var nameSaved = ""
-    //    var bestTimeSaved = ""
-    
+
     override func viewDidAppear(_ animated: Bool) {
-        // updateHighScoreLabel()
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Creating a sound file
-        let homeMusicPath1 = Bundle.main.path(forResource: "LittleIdea", ofType: "mp3")
+        let homeMusicPath1 = Bundle.main.path(forResource: "Gameplay", ofType: "mp3")
         let homeMusicURL1 = NSURL.fileURL(withPath: homeMusicPath1!)
         
-        let buttonPressedSFXPath = Bundle.main.path(forResource: "button-click", ofType: "wav")
+        let buttonPressedSFXPath = Bundle.main.path(forResource: "buttonSFX", ofType: "wav")
         let buttonPressedSFXURL = NSURL.fileURL(withPath: buttonPressedSFXPath!)
-        
-        let applauseSFXPath = Bundle.main.path(forResource: "applause", ofType: "wav")
-        let applauseSFXURL = NSURL.fileURL(withPath: applauseSFXPath!)
-        
-        let puzzleSlideSFXPath = Bundle.main.path(forResource: "puzzle-slide", ofType: "mp3")
-        let puzzleSlideSFXURL = NSURL.fileURL(withPath: puzzleSlideSFXPath!)
         
         // Inserting the sound file to the sound player variable
         // Catch an error if the playback has an issue
         do{
             try homeMusicPlayer1 = AVAudioPlayer(contentsOf: homeMusicURL1)
-            
-            homeMusicPlayer1?.play()
-            homeMusicPlayer1?.numberOfLoops = -1
+            playMusic()
+            //homeMusicPlayer1?.play()
+            //homeMusicPlayer1?.numberOfLoops = -1
         }
         catch{print("Player does not work for some reason")}
         
@@ -90,46 +77,58 @@ class ViewController: UIViewController {
         // Catch an error if the playback has an issue
         do{
             try buttonPressedSFX = AVAudioPlayer(contentsOf: buttonPressedSFXURL)
-            
             buttonPressedSFX?.prepareToPlay()
-            buttonPressedSFX?.volume = 50
-            
         }
         catch{print("Player does not work for some reason")}
-        
-        do{
-            try applauseSFX = AVAudioPlayer(contentsOf: applauseSFXURL)
-            
-            applauseSFX?.prepareToPlay()
-            applauseSFX?.volume = 50
-            
-        }
-        catch{print("Applause SFX does not work for some reason")}
-        
-        do{
-            try puzzleSlideSFX = AVAudioPlayer(contentsOf:puzzleSlideSFXURL)
-            
-            puzzleSlideSFX?.prepareToPlay()
-            puzzleSlideSFX?.volume = 50
-            
-        }
-        catch{print("Player does not work for some reason")}
-        
         
         // Set up the setting popup view design
         settingPopupView.layer.cornerRadius = 20
         settingPopupView.layer.masksToBounds = true
-        
+    
         if(soundIsOn == true){
-            //soundFXButton.setImage(UIImage(named: "pause-button-pressed"), for: .normal)
-            buttonPressedSFX?.volume = 50
+            buttonPressedSFX?.volume = 5
         }
         else{
-            //soundFXButton.setImage(UIImage(named: "pause-button-normal"), for: .normal)
             buttonPressedSFX?.volume = 0
         }
+        
+        /*
+         
+         Idea to stop music background when user close the application
+         Thomas a, stackoverflow
+         
+         */
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector (pauseSong), name:NSNotification.Name.UIApplicationWillResignActive, object: nil)
+        
+        notificationCenter.addObserver(self, selector: #selector (resumeSong), name:NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        
     }
     
+    func pauseSong(notification : NSNotification) {
+        homeMusicPlayer1?.pause()
+        //homeMusicPlayer1?.stop()
+
+    }
+    
+    func resumeSong(notification : NSNotification) {
+        homeMusicPlayer1?.play()
+        
+    }
+    
+    func stopMusic(){
+        homeMusicPlayer1?.stop()
+    }
+    
+    func playMusic(){
+        homeMusicPlayer1?.play()
+        homeMusicPlayer1?.numberOfLoops = -1
+    }
+    
+    @IBAction func playButtonPressed(_ sender: AnyObject) {
+        buttonPressedSFX?.play()
+
+    }
     @IBAction func muteUnmuteSound(_ sender: AnyObject) {
         buttonPressedSFX?.play()
         
@@ -159,7 +158,7 @@ class ViewController: UIViewController {
             buttonPressedSFX?.play()
             print("sound playing")
             soundFXButton.setImage(UIImage(named: "sound-on-music-on"), for: .normal)
-            buttonPressedSFX?.volume = 50
+            buttonPressedSFX?.volume = 5
             
             
             if(musicIsOn == true){
@@ -187,7 +186,7 @@ class ViewController: UIViewController {
             buttonPressedSFX?.play()
             //print("music stop")
             musicButton.setImage(UIImage(named: "music-off-sound-on"), for: .normal)
-            homeMusicPlayer1?.stop()
+            stopMusic()
             
             // music stop but sound is on
             if(soundIsOn == true){
@@ -209,7 +208,7 @@ class ViewController: UIViewController {
             buttonPressedSFX?.play()
             print("music playing")
             musicButton.setImage(UIImage(named: "music-on-sound-on"), for: .normal)
-            homeMusicPlayer1?.play()
+            playMusic()
             
             
             if(soundIsOn == true){
@@ -235,7 +234,7 @@ class ViewController: UIViewController {
         aboutUsCenterX.constant = 0
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
-            self.backgroundButton.alpha = 0.5
+            self.backgroundButton.alpha = 0
         })
     }
     
@@ -245,7 +244,7 @@ class ViewController: UIViewController {
         helpCenterX.constant = 0
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
-            self.backgroundButton.alpha = 0.5
+            self.backgroundButton.alpha = 0
         })
     }
     
@@ -255,7 +254,7 @@ class ViewController: UIViewController {
         licenseCenterX.constant = 0
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
-            self.backgroundButton.alpha = 0.5
+            self.backgroundButton.alpha = 0
         })
     }
     
@@ -264,7 +263,7 @@ class ViewController: UIViewController {
         licenseCenterX.constant = -500
         UIView.animate(withDuration: 0.1, animations: {
             self.view.layoutIfNeeded()
-            self.backgroundButton.alpha = 0
+            self.backgroundButton.alpha = 0.5
         })
     }
     
@@ -273,7 +272,7 @@ class ViewController: UIViewController {
         helpCenterX.constant = -500
         UIView.animate(withDuration: 0.1, animations: {
             self.view.layoutIfNeeded()
-            self.backgroundButton.alpha = 0
+            self.backgroundButton.alpha = 0.5
         })
     }
     
@@ -301,7 +300,7 @@ class ViewController: UIViewController {
         aboutUsCenterX.constant = -500
         UIView.animate(withDuration: 0.1, animations: {
             self.view.layoutIfNeeded()
-            self.backgroundButton.alpha = 0
+            self.backgroundButton.alpha = 0.5
         })
     }
     
@@ -321,73 +320,17 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func backgroundButton(_ sender: AnyObject) {
-        
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toPuzzleSelection" {
             let destVc = segue.destination as! PuzzleSelectionViewController
-            destVc.musicIsOn = musicIsOn
             destVc.soundIsOn = soundIsOn
         }
     }
     
     // Go back to Home Page Function
     @IBAction func exitToHomeScene(sender: UIStoryboardSegue){
-        
-       if let sourceViewController = sender.source as? PuzzleSelectionViewController {
-            musicIsOn = sourceViewController.musicIsOn
-            soundIsOn = sourceViewController.soundIsOn
-        
-        print("first 2scene music is on",musicIsOn)
-        print("first 2scene sound is on",soundIsOn)
 
-        }
-            
-        
-        //        if let sourceViewController = sender.source as? PuzzleGameViewController {
-        //            nameReceived = sourceViewController.retrievedName
-        //            bestTimeReceived = sourceViewController.retrievedTime
-        //            savingRecord(name: nameReceived, bestTime: bestTimeReceived)
-        //            updateHighScoreLabel()
-        //        }
-        
     }
-    
-    //    // Override the unwind function
-    //    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-    //        let segue = UnwindScaleSegue(identifier: unwindSegue.identifier, source: unwindSegue.source, destination: unwindSegue.destination)
-    //        segue.perform()
-    //    }
-    
-    //    func updateHighScoreLabel(){
-    //
-    //        nameReceived = (UserDefaults.standard.object(forKey: "savedName") as? String)!
-    //        bestTimeReceived = (UserDefaults.standard.object(forKey: "savedTime") as? String)!
-    //
-    //        if(nameReceived != nil){
-    //            timeLabel.text = nameReceived
-    //        }
-    //        else{
-    //            print("name is null")
-    //        }
-    //
-    //        if(bestTimeReceived != nil){
-    //            userTimeLabel.text = bestTimeReceived
-    //        }
-    //        else{
-    //            print("time is null")
-    //        }
-    //
-    //    }
-    
-    //    func savingRecord(name: String, bestTime: String){
-    //        
-    //        UserDefaults.standard.set(name, forKey: "savedName")
-    //        UserDefaults.standard.set(bestTime, forKey: "savedTime")
-    //        
-    //    }
     
 }

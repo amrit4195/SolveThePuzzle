@@ -73,8 +73,7 @@ class GameViewController: UIViewController {
     var savedBestTime : String! = "BestTime"
     var savedHighscore : String! = "Highscore"
     
-    var stageCompleted = false
-
+    var soundIsOn = true
     
     @IBOutlet weak var pausePuzzleImageView: UIImageView!
     @IBOutlet weak var pausePopupView: UIView!
@@ -102,7 +101,7 @@ class GameViewController: UIViewController {
     // - Create different swipe gesture
     override func viewDidLoad() {
         
-        let buttonPressedSFXPath = Bundle.main.path(forResource: "button-click", ofType: "wav")
+        let buttonPressedSFXPath = Bundle.main.path(forResource: "buttonSFX", ofType: "wav")
         let buttonPressedSFXURL = NSURL.fileURL(withPath: buttonPressedSFXPath!)
         
         let puzzleSlideSFXPath = Bundle.main.path(forResource: "puzzle-slide", ofType: "mp3")
@@ -115,8 +114,6 @@ class GameViewController: UIViewController {
             try buttonPressedSFX = AVAudioPlayer(contentsOf: buttonPressedSFXURL)
             
             buttonPressedSFX?.prepareToPlay()
-            buttonPressedSFX?.volume = 50
-            
         }
         catch{print("Player does not work for some reason")}
         
@@ -124,7 +121,6 @@ class GameViewController: UIViewController {
             try puzzleSlideSFX = AVAudioPlayer(contentsOf:puzzleSlideSFXURL)
             
             puzzleSlideSFX?.prepareToPlay()
-            puzzleSlideSFX?.volume = 50
             
         }
         catch{print("Player does not work for some reason")}
@@ -133,11 +129,22 @@ class GameViewController: UIViewController {
             try applauseSFX = AVAudioPlayer(contentsOf: applauseSFXURL)
             
             applauseSFX?.prepareToPlay()
-            applauseSFX?.volume = 50
+            
             
         }
         catch{print("Applause SFX does not work for some reason")}
 
+        if(soundIsOn == true){
+            buttonPressedSFX?.volume = 5
+            applauseSFX?.volume = 5
+            puzzleSlideSFX?.volume = 5
+
+        }
+        else{
+            buttonPressedSFX?.volume = 0
+            applauseSFX?.volume = 0
+            puzzleSlideSFX?.volume = 0
+        }
         
         print("dasdasda", pictureName)
         print("feirfjerfre", savedBestUser, savedBestTime, savedHighscore)
@@ -460,7 +467,6 @@ class GameViewController: UIViewController {
             
             if(allImgViews[i].tag == (i) && allImgViews[i].center == CGPoint(x:xCen,y:yCen)){
                 positionCondition[i] = "true"
-                applauseSFX?.play()
                 print("position true","all imgviews[]",i,"(",xCen,yCen,")",positionCondition[i])
                 
             }else{
@@ -585,7 +591,7 @@ class GameViewController: UIViewController {
     
     // Function to respond to different swipe gesture
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        
+        puzzleSlideSFX?.play()
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             
             switch swipeGesture.direction {
@@ -710,15 +716,13 @@ class GameViewController: UIViewController {
         // -- Check game condition
         // -- If user able to get the gameCompleted state to be true (from inside the checkingWinCondition())
         gameCompleted = checkingWinCondition()
-        gameCompleted = true
-
+        
         // If user able to get it true
         // - Stop timer
         // - Count user score
         // - Show the game button
         // - Set back the time and gameCompleted state to be false
         if(gameCompleted == true){
-            stageCompleted = true
             stopTimer()
             userScore = (minutes * 60) + seconds
             print("userscore",userScore)
@@ -735,6 +739,7 @@ class GameViewController: UIViewController {
             // - Show HighScore Alert and pass their score
             // Else Show Game End alert
             if(userScore < highScore){
+                applauseSFX?.play()
                 showingHighScoreAlert(newHighScore: userScore)
                 
             }
@@ -935,27 +940,10 @@ class GameViewController: UIViewController {
     // - Show the pause popup view by changing the center X constraint of the popup view to 0
     // - Set the pause
     @IBAction func showPausePopup(_ sender: AnyObject) {
-
-        buttonPressedSFX?.play()
-        centerXPausePopupConstraint.constant = 0
-        pausePopupView.layer.zPosition = 10
-        backgroundButton.layer.zPosition = 10
-        
-        
-        // Slide In Animation
-        // - Layout the subview immediately
-        // - Set background button alpha to 0.5
-        //   (this button is also used to close the view and set 0.5 alpha to
-        //   let all the things behind it to have a whitish color)
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.layoutIfNeeded()
-            self.backgroundButton.alpha = 0.5
-            self.pausePopupView.alpha = 1
-        })
-
         
         if (timeIsOn == true){
             
+            buttonPressedSFX?.play()
             centerXPausePopupConstraint.constant = 0
             pausePopupView.layer.zPosition = 10
             backgroundButton.layer.zPosition = 10
@@ -974,7 +962,6 @@ class GameViewController: UIViewController {
             
             freezePuzzle()
             stopTimer()
-            timeIsOn = false
         }
 
         
@@ -983,6 +970,7 @@ class GameViewController: UIViewController {
     
     // Action to dismiss the pause popup view
     @IBAction func closePausePopup(_ sender: AnyObject) {
+        
         buttonPressedSFX?.play()
         centerXPausePopupConstraint.constant =  -500
         pausePopupView.layer.zPosition = 0
@@ -1001,24 +989,25 @@ class GameViewController: UIViewController {
         
         unFreezePuzzle()
         resumeTimer()
-        timeIsOn = true
-        
     }
     
-    @IBAction func restartingGame(_ sender: AnyObject) {
+    @IBAction func backButtonPressed(_ sender: AnyObject) {
         buttonPressedSFX?.play()
-        stopTimer()
-
+    }
+    @IBAction func restartingGame(_ sender: AnyObject) {
+        
         if(timeIsOn == true){
+            buttonPressedSFX?.play()
             stopTimer()
+            resetTimer()
+            destroyPuzzle()
+            gameCompleted = false
             yBottomContainer.constant = 0
+            
             UIView.animate(withDuration: 0.2, animations: {
                 self.view.layoutIfNeeded()
             })
-            gameCompleted = false
-            timeIsOn = false
-            resetTimer()
-            destroyPuzzle()
+            
         }
         
     }
