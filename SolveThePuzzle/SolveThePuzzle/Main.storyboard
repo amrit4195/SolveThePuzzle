@@ -230,7 +230,7 @@ o	Email: amrit.pal445@gmail.com
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
-                                        <mutableString key="text">Third Party Licences
+                                        <string key="text">Third Party Licences
 Different pieces of software were used to come up with this fantastic game. All the images used have been appropriately licensed and where possible, were available on free to use commercial license.
 Following is a list of software associated with this app.
 
@@ -244,7 +244,7 @@ Interface Design
 1. Nikolas Axel Omas
 2. Rivaldi Valerian
 3. Monalisa Halim
-</mutableString>
+</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
