@@ -12,13 +12,10 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     
+    // Audio Variable
     var buttonPressedSFX: AVAudioPlayer?
     var puzzleSlideSFX: AVAudioPlayer?
     var applauseSFX: AVAudioPlayer?
-
-    var pictureName = ""
-    var puzzlePiecesFormat = ""
-    var puzzlePicture:UIImage!
 
     // Initialise Variables for Timer Features
     var seconds: Int = 0
@@ -62,14 +59,20 @@ class GameViewController: UIViewController {
     // Puzzle Image Variable
     var puzzleImg: UIImageView!
     
+    // Picture Variable
+    var pictureName = ""
+    var puzzlePiecesFormat = ""
+    var puzzlePicture:UIImage!
+    
+    // Saved Variable
+    var savedBestUser : String! = "BestUser"
+    var savedBestTime : String! = "BestTime"
+    var savedHighscore : String! = "Highscore"
     var retrievedName : String!
     var retrievedHighScore : Int!
     var retrievedTime : String!
     
-    var savedBestUser : String! = "BestUser"
-    var savedBestTime : String! = "BestTime"
-    var savedHighscore : String! = "Highscore"
-    
+    // Sound State Variable
     var soundIsOn = true
     
     @IBOutlet weak var pausePuzzleImageView: UIImageView!
@@ -85,7 +88,6 @@ class GameViewController: UIViewController {
     @IBOutlet weak var closePausePopupViewButton: UIButton!
     @IBOutlet weak var restartGameButton: UIButton!
     @IBOutlet weak var bottomGameContainer: UIView!
-    
     @IBOutlet weak var yBottomContainer: NSLayoutConstraint!
     
     
@@ -98,6 +100,10 @@ class GameViewController: UIViewController {
     // - Create different swipe gesture
     override func viewDidLoad() {
         
+        print("Picture Selected by User", pictureName)
+        print("Saved Records", savedBestUser, savedBestTime, savedHighscore)
+        
+        // Creating the audio file for different SFX
         let buttonPressedSFXPath = Bundle.main.path(forResource: "buttonSFX", ofType: "wav")
         let buttonPressedSFXURL = NSURL.fileURL(withPath: buttonPressedSFXPath!)
         
@@ -107,6 +113,7 @@ class GameViewController: UIViewController {
         let applauseSFXPath = Bundle.main.path(forResource: "applause", ofType: "wav")
         let applauseSFXURL = NSURL.fileURL(withPath: applauseSFXPath!)
         
+        // Do a try catch method for every player, print error message when something happen
         do{
             try buttonPressedSFX = AVAudioPlayer(contentsOf: buttonPressedSFXURL)
             
@@ -131,6 +138,9 @@ class GameViewController: UIViewController {
         }
         catch{print("Applause SFX does not work for some reason")}
 
+        // If sound state that is sent from previous view is true
+        // Then set the volume for the sfx to 5
+        // Else mute the volume of the sfx
         if(soundIsOn == true){
             buttonPressedSFX?.volume = 5
             applauseSFX?.volume = 5
@@ -142,16 +152,19 @@ class GameViewController: UIViewController {
             applauseSFX?.volume = 0
             puzzleSlideSFX?.volume = 0
         }
-        
-        print("dasdasda", pictureName)
-        print("feirfjerfre", savedBestUser, savedBestTime, savedHighscore)
 
+        // Set the puzzle picture to be the picture that is sent from the puzzle selection view controller
         puzzlePicture = UIImage(named: pictureName)
+        
+        // Set the pause puzzle image view to show the picture that is sent from the puzzle selection view controller
+        // Hide the pause puzzle image view until the user click the pause button when the game is playing
+        // Set the corner radius
         pausePuzzleImageView.image = puzzlePicture
         pausePopupView.alpha = 0
         pausePopupView.layer.cornerRadius = 20
         pausePopupView.layer.masksToBounds = true
         
+        // Reset timer and prepare the puzzle template
         resetTimer()
         createPuzzleTemplate(picture: puzzlePicture)
         
@@ -356,7 +369,7 @@ class GameViewController: UIViewController {
         puzzleImg.image = picture
         let puzzleImgCen = CGPoint(x: CGFloat(darkBoxWidth / 2), y: CGFloat(yCen + boxHeight + (boxHeight/2)))
         puzzleImg.center = puzzleImgCen
-        puzzleImg.alpha = 0.3
+        puzzleImg.alpha = 0.4
         view.addSubview(puzzleImg)
         
     }
@@ -713,7 +726,7 @@ class GameViewController: UIViewController {
         // -- Check game condition
         // -- If user able to get the gameCompleted state to be true (from inside the checkingWinCondition())
         gameCompleted = checkingWinCondition()
-        
+
         // If user able to get it true
         // - Stop timer
         // - Count user score
@@ -749,11 +762,11 @@ class GameViewController: UIViewController {
         
     }
     
-    // Updating the higscore label inside the game view
-    
-    
-    
-    
+    // Function to update the higscore label inside the game view
+    // - Retrieve 3 objects that are saved locally by using the key string
+    // - Objects will be saved to a new variable to be shown
+    // - If somehow the saved object contains nothing, then set a default value for the new variable
+    // - Else print the new object to the appropriate label
     func updateHighScoreRecord(){
         
         retrievedName = UserDefaults.standard.object(forKey: savedBestUser) as? String
@@ -762,11 +775,11 @@ class GameViewController: UIViewController {
         
         if(retrievedName != nil){
             print("best username is", retrievedName)
-            savedUsernameLabel.text = "User: " + retrievedName
+            savedUsernameLabel.text = retrievedName
         }
         else if(retrievedName == nil){
             print("name is null")
-            savedUsernameLabel.text = "User: -"
+            savedUsernameLabel.text = "-"
         }
         
         if(retrievedTime != nil){
@@ -788,17 +801,19 @@ class GameViewController: UIViewController {
             highScore = 20000
         }
         
-        //print("new record: username:",retrievedName,"highscore:",highScore,"time:",retrievedTime)
-        
     }
     
     /* ======================= Alert Function ======================== */
-    
     // Create an alert when the game end
-    // Asking the user if they want to redo the game
+    // Show an alert that ask the user whether they want to save the puzzle image
+    // Both yes and no answer will call the reset timer and destroy puzzle function
+    // For yes answer, it will pass the puzzle image and call the savePuzzleImageGallery function
     func showingGameEndAlert(){
+        
+        // Setup the alert controller
         let alertController = UIAlertController(title: "Puzzle Completed", message: "Save Picture?", preferredStyle: .alert)
         
+        // Creating the actions
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (Void) in
             self.savePuzzleImageGallery(image: self.puzzleImg.image!)
             self.resetTimer()
@@ -810,25 +825,31 @@ class GameViewController: UIViewController {
             self.destroyPuzzle()
         }
         
-        // Adding an action
+        // Adding the action
         alertController.addAction(noAction)
         alertController.addAction(yesAction)
         
+        // Present the alert controller
         self.present(alertController, animated: true, completion: nil)
         
     }
     
-    // Create an alert when the user pass the highscore
+    // Create an alert when the user succeed on making a new highscore
     // Asking the user to enter their name
     // Record their name and time
     func showingHighScoreAlert(newHighScore: Int){
         
+        // Setup the alert controller
         let alertController = UIAlertController(title: "New high score!", message: timerLabel.text, preferredStyle: .alert)
         
         // Add the text field
         alertController.addTextField { (textField) in textField.text = "Enter your name here"}
         
-        // Grab the value from the text field
+        // Grab the username from the text field
+        // Set a new highscore
+        // Call the game end alert again after they enter their name
+        // Store their name and the new higscore locally in the app
+        // Call the update highscore label to update the highscore and username
         alertController.addAction(UIAlertAction(title: "Enter", style: .default, handler: { [weak alertController] (_) in
             self.highScore = self.userScore
             let textField = alertController?.textFields![0]
@@ -838,7 +859,6 @@ class GameViewController: UIViewController {
             
             UserDefaults.standard.set(self.username, forKey: self.savedBestUser)
             UserDefaults.standard.set(self.highScore, forKey: self.savedHighscore)
-            // buat trigger highscore
             UserDefaults.standard.set(self.timerLabel.text, forKey: self.savedBestTime)
 
             self.updateHighScoreRecord()
@@ -848,7 +868,10 @@ class GameViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    /* ======================== Saving Image Function ======================*/
+    /*======================== Saving Image Function ======================
+                        Idea from Seemu Apps Youtube Channel
+                    Link: https://www.youtube.com/watch?v=0IvkfWl4uoI
+    =====================================================================*/
     // Saving the puzzle image to the user's phone gallery
     // - Create the image data and compressed it
     // - Save the compressed image
@@ -860,16 +883,21 @@ class GameViewController: UIViewController {
         UIImageWriteToSavedPhotosAlbum(compressedImage!, nil, nil, nil)
         print("Image Saved")
         
-        /*
-         
-         Idea from Seemu Apps Youtube Channel
-         Link: https://www.youtube.com/watch?v=0IvkfWl4uoI
-         
-         */
-        
     }
     
+    /* ============================ IBAction Function ========================= */
+    // Contain startGame() - triggered when user press the shuffle button
+    // Contain showPausePopup() - triggered when user press the pause button
+    // Contain closePausePopup() - triggered when user press the closs button
+    // Contain backButtonPressed() - triggered when user press the back button
+    // Contain restartGame() - triggered when user press the restart button
+    
     // Function to start the game
+    // Play the button sfx
+    // Start to create the puzzle by calling the createPuzzle()
+    // Reset timer to 00:00
+    // Start the timer
+    // Hide the shuffle container by changing the center y constraint (set an animation)
     @IBAction func startGame(_ sender: AnyObject) {
         buttonPressedSFX?.play()
         createPuzzle()
@@ -883,9 +911,10 @@ class GameViewController: UIViewController {
         
     }
     
-    // Action to show the pause popup view
-    // - Show the pause popup view by changing the center X constraint of the popup view to 0
-    // - Set the pause
+    // Function to show the pause popup view only when timer is on which means game is running
+    // - Show the pause popup view by changing the center X constraint of the popup view to 0 and z layer to 10
+    // - Freeze the puzzle, deactivate the swiping gesture
+    // - Stop the timer
     @IBAction func showPausePopup(_ sender: AnyObject) {
         
         if (timeIsOn == true){
@@ -894,7 +923,6 @@ class GameViewController: UIViewController {
             centerXPausePopupConstraint.constant = 0
             pausePopupView.layer.zPosition = 10
             backgroundButton.layer.zPosition = 10
-            
             
             // Slide In Animation
             // - Layout the subview immediately
@@ -915,7 +943,10 @@ class GameViewController: UIViewController {
         
     }
     
-    // Action to dismiss the pause popup view
+    // Function to close the pause popup view
+    // - Close the pause popup view by changing the center X constraint of the popup view to 0 and z layer to 0
+    // - unFreeze the puzzle, activate the swiping gesture
+    // - resume the timer
     @IBAction func closePausePopup(_ sender: AnyObject) {
         
         buttonPressedSFX?.play()
@@ -938,9 +969,15 @@ class GameViewController: UIViewController {
         resumeTimer()
     }
     
+    // Go back to puzzle selection view controller
     @IBAction func backButtonPressed(_ sender: AnyObject) {
         buttonPressedSFX?.play()
     }
+    
+    // Function to restart the game
+    // Restart the game only when the timer is on which means the game is running
+    // - Stop and reset timer
+    // - Show the shuffle container (which was hidden when user play the game)
     @IBAction func restartingGame(_ sender: AnyObject) {
         
         if(timeIsOn == true){

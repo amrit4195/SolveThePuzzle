@@ -63,7 +63,7 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q11-c5-y6Q">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings-menu-background" translatesAutoresizingMaskIntoConstraints="NO" id="F9i-5N-5N6"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-3" translatesAutoresizingMaskIntoConstraints="NO" id="F9i-5N-5N6"/>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoh-Mj-MXk">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="iSC-hy-3me"/>
@@ -128,11 +128,11 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="yoh-Mj-MXk" secondAttribute="trailing" constant="15" id="8xV-K1-VWk"/>
+                                    <constraint firstAttribute="trailing" secondItem="yoh-Mj-MXk" secondAttribute="trailing" constant="20" id="8xV-K1-VWk"/>
                                     <constraint firstAttribute="bottom" secondItem="F9i-5N-5N6" secondAttribute="bottom" id="A5F-r0-ZGz"/>
                                     <constraint firstItem="0uy-Zo-s3h" firstAttribute="centerX" secondItem="Q11-c5-y6Q" secondAttribute="centerX" id="ABX-Uv-oZe"/>
                                     <constraint firstItem="CPA-hw-xDj" firstAttribute="centerX" secondItem="Q11-c5-y6Q" secondAttribute="centerX" id="BHq-cQ-VC4"/>
-                                    <constraint firstItem="yoh-Mj-MXk" firstAttribute="top" secondItem="Q11-c5-y6Q" secondAttribute="top" constant="35" id="Bp2-yM-5q3"/>
+                                    <constraint firstItem="yoh-Mj-MXk" firstAttribute="top" secondItem="Q11-c5-y6Q" secondAttribute="top" constant="30" id="Bp2-yM-5q3"/>
                                     <constraint firstItem="CPA-hw-xDj" firstAttribute="top" secondItem="0uy-Zo-s3h" secondAttribute="bottom" constant="5" id="MeE-cy-UeG"/>
                                     <constraint firstItem="fUk-aW-8Jb" firstAttribute="top" secondItem="fwj-9j-A0c" secondAttribute="bottom" constant="-1" id="PBD-7I-YI4"/>
                                     <constraint firstItem="0uy-Zo-s3h" firstAttribute="top" secondItem="fUk-aW-8Jb" secondAttribute="bottom" constant="5" id="QPV-EI-KaN"/>
@@ -141,7 +141,7 @@
                                     <constraint firstItem="9tH-kN-9Sn" firstAttribute="top" secondItem="CPA-hw-xDj" secondAttribute="bottom" constant="5" id="gCv-GB-np4"/>
                                     <constraint firstItem="fUk-aW-8Jb" firstAttribute="centerX" secondItem="Q11-c5-y6Q" secondAttribute="centerX" id="h2J-H4-Hn1"/>
                                     <constraint firstAttribute="height" constant="529" id="hsT-FY-9Db"/>
-                                    <constraint firstItem="fwj-9j-A0c" firstAttribute="top" secondItem="yoh-Mj-MXk" secondAttribute="bottom" constant="20" id="ioh-1u-JMn"/>
+                                    <constraint firstItem="fwj-9j-A0c" firstAttribute="top" secondItem="yoh-Mj-MXk" secondAttribute="bottom" constant="5" id="ioh-1u-JMn"/>
                                     <constraint firstItem="9tH-kN-9Sn" firstAttribute="centerX" secondItem="Q11-c5-y6Q" secondAttribute="centerX" id="rcm-Gw-07e"/>
                                     <constraint firstAttribute="trailing" secondItem="F9i-5N-5N6" secondAttribute="trailing" id="rr8-ef-PHt"/>
                                     <constraint firstAttribute="width" constant="293" id="ydg-1o-Mvb"/>
@@ -150,13 +150,8 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6dg-Zz-Csh" userLabel="About Us Popup View">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings-menu-background" translatesAutoresizingMaskIntoConstraints="NO" id="wVb-nK-wEF">
-                                        <frame key="frameInset" width="293" height="529"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvE-MJ-uck">
-                                        <frame key="frameInset" minX="15" minY="35" width="263" height="460"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-3" translatesAutoresizingMaskIntoConstraints="NO" id="wVb-nK-wEF"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvE-MJ-uck">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -164,7 +159,6 @@
                                         <string key="text">Version
 Version v.0.5
 
-People Involved
 To bring you this fun filled game, there were people developers and designers who worked hard and because of their work, we have been able to present this game to you. 
 Following is a list of all the people associated with this app.
 
@@ -172,10 +166,10 @@ Developers
 1. Michael Hartanto
 2. Amritpal Singh
 
-Designers
-1.
-2.
-3.
+Interface Designers
+1. Nikolas Axel Omas
+2. Rivaldi Valerian
+3. Monalisa Halim
 
 Privacy Policy
 This privacy policy explains the use and storage of information to make this app better and more efficient. 
@@ -189,8 +183,9 @@ Support
 Problems?
 Anyone can encounter them. But as long as we are here, you will never run out of ways to solve them. 
 To contact us regarding any glitches in the app or if you wish to recommend some additions/modifications to the app, please feel free to contact any one of the below mentioned developers.
+
 •	Michael Hartanto
-o	Email: 
+o	Email: hartantomichael@yahoo.com
 •	Amritpal Singh
 o	Email: amrit.pal445@gmail.com
 
@@ -211,36 +206,40 @@ o	Email: amrit.pal445@gmail.com
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="4ka-4c-Rcf" firstAttribute="top" secondItem="6dg-Zz-Csh" secondAttribute="top" constant="35" id="DWK-tM-TRk"/>
-                                    <constraint firstAttribute="width" constant="293" id="NXQ-qi-xpS"/>
-                                    <constraint firstAttribute="height" constant="529" id="Qg7-gw-bzi"/>
-                                    <constraint firstAttribute="trailing" secondItem="4ka-4c-Rcf" secondAttribute="trailing" constant="15" id="UwZ-Td-3Gh"/>
+                                    <constraint firstAttribute="bottom" secondItem="UvE-MJ-uck" secondAttribute="bottom" constant="28" id="AC3-tc-1eA"/>
+                                    <constraint firstItem="4ka-4c-Rcf" firstAttribute="top" secondItem="6dg-Zz-Csh" secondAttribute="top" constant="30" id="DWK-tM-TRk"/>
+                                    <constraint firstAttribute="trailing" secondItem="wVb-nK-wEF" secondAttribute="trailing" id="GWZ-n8-GB9"/>
+                                    <constraint firstItem="wVb-nK-wEF" firstAttribute="leading" secondItem="6dg-Zz-Csh" secondAttribute="leading" id="KyR-mF-bzc"/>
+                                    <constraint firstAttribute="width" constant="315" id="NXQ-qi-xpS"/>
+                                    <constraint firstAttribute="height" constant="600" id="Qg7-gw-bzi"/>
+                                    <constraint firstAttribute="trailing" secondItem="4ka-4c-Rcf" secondAttribute="trailing" constant="20" id="UwZ-Td-3Gh"/>
+                                    <constraint firstAttribute="trailing" secondItem="UvE-MJ-uck" secondAttribute="trailing" constant="22" id="WLt-VW-4Nf"/>
+                                    <constraint firstItem="UvE-MJ-uck" firstAttribute="leading" secondItem="6dg-Zz-Csh" secondAttribute="leading" constant="23" id="eke-c3-Q2K"/>
+                                    <constraint firstItem="UvE-MJ-uck" firstAttribute="top" secondItem="6dg-Zz-Csh" secondAttribute="top" constant="73" id="iCV-4N-1Em"/>
+                                    <constraint firstItem="wVb-nK-wEF" firstAttribute="top" secondItem="6dg-Zz-Csh" secondAttribute="top" id="ypK-3R-Q2B"/>
+                                    <constraint firstAttribute="bottom" secondItem="wVb-nK-wEF" secondAttribute="bottom" id="yrG-UD-eQ2"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G68-9B-Kxk" userLabel="License Popup View">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings-menu-background" translatesAutoresizingMaskIntoConstraints="NO" id="qr8-oD-z22">
-                                        <frame key="frameInset" width="293" height="529"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0o-aC-AyM">
-                                        <frame key="frameInset" minX="15" minY="35" width="270" height="461"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-3" translatesAutoresizingMaskIntoConstraints="NO" id="qr8-oD-z22"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0o-aC-AyM">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
                                         <string key="text">Third Party Licences
+
 Different pieces of software were used to come up with this fantastic game. All the images used have been appropriately licensed and where possible, were available on free to use commercial license.
 Following is a list of software associated with this app.
 
 Developing
-1. https://www.freesound.org/people/brnck/sounds/257357/
-2. https://www.freesound.org/people/Yap_Audio_Production/sounds/219004/
-3.  https://www.freesound.org/people/erkanozan/sounds/51743/ 
-4.  https://www.freesound.org/people/Greek555/sounds/382778/
-5.buttonSFX, fins, https://www.freesound.org/people/fins/sounds/146718/
-Interface Design
+1. Gameplay.mp3, bensound, http://www.bensound.com/royalty-free-music/track/ukulele
+2. puzzle-slide.wav, Yap_Audio_Production, https://www.freesound.org/people/Yap_Audio_Production/sounds/219004/
+3. appaluse.wav, erkanozan, https://www.freesound.org/people/erkanozan/sounds/51743/ 
+4. buttonSFX.wav, fins, https://www.freesound.org/people/fins/sounds/146718/
+
+All graphic design credits to
 1. Nikolas Axel Omas
 2. Rivaldi Valerian
 3. Monalisa Halim
@@ -250,8 +249,8 @@ Interface Design
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gxh-hR-Ut9" userLabel="Close License Button">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Cly-9U-ET4"/>
-                                            <constraint firstAttribute="width" constant="50" id="kSr-Kg-vcI"/>
+                                            <constraint firstAttribute="width" constant="50" id="M6b-j0-ACg"/>
+                                            <constraint firstAttribute="height" constant="50" id="TTn-FQ-XrI"/>
                                         </constraints>
                                         <state key="normal" image="close-button-normal"/>
                                         <state key="highlighted" image="close-button-pressed"/>
@@ -260,30 +259,38 @@ Interface Design
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" red="0.001635324071" green="1" blue="0.70509577700000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="529" id="Aav-4O-ezG"/>
-                                    <constraint firstAttribute="width" constant="293" id="MdX-XI-nkW"/>
-                                    <constraint firstAttribute="trailing" secondItem="Gxh-hR-Ut9" secondAttribute="trailing" constant="15" id="YGb-ar-Jhu"/>
-                                    <constraint firstItem="Gxh-hR-Ut9" firstAttribute="top" secondItem="G68-9B-Kxk" secondAttribute="top" constant="35" id="aZT-Of-OLw"/>
+                                    <constraint firstAttribute="bottom" secondItem="qr8-oD-z22" secondAttribute="bottom" id="I04-Wn-xjT"/>
+                                    <constraint firstItem="l0o-aC-AyM" firstAttribute="leading" secondItem="G68-9B-Kxk" secondAttribute="leading" constant="23" id="MJu-nm-Yi4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gxh-hR-Ut9" secondAttribute="trailing" constant="20" id="P4a-Rk-98D"/>
+                                    <constraint firstAttribute="trailing" secondItem="l0o-aC-AyM" secondAttribute="trailing" constant="22" id="Uku-Ku-71r"/>
+                                    <constraint firstItem="Gxh-hR-Ut9" firstAttribute="top" secondItem="G68-9B-Kxk" secondAttribute="top" constant="30" id="WSx-qf-Uwe"/>
+                                    <constraint firstItem="l0o-aC-AyM" firstAttribute="top" secondItem="G68-9B-Kxk" secondAttribute="top" constant="77" id="amW-ui-fCK"/>
+                                    <constraint firstAttribute="trailing" secondItem="qr8-oD-z22" secondAttribute="trailing" id="dLa-sD-qnP"/>
+                                    <constraint firstAttribute="height" constant="600" id="tjb-Ep-y4d"/>
+                                    <constraint firstAttribute="width" constant="315" id="uZq-7B-dOx"/>
+                                    <constraint firstItem="qr8-oD-z22" firstAttribute="leading" secondItem="G68-9B-Kxk" secondAttribute="leading" id="wOJ-Nf-btj"/>
+                                    <constraint firstItem="qr8-oD-z22" firstAttribute="top" secondItem="G68-9B-Kxk" secondAttribute="top" id="wQZ-y0-DmL"/>
+                                    <constraint firstAttribute="bottom" secondItem="l0o-aC-AyM" secondAttribute="bottom" constant="28" id="z7g-ap-glF"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWv-hT-ucU" userLabel="Help Popup View">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings-menu-background" translatesAutoresizingMaskIntoConstraints="NO" id="BQF-Gj-Sp1">
-                                        <frame key="frameInset" width="293" height="529"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qw9-I3-Q20">
-                                        <frame key="frameInset" minX="15" minY="113" width="280" height="384"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-3" translatesAutoresizingMaskIntoConstraints="NO" id="BQF-Gj-Sp1"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qw9-I3-Q20">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
-                                        <string key="text">v.0.5 PuzzleIt help
-Thankyou for choosing PuzzleIt. This section will guide you on how to use the game section of the app. We hope you enjoy the experience. 
+                                        <string key="text">v.0.5 SolveThePuzzle
+
+Thankyou for choosing SolveThePuzzle. This section will guide you on how to use the game section of the app. We hope you enjoy the experience. 
+
 The main screen directs you to a selection of images that you wish to solve. Your chosen image will be shuffled in a grid of 4x4 and your main motive is to slide the blocks into their respective position to put it into solvable configuration.
+
 Once done, you will be directed to a screen where you can enter you details and your time will be displayed in a table. 
+
 Good luck with the game and challenge your friends to be the best among them.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -301,16 +308,25 @@ Good luck with the game and challenge your friends to be the best among them.</s
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="evD-Zf-yQK" firstAttribute="top" secondItem="QWv-hT-ucU" secondAttribute="top" constant="35" id="HiU-EV-ycF"/>
-                                    <constraint firstAttribute="width" constant="293" id="R6y-u6-lzn"/>
-                                    <constraint firstAttribute="height" constant="529" id="aah-Cb-abU"/>
-                                    <constraint firstAttribute="trailing" secondItem="evD-Zf-yQK" secondAttribute="trailing" constant="15" id="xFj-Bg-hiP"/>
+                                    <constraint firstItem="BQF-Gj-Sp1" firstAttribute="top" secondItem="QWv-hT-ucU" secondAttribute="top" id="8RX-1T-68M"/>
+                                    <constraint firstItem="BQF-Gj-Sp1" firstAttribute="leading" secondItem="QWv-hT-ucU" secondAttribute="leading" id="AS0-l6-pwp"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qw9-I3-Q20" secondAttribute="bottom" constant="28" id="HmU-Wy-OlP"/>
+                                    <constraint firstItem="Qw9-I3-Q20" firstAttribute="leading" secondItem="QWv-hT-ucU" secondAttribute="leading" constant="23" id="QUl-ta-jsC"/>
+                                    <constraint firstAttribute="width" constant="315" id="R6y-u6-lzn"/>
+                                    <constraint firstItem="evD-Zf-yQK" firstAttribute="top" secondItem="QWv-hT-ucU" secondAttribute="top" constant="30" id="aNN-kO-yUs"/>
+                                    <constraint firstAttribute="height" constant="600" id="aah-Cb-abU"/>
+                                    <constraint firstAttribute="trailing" secondItem="evD-Zf-yQK" secondAttribute="trailing" constant="20" id="bLv-Gt-5ve"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qw9-I3-Q20" secondAttribute="trailing" constant="22" id="bq1-yJ-47k"/>
+                                    <constraint firstItem="Qw9-I3-Q20" firstAttribute="top" secondItem="QWv-hT-ucU" secondAttribute="top" constant="73" id="eou-i3-1eN"/>
+                                    <constraint firstAttribute="bottom" secondItem="BQF-Gj-Sp1" secondAttribute="bottom" id="fkp-Hd-B4z"/>
+                                    <constraint firstAttribute="trailing" secondItem="BQF-Gj-Sp1" secondAttribute="trailing" id="zIw-7s-ayU"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="dLt-gQ-vKY" secondAttribute="trailing" constant="13" id="7Rh-wY-xFS"/>
                             <constraint firstAttribute="trailing" secondItem="qa1-7I-l4f" secondAttribute="trailing" id="Cd8-Dg-pmW"/>
+                            <constraint firstItem="QWv-hT-ucU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="G2i-K6-BLX"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6wS-Ii-Qa4" secondAttribute="bottom" id="H7L-tE-xqp"/>
                             <constraint firstItem="6dg-Zz-Csh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-500" id="Hhy-nb-208"/>
                             <constraint firstItem="dLt-gQ-vKY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Pw4-8S-2We"/>
@@ -318,18 +334,17 @@ Good luck with the game and challenge your friends to be the best among them.</s
                             <constraint firstItem="dLt-gQ-vKY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="49" id="S4p-Le-28M"/>
                             <constraint firstItem="QWv-hT-ucU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-500" id="TQ7-tj-QnM"/>
                             <constraint firstItem="qg8-yc-s1a" firstAttribute="top" secondItem="dLt-gQ-vKY" secondAttribute="bottom" constant="-71" id="TRa-Rs-uuC"/>
-                            <constraint firstItem="6dg-Zz-Csh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VYC-RU-hh3"/>
+                            <constraint firstItem="6dg-Zz-Csh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Y7m-Zz-fVk"/>
                             <constraint firstItem="qa1-7I-l4f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="e2Z-ca-dRA"/>
-                            <constraint firstItem="G68-9B-Kxk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-500" id="eZc-xh-tJK"/>
                             <constraint firstItem="qa1-7I-l4f" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="idj-Yw-KD8"/>
                             <constraint firstItem="qg8-yc-s1a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j6J-qF-KG9"/>
-                            <constraint firstItem="G68-9B-Kxk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jci-1J-c6Y"/>
+                            <constraint firstItem="G68-9B-Kxk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="l7r-Dr-2Zx"/>
                             <constraint firstAttribute="trailing" secondItem="6wS-Ii-Qa4" secondAttribute="trailing" id="loy-eo-seT"/>
                             <constraint firstItem="Q11-c5-y6Q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nDF-B7-Zsw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qa1-7I-l4f" secondAttribute="bottom" id="oKL-OP-dX3"/>
-                            <constraint firstItem="QWv-hT-ucU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pyd-x9-KTF"/>
                             <constraint firstItem="Q11-c5-y6Q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-500" id="scx-X2-DJ9"/>
                             <constraint firstItem="qa1-7I-l4f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uQO-1Q-b3o"/>
+                            <constraint firstItem="G68-9B-Kxk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-500" id="xXF-nc-865"/>
                         </constraints>
                     </view>
                     <connections>
@@ -345,7 +360,7 @@ Good luck with the game and challenge your friends to be the best among them.</s
                         <outlet property="helpButton" destination="9tH-kN-9Sn" id="gdI-YZ-aIe"/>
                         <outlet property="helpCenterX" destination="TQ7-tj-QnM" id="8Jq-fS-eLX"/>
                         <outlet property="licenseButton" destination="CPA-hw-xDj" id="gE1-Tb-dsg"/>
-                        <outlet property="licenseCenterX" destination="eZc-xh-tJK" id="rLs-tr-Hr5"/>
+                        <outlet property="licenseCenterX" destination="xXF-nc-865" id="NDs-gD-al8"/>
                         <outlet property="logoImageView" destination="dLt-gQ-vKY" id="Eqw-Rj-73t"/>
                         <outlet property="musicButton" destination="fUk-aW-8Jb" id="axe-cg-zpQ"/>
                         <outlet property="settingPopupView" destination="Q11-c5-y6Q" id="vS1-LR-yuk"/>
@@ -354,7 +369,7 @@ Good luck with the game and challenge your friends to be the best among them.</s
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="320.5" y="103.5"/>
+            <point key="canvasLocation" x="319.19999999999999" y="102.99850074962519"/>
         </scene>
         <!--Puzzle Selection View Controller-->
         <scene sceneID="1cF-qu-dvb">
@@ -565,9 +580,19 @@ Good luck with the game and challenge your friends to be the best among them.</s
                                     <constraint firstItem="udT-CM-bPa" firstAttribute="top" secondItem="TUn-I4-KCs" secondAttribute="top" constant="9" id="zbn-AX-9Uv"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7R-sD-ztn">
-                                <frame key="frameInset" minX="16" minY="61" width="66" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puzzle-stage-container" translatesAutoresizingMaskIntoConstraints="NO" id="WYD-QC-iAR">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="d7O-FS-l1K"/>
+                                    <constraint firstAttribute="height" constant="75" id="qS0-JD-jGN"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puzzle-stage-container-title" translatesAutoresizingMaskIntoConstraints="NO" id="kOg-O8-S5b">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1YJ-t6-GDN"/>
+                                    <constraint firstAttribute="width" constant="117" id="4Ha-ST-3Sl"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7R-sD-ztn">
                                 <state key="normal" image="back-button-normal"/>
                                 <state key="highlighted" image="back-button-pressed"/>
                                 <connections>
@@ -579,17 +604,24 @@ Good luck with the game and challenge your friends to be the best among them.</s
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ric-tY-r6t" firstAttribute="top" secondItem="dta-JF-mHE" secondAttribute="bottom" id="2YW-UK-IeZ"/>
+                            <constraint firstItem="WYD-QC-iAR" firstAttribute="centerX" secondItem="yz4-Af-nms" secondAttribute="centerX" id="4Cu-CG-bIF"/>
                             <constraint firstItem="Ric-tY-r6t" firstAttribute="top" secondItem="dta-JF-mHE" secondAttribute="bottom" id="4VR-lK-mIH"/>
                             <constraint firstAttribute="trailing" secondItem="TUn-I4-KCs" secondAttribute="trailing" id="5PB-73-tnp"/>
                             <constraint firstItem="dta-JF-mHE" firstAttribute="top" secondItem="gL3-Ir-qTE" secondAttribute="bottom" id="7W6-ey-vT7"/>
                             <constraint firstAttribute="trailing" secondItem="Ric-tY-r6t" secondAttribute="trailing" id="AQv-MZ-xrc"/>
                             <constraint firstItem="gL3-Ir-qTE" firstAttribute="leading" secondItem="yz4-Af-nms" secondAttribute="leading" id="AtN-3O-p7e"/>
+                            <constraint firstItem="WYD-QC-iAR" firstAttribute="leading" secondItem="u7R-sD-ztn" secondAttribute="trailing" constant="-8" id="EKZ-BA-Oco"/>
                             <constraint firstAttribute="trailing" secondItem="dta-JF-mHE" secondAttribute="trailing" id="NQN-CY-a8f"/>
                             <constraint firstAttribute="trailing" secondItem="gL3-Ir-qTE" secondAttribute="trailing" id="PRh-6m-sfS"/>
                             <constraint firstItem="dta-JF-mHE" firstAttribute="leading" secondItem="yz4-Af-nms" secondAttribute="leading" id="Qw1-U2-a09"/>
+                            <constraint firstItem="kOg-O8-S5b" firstAttribute="centerX" secondItem="WYD-QC-iAR" secondAttribute="centerX" id="RJm-Gm-ARH"/>
                             <constraint firstItem="TUn-I4-KCs" firstAttribute="top" secondItem="Ric-tY-r6t" secondAttribute="bottom" id="SLd-bO-xwY"/>
                             <constraint firstItem="7n7-HQ-ELB" firstAttribute="top" secondItem="TUn-I4-KCs" secondAttribute="bottom" constant="20" id="TUb-Na-hrg"/>
+                            <constraint firstItem="kOg-O8-S5b" firstAttribute="centerY" secondItem="WYD-QC-iAR" secondAttribute="centerY" id="btW-kH-LEi"/>
                             <constraint firstItem="TUn-I4-KCs" firstAttribute="leading" secondItem="yz4-Af-nms" secondAttribute="leading" id="c4b-Ke-Lef"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WYD-QC-iAR" secondAttribute="trailing" constant="52" id="hz1-jU-ru8"/>
+                            <constraint firstItem="gL3-Ir-qTE" firstAttribute="top" secondItem="u7R-sD-ztn" secondAttribute="bottom" constant="8" id="ijL-qb-rbP"/>
+                            <constraint firstItem="gL3-Ir-qTE" firstAttribute="top" secondItem="WYD-QC-iAR" secondAttribute="bottom" constant="5" id="pLr-Zb-Abv"/>
                             <constraint firstItem="dta-JF-mHE" firstAttribute="top" secondItem="gL3-Ir-qTE" secondAttribute="bottom" id="sBG-sw-89d"/>
                             <constraint firstItem="Ric-tY-r6t" firstAttribute="leading" secondItem="yz4-Af-nms" secondAttribute="leading" id="sF7-27-qAX"/>
                             <constraint firstItem="TUn-I4-KCs" firstAttribute="top" secondItem="Ric-tY-r6t" secondAttribute="bottom" id="vRq-vj-FSf"/>
@@ -603,7 +635,7 @@ Good luck with the game and challenge your friends to be the best among them.</s
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGZ-AR-DZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Lbx-Nc-Gxc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1489" y="103"/>
+            <point key="canvasLocation" x="1049" y="103"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="gec-Pb-ztg">
@@ -618,21 +650,16 @@ Good luck with the game and challenge your friends to be the best among them.</s
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="extra-background" translatesAutoresizingMaskIntoConstraints="NO" id="ysJ-s6-ji2"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="puzzle-stage-container" translatesAutoresizingMaskIntoConstraints="NO" id="GXp-0x-jkZ">
+                                <frame key="frameInset" minX="16" minY="35" width="100" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="high-score-container" translatesAutoresizingMaskIntoConstraints="NO" id="YxR-cb-Bbd">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="AOT-SB-QLb"/>
                                     <constraint firstAttribute="height" constant="60" id="HxH-dr-kbG"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KrA-6S-cM0">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="82" id="bfB-6u-aqP"/>
-                                    <constraint firstAttribute="height" constant="21" id="dfp-ED-Arm"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="time-container" translatesAutoresizingMaskIntoConstraints="NO" id="7K9-Fw-2bH">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="6mK-h1-DqT"/>
@@ -648,18 +675,6 @@ Good luck with the game and challenge your friends to be the best among them.</s
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJC-NH-6gd">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="oHq-FH-rjP"/>
-                                    <constraint firstAttribute="width" constant="60" id="pJD-v0-6dd"/>
-                                </constraints>
-                                <state key="normal" image="back-button-normal"/>
-                                <state key="highlighted" image="back-button-pressed"/>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="zd9-1e-9Hd" eventType="touchUpInside" id="c8I-xl-n8c"/>
-                                    <segue destination="Ufw-Ep-mTr" kind="unwind" unwindAction="exitToLevelSceneWithSender:" id="YCn-yH-aQO"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pa4-8w-fxN">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -739,9 +754,30 @@ Good luck with the game and challenge your friends to be the best among them.</s
                                     <action selector="restartingGame:" destination="zd9-1e-9Hd" eventType="touchUpInside" id="aBj-S6-Fq0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="By: Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcN-MH-l1K">
-                                <frame key="frameInset" minX="134" minY="20" width="108" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJC-NH-6gd">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="oHq-FH-rjP"/>
+                                    <constraint firstAttribute="width" constant="60" id="pJD-v0-6dd"/>
+                                </constraints>
+                                <state key="normal" image="back-button-normal"/>
+                                <state key="highlighted" image="back-button-pressed"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="zd9-1e-9Hd" eventType="touchUpInside" id="c8I-xl-n8c"/>
+                                    <segue destination="Ufw-Ep-mTr" kind="unwind" unwindAction="exitToLevelSceneWithSender:" id="YCn-yH-aQO"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcN-MH-l1K">
+                                <frame key="frameInset" minX="11" minY="59" width="113" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KrA-6S-cM0">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="bfB-6u-aqP"/>
+                                    <constraint firstAttribute="height" constant="21" id="dfp-ED-Arm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -752,6 +788,7 @@ Good luck with the game and challenge your friends to be the best among them.</s
                             <constraint firstItem="ENx-HN-8x8" firstAttribute="top" secondItem="ysJ-s6-ji2" secondAttribute="bottom" id="7QP-4Z-Mnx"/>
                             <constraint firstItem="pa4-8w-fxN" firstAttribute="leading" secondItem="yOk-fc-TQB" secondAttribute="leading" id="7xK-FS-uGM"/>
                             <constraint firstItem="xry-Yy-ujU" firstAttribute="leading" secondItem="yOk-fc-TQB" secondAttribute="leading" id="BNp-XR-V7T"/>
+                            <constraint firstItem="7K9-Fw-2bH" firstAttribute="top" secondItem="5iB-a6-5yF" secondAttribute="bottom" constant="-38" id="BTy-7x-vxO"/>
                             <constraint firstItem="ENx-HN-8x8" firstAttribute="top" secondItem="xry-Yy-ujU" secondAttribute="bottom" constant="-1" id="Bop-Qw-poZ"/>
                             <constraint firstItem="YxR-cb-Bbd" firstAttribute="centerX" secondItem="yOk-fc-TQB" secondAttribute="centerX" id="DP1-Ir-2rg"/>
                             <constraint firstItem="iop-yW-xYm" firstAttribute="centerX" secondItem="yOk-fc-TQB" secondAttribute="centerX" constant="-500" id="EBu-oI-HwE"/>
@@ -760,21 +797,20 @@ Good luck with the game and challenge your friends to be the best among them.</s
                             <constraint firstItem="Cwx-gP-Kkz" firstAttribute="top" secondItem="Df5-68-62e" secondAttribute="bottom" constant="-7" id="Jru-fu-y76"/>
                             <constraint firstItem="7K9-Fw-2bH" firstAttribute="top" secondItem="YxR-cb-Bbd" secondAttribute="bottom" constant="-9" id="KvO-2j-YUT"/>
                             <constraint firstItem="ysJ-s6-ji2" firstAttribute="leading" secondItem="yOk-fc-TQB" secondAttribute="leading" id="LRz-9y-TRx"/>
-                            <constraint firstItem="5iB-a6-5yF" firstAttribute="centerX" secondItem="7K9-Fw-2bH" secondAttribute="centerX" id="TuU-gl-WiN"/>
-                            <constraint firstItem="KrA-6S-cM0" firstAttribute="centerX" secondItem="YxR-cb-Bbd" secondAttribute="centerX" id="VCz-H2-20L"/>
                             <constraint firstAttribute="trailing" secondItem="ysJ-s6-ji2" secondAttribute="trailing" id="VGY-2u-gsY"/>
+                            <constraint firstItem="5iB-a6-5yF" firstAttribute="leading" secondItem="7K9-Fw-2bH" secondAttribute="trailing" constant="-157.5" id="W7A-2j-ksf"/>
                             <constraint firstItem="YxR-cb-Bbd" firstAttribute="top" secondItem="fnT-Ec-tvv" secondAttribute="bottom" constant="20" id="WUG-8g-hA3"/>
                             <constraint firstItem="ENx-HN-8x8" firstAttribute="top" secondItem="pa4-8w-fxN" secondAttribute="bottom" id="Xa9-Zn-1PC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Df5-68-62e" secondAttribute="trailing" constant="15" id="YCH-Oy-gjI"/>
-                            <constraint firstItem="5iB-a6-5yF" firstAttribute="centerY" secondItem="7K9-Fw-2bH" secondAttribute="centerY" id="dO5-Yx-dul"/>
                             <constraint firstAttribute="trailing" secondItem="pa4-8w-fxN" secondAttribute="trailing" id="flu-mU-kvp"/>
                             <constraint firstAttribute="trailing" secondItem="xry-Yy-ujU" secondAttribute="trailing" id="gMY-jZ-E2b"/>
                             <constraint firstItem="pa4-8w-fxN" firstAttribute="top" secondItem="yOk-fc-TQB" secondAttribute="top" id="h0m-d0-OnY"/>
                             <constraint firstItem="OJC-NH-6gd" firstAttribute="top" secondItem="fnT-Ec-tvv" secondAttribute="bottom" constant="73" id="jRR-fc-SCe"/>
+                            <constraint firstItem="KrA-6S-cM0" firstAttribute="top" secondItem="YxR-cb-Bbd" secondAttribute="bottom" constant="-40" id="jdQ-8e-IEv"/>
                             <constraint firstItem="iop-yW-xYm" firstAttribute="centerY" secondItem="yOk-fc-TQB" secondAttribute="centerY" id="nlM-5d-Oy4"/>
+                            <constraint firstItem="KrA-6S-cM0" firstAttribute="leading" secondItem="YxR-cb-Bbd" secondAttribute="trailing" constant="-122.5" id="p1e-vF-Eq3"/>
                             <constraint firstItem="OJC-NH-6gd" firstAttribute="leading" secondItem="yOk-fc-TQB" secondAttribute="leadingMargin" constant="15" id="pBn-Ah-cgV"/>
                             <constraint firstItem="Cwx-gP-Kkz" firstAttribute="leading" secondItem="7K9-Fw-2bH" secondAttribute="trailing" constant="-2" id="vok-In-fLG"/>
-                            <constraint firstItem="KrA-6S-cM0" firstAttribute="centerY" secondItem="YxR-cb-Bbd" secondAttribute="centerY" id="xiq-Da-yd0"/>
                             <constraint firstItem="7K9-Fw-2bH" firstAttribute="centerX" secondItem="yOk-fc-TQB" secondAttribute="centerX" id="ybu-mc-fiS"/>
                         </constraints>
                     </view>
@@ -799,13 +835,14 @@ Good luck with the game and challenge your friends to be the best among them.</s
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yG6-cf-0Es" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Ufw-Ep-mTr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1869.5999999999999" y="1279.6101949025488"/>
+            <point key="canvasLocation" x="1049" y="814"/>
         </scene>
     </scenes>
     <resources>
         <image name="about-us-button-normal" width="499" height="174"/>
         <image name="back-button-normal" width="66" height="66"/>
         <image name="back-button-pressed" width="66" height="66"/>
+        <image name="background-3" width="1041" height="1857"/>
         <image name="close-button-normal" width="66" height="66"/>
         <image name="close-button-pressed" width="66" height="66"/>
         <image name="extra-background" width="1041" height="1857"/>
@@ -823,12 +860,13 @@ Good luck with the game and challenge your friends to be the best among them.</s
         <image name="puzzle-stage-1" width="300" height="300"/>
         <image name="puzzle-stage-2" width="300" height="300"/>
         <image name="puzzle-stage-3" width="300" height="300"/>
+        <image name="puzzle-stage-container" width="250" height="150"/>
+        <image name="puzzle-stage-container-title" width="200" height="50"/>
         <image name="puzzle-stage-lock" width="300" height="300"/>
         <image name="restart-button-normal" width="66" height="66"/>
         <image name="restart-button-pressed" width="66" height="66"/>
         <image name="settings-button-normal" width="166" height="166"/>
         <image name="settings-button-pressed" width="300" height="300"/>
-        <image name="settings-menu-background" width="250" height="400"/>
         <image name="shuffle-button-normal" width="200" height="60"/>
         <image name="shuffle-button-pressed" width="200" height="60"/>
         <image name="shuffle-container" width="300" height="150"/>
